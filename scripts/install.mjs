@@ -16,7 +16,10 @@ import {
 
 const SKILLS_CLI_SPEC = "skills@1.5.20";
 const SKILL_NAME = "lecture-deck";
-const SKILL_SOURCE = "NewTurn2017/lecture-deck";
+// 이 포크의 저장소. NotebookLM 파이프라인(assets/nlm2deck)이 여기에만 들어 있어서
+// 상류(NewTurn2017/lecture-deck)를 받으면 9단계가 빠진 판이 깔린다.
+// 다른 저장소에서 받으려면 --source 로 덮어쓴다.
+const SKILL_SOURCE = process.env.LECTURE_DECK_SOURCE || "shway81-droid/lecture-deck";
 const AGENTS = Object.freeze({
   both: ["codex", "claude-code"],
   codex: ["codex"],
@@ -53,6 +56,7 @@ export function parseInstallArgs(argv) {
     help: false,
     json: false,
     scope: null,
+    source: null,
     tui: null,
     yes: false,
   };
@@ -65,6 +69,9 @@ export function parseInstallArgs(argv) {
         break;
       case "--scope":
         options.scope = normalizeScope(requireValue(flag, args));
+        break;
+      case "--source":
+        options.source = requireValue(flag, args);
         break;
       case "--global":
         options.scope = "global";
@@ -103,9 +110,12 @@ export function parseInstallArgs(argv) {
 export function buildInstallPlan({
   agent,
   scope,
-  source = SKILL_SOURCE,
+  // parseInstallArgs 는 지정이 없으면 null 을 넣는다. 구조분해 기본값은 undefined
+  // 일 때만 걸리므로 null 도 함께 받아낸다.
+  source: sourceArg = null,
   cwd = process.cwd(),
 } = {}) {
+  const source = sourceArg || SKILL_SOURCE;
   if (!AGENTS[agent]) {
     throw new Error("agent 값은 both, codex, claude 중 하나여야 합니다.");
   }
@@ -317,12 +327,19 @@ function printHelp() {
   console.log(`Lecture Deck 설치기
 
 사용법:
-  npx -y github:NewTurn2017/lecture-deck
-  npx -y github:NewTurn2017/lecture-deck --agent both --scope global --yes
+  npx -y github:shway81-droid/lecture-deck
+  npx -y github:shway81-droid/lecture-deck --agent both --scope global --yes
+
+이 래퍼가 실패하면(Windows 에서 사후 검증 단계가 깨지는 사례가 있다)
+skills CLI 를 직접 호출한다. 설치 자체는 같은 명령이다:
+
+  npx -y skills@1.5.20 add shway81-droid/lecture-deck --skill lecture-deck \\
+    --global --agent claude-code --copy --yes
 
 옵션:
   --agent both|codex|claude   설치할 에이전트
   --scope global|local        모든 프로젝트 또는 현재 프로젝트
+  --source <owner/repo>       받아올 저장소 (기본 shway81-droid/lecture-deck)
   --global / --local          범위 단축 옵션
   --tui / --no-tui            대화형 화면 사용 여부
   --yes, -y                   마지막 확인 생략
