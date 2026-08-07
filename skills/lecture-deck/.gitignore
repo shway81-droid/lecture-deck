@@ -1,0 +1,26 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+coverage/
+*.log
+
+# html2pptx 가 구워두는 배경 이미지 캐시 (PPTX 안에 embed 되므로 재생성 가능)
+assets/html2pptx/cache/
+__pycache__/
+*.pyc
+
+.env
+.env.local
+.env*.local
+!.env.example
+*.pem
+*.key
+
+.claude/
+.codex/
+.agents/
+.codegraph
+.omo/
+.omx/
+.ulw-evidence/

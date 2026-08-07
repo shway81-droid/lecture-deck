@@ -2,13 +2,6 @@
 
 # Lecture Deck
 
-> **이 저장소는 스킬 본체 + 실제 강의 산출물 3건을 함께 담고 있습니다.**
-> 저장소 구조와 설치 방법, 강의 자료 목록은 [REPO.ko.md](REPO.ko.md) 를 먼저 보세요.
-> 다른 컴퓨터에 설치하려면 저장소 루트를 스킬 폴더로 클론하면 됩니다:
-> `git clone https://github.com/shway81-droid/lecture-deck.git ~/.claude/skills/lecture-deck`
-
----
-
 > A source-backed lecture production skill for Codex and Claude, from the first audience interview to offline student and instructor packages.
 
 Give it a topic. The skill confirms the audience and duration, locks a one-page brief and outline, runs a durable evidence-and-claim research workflow, builds a WithGenie-style reveal.js deck, writes speaker notes, and exports self-contained offline packages.
