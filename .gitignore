@@ -3,7 +3,7 @@ lectures/*/notebooklm-chunks/
 lectures/*/*부분합본*
 
 # html2pptx 가 구워두는 배경 이미지 캐시 (PPTX 안에 embed 되므로 재생성 가능)
-assets/html2pptx/cache/
+skills/lecture-deck/assets/html2pptx/cache/
 
 # 파이썬·노드
 __pycache__/

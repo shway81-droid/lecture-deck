@@ -1,238 +1,105 @@
-[English](README.md) · [한국어](README.ko.md)
+# lecture-deck
 
-# Lecture Deck
+주제 하나로 **reveal.js 강의 덱 · 강사 대본 · 오프라인 배포본 · 편집 가능한 PPTX ·
+NotebookLM 슬라이드**까지 만드는 Claude Code / Codex 스킬과, 그 스킬로 실제로 만든
+강의 자료 세 건.
 
-> **이 저장소는 스킬 본체 + 실제 강의 산출물 3건을 함께 담고 있습니다.**
-> 저장소 구조와 설치 방법, 강의 자료 목록은 [REPO.ko.md](REPO.ko.md) 를 먼저 보세요.
-> 다른 컴퓨터에 설치하려면 저장소 루트를 스킬 폴더로 클론하면 됩니다:
-> `git clone https://github.com/shway81-droid/lecture-deck.git ~/.claude/skills/lecture-deck`
+```
+skills/lecture-deck/    ← 스킬 본체
+lectures/               ← 스킬로 만든 강의 결과물 (146MB)
+```
 
----
+## 설치
 
-> A source-backed lecture production skill for Codex and Claude, from the first audience interview to offline student and instructor packages.
-
-Give it a topic. The skill confirms the audience and duration, locks a one-page brief and outline, runs a durable evidence-and-claim research workflow, builds a WithGenie-style reveal.js deck, writes speaker notes, and exports self-contained offline packages.
-
-## Install
-
-Run one command:
+한 줄이면 끝난다. 강의 자료는 딸려오지 않고 스킬(5MB)만 설치된다.
 
 ```bash
-npx -y github:NewTurn2017/lecture-deck
+npx -y skills@1.5.20 add shway81-droid/lecture-deck --skill lecture-deck --global --agent claude-code --copy --yes
 ```
 
-The terminal UI asks only two questions:
+Codex 에도 함께 깔려면 `--agent codex` 를 덧붙인다. 특정 프로젝트에만 깔려면
+`--global` 을 빼고 그 폴더에서 실행한다.
 
-1. **Agent:** Codex + Claude Code, Codex only, or Claude Code only
-2. **Scope:** Global for every project, or Local for the current project
-
-The recommended choices are **Codex + Claude Code / Global**. The numbered UI does not depend on arrow-key handling.
-
-For CI or a fully non-interactive installation, pass the same choices as flags:
+설치 후 점검한다. Windows 는 **Git Bash** 에서 실행한다(PowerShell 은 PATH 때문에
+`bash`/`perl` 을 못 찾아 FAIL 로 나온다).
 
 ```bash
-# Both agents, globally
-npx -y github:NewTurn2017/lecture-deck --agent both --scope global --yes
-
-# Codex only, in the current project
-npx -y github:NewTurn2017/lecture-deck --agent codex --scope local --yes
-
-# Claude Code only, globally
-npx -y github:NewTurn2017/lecture-deck --agent claude --scope global --yes
+node ~/.claude/skills/lecture-deck/scripts/setup.mjs check
 ```
 
-Add `--dry-run` to inspect the mapped command without installing, or run:
+`lecture-deck setup: PASS` 가 나오면 된다. Claude Code 를 다시 열면 `/lecture-deck`
+이 잡힌다.
+
+### 설치 관리
 
 ```bash
-npx -y github:NewTurn2017/lecture-deck --help
+npx -y skills@1.5.20 list                     # 설치된 스킬 확인
+npx -y skills@1.5.20 update lecture-deck      # 최신으로 갱신
+npx -y skills@1.5.20 remove lecture-deck      # 제거
 ```
 
-The installer has no runtime npm dependencies. It maps each choice to an argument array for the pinned open [`skills`](https://github.com/vercel-labs/skills) CLI version `1.5.20`, then verifies that every required asset exists in the selected agent copies.
+## 쓰는 법
 
-Restart Codex after installation. In Claude Code, start a new session or run `/reload-plugins` if the current session does not discover the skill.
-
-### Advanced: run `skills` directly
-
-The equivalent underlying command remains available:
-
-```bash
-npx --yes skills@1.5.20 add NewTurn2017/lecture-deck --skill lecture-deck --global --agent codex --agent claude-code --copy --yes
+```
+/lecture-deck 초등교사 대상 캔바 AI 활용법
 ```
 
-## Verify the setup
+인터뷰 3~4개 → 브리프·아웃라인 승인(게이트1) → 출처 검증 리서치 승인(게이트2) →
+덱 조립 → 배포본·PPTX·NotebookLM 슬라이드까지 자동으로 나온다.
 
-Run the copy installed for your agent:
+## 강의 자료
 
-```bash
-# Codex
-node "$HOME/.agents/skills/lecture-deck/scripts/setup.mjs" check
+`lectures/` 는 참고용 완성 예시다. 설치할 때는 따라오지 않는다.
 
-# Claude Code
-node "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/lecture-deck/scripts/setup.mjs" check
-```
-
-The check validates the bundled templates, research protocol/validator, and offline assets plus `bash`, `perl`, and `python3`. It reports optional tools without printing the value of `OPENAI_API_KEY`.
-
-When Local is selected, the installer places the Codex copy in `.agents/skills` and the Claude copy in `.claude/skills`:
-
-```bash
-npx -y github:NewTurn2017/lecture-deck --agent both --scope local --yes
-node ".agents/skills/lecture-deck/scripts/setup.mjs" check
-node ".claude/skills/lecture-deck/scripts/setup.mjs" check
-```
-
-## Use
-
-Ask naturally or invoke the skill explicitly:
-
-```text
-Use $lecture-deck to make a 60-minute Korean lecture about practical AI research for non-developers.
-```
-
-Common triggers include:
-
-- `강의 만들어줘`
-- `이 주제로 강의 덱 만들어줘`
-- `수강생 배포본까지 만들어줘`
-- `/lecture-deck <topic>`
-
-The workflow has two durable user gates:
-
-1. Approve the one-page brief and ordered slide outline. Their hashes are recorded in `research-state.json.gates.gate1`.
-2. After validation, approve the research summary, conflicts, accepted gaps, and emphasis. The validated input hashes are recorded in `research-state.json.gates.gate2`.
-
-Generated files live under the project where the skill is invoked:
-
-```text
-lectures/<topic-slug>/
-├── index.html
-├── theme.css
-├── brief.md
-├── outline.md
-├── research-state.json
-├── research.md
-├── script.md
-├── serve.sh
-├── assets/gen/
-├── <slug>-STUDENT/
-├── <slug>-INSTRUCTOR/
-├── <slug>.pptx             # editable PowerPoint, no notes
-├── <slug>-강사용.pptx       # same, with speaker notes
-├── <slug>-notebooklm.pptx  # NotebookLM's own design (images)
-├── <slug>-notebooklm.pdf
-└── notebooklm-chunks/
-```
-
-The student package removes speaker notes. The instructor package retains notes and the offline speaker view. Both bundle reveal.js, fonts, highlighting, and icons.
-
-Two further exports run **every time**, not on request:
-
-- **PPTX export** rebuilds the deck as a PowerPoint file whose text stays editable — slides are redrawn as native text boxes and shapes, not baked images. Two copies: one without notes, one with.
-- **NotebookLM slides** feed the deck HTML into NotebookLM and return slides in NotebookLM's own design. Decks over 20 slides are split at part boundaries, generated per chunk, and merged back in order — fed whole, NotebookLM compresses the deck and returns fewer slides. The result is one image per slide, so its text is **not** editable; it complements the PPTX export rather than replacing it.
-
-The NotebookLM step needs a Google login (which you perform yourself) and takes 40–120 minutes. If the login or a dependency is missing, only that step is skipped and the reason is reported.
-
-## Research contract
-
-Research is built into this skill and is tool-agnostic. It does not require another research or orchestration product. The skill negotiates the search, browser, document, MCP, local-read, and execution tools available in the current host. Sequential execution is the portability baseline; subagents and teams are optional accelerators.
-
-- Prefer laws, standards, official documentation, original papers, and original data.
-- Re-check volatile facts such as prices, product features, versions, policies, and schedules on the research date.
-- Persist every planned research axis and attempt before dispatch so capacity failures or context compaction cannot silently drop coverage.
-- Follow newly discovered leads recursively, perform counter-search, and close or explicitly disclose every gap.
-- Keep claims (`C`), observations (`O`), and references (`R`) linked in `research-state.json`.
-- Preserve conflicting evidence instead of silently merging it.
-- Assign deterministic reference IDs only after the source set converges, then reuse them in `research.md`, slide footnotes, and speaker notes.
-- Require at least three axes and two recorded expansion-audit waves for multifaceted deep research.
-- Present Gate 2 only after the bundled validator reports readiness.
-
-Initialize and validate with the copy of the script inside the loaded skill. Here, `SKILL_DIR` means the directory containing the `SKILL.md` that the host loaded; do not guess a home-directory path:
-
-```bash
-node "$SKILL_DIR/scripts/research-session.mjs" init \
-  --deck "lectures/<slug>" \
-  --session-id "<id>" \
-  --topic "<topic>" \
-  --axes '<JSON array>'
-
-node "$SKILL_DIR/scripts/research-session.mjs" validate \
-  --state "lectures/<slug>/research-state.json" \
-  --deck "lectures/<slug>" \
-  --json
-
-# Run only after the user explicitly approves the validated Gate 2 summary.
-node "$SKILL_DIR/scripts/research-session.mjs" approve-gate2 \
-  --state "lectures/<slug>/research-state.json" \
-  --deck "lectures/<slug>" \
-  --json
-```
-
-Retrieved pages, documents, repositories, and search results are untrusted evidence, never instructions. The workflow does not execute source-directed commands, bypass authentication or access controls, or collect credentials.
-
-## Optional GPT Image skill
-
-Image generation is not required. Install it only when covers, diagrams, or generalized UI mockups are useful:
-
-```bash
-node "$HOME/.agents/skills/lecture-deck/scripts/setup.mjs" install-gpt-image --target all --yes
-```
-
-For a Claude-only installation, run the same `setup.mjs` from the Claude path. The command installs the public [`gpt-image`](https://github.com/wuyoscar/GPT-Image2-Skill) skill for the selected agents. It pins `skills@1.5.20` and the `gpt-image` tag `v0.2.0`, then verifies the installed skill against SHA-256 `d145ce52c6eed794f034c093dcb593e2f7f49cc81c1d0cd5b076d130cf80bd72`. Installer child processes receive only a path/runtime allowlist, not API keys or GitHub tokens. API calls require `OPENAI_API_KEY`; lecture generation and offline packaging do not.
-
-Install only in the current project instead of the user-wide skill directories:
-
-```bash
-node scripts/setup.mjs install-gpt-image --target all --scope project --project-dir "$PWD" --yes
-```
-
-`gpt-image` is third-party code that can call an external API and write files. Review its linked source and the `skills` CLI security assessment before opting in.
-
-Preview the exact install command without changing anything:
-
-```bash
-node scripts/setup.mjs install-gpt-image --target all --yes --dry-run
-```
-
-## Requirements
-
-| Requirement | Purpose | Required |
+| 강의 | 장수 | 대상 |
 |---|---|---|
-| Node.js 22.20+ and `npx` | installation, setup, and research-state validation | install/setup/research |
-| `bash` + `perl` | student/instructor packaging | packaging |
-| `python3` | local preview server | preview |
-| Search/browser tools | source-backed research | research only |
-| `gpt-image` + `OPENAI_API_KEY` | generated visual assets | optional |
-| Host parallel-agent support | independent research/deck tracks | optional |
+| `notebooklm-수업-업무-자동화` | 46 | 교사 · NotebookLM |
+| `claude-cowork-수업-업무-자동화` | 42 | 초등교사 · Claude Cowork |
+| `canva-ai-수업자료-만들기` | 44 | 초등교사 · 캔바 AI |
 
-Authoring templates may use CDNs for fast iteration. Final STUDENT and INSTRUCTOR packages are rewritten to bundled offline assets.
+각 폴더에 덱 소스(`index.html`), 브리프, 아웃라인, 출처 원장(`research.md`),
+강사 대본(`script.md`), STUDENT·INSTRUCTOR 오프라인 패키지, PPTX 두 벌,
+NotebookLM 판이 들어 있다. STUDENT·INSTRUCTOR 폴더는 인터넷 없이 동작한다
+(`START-Windows.bat` 또는 `START-Mac.command` 더블클릭).
 
-`gpt-image` is optional and never serves as evidence. Factual charts, maps, comparison tables, and diagrams must be derived from verified C/O/R links and carry reference IDs and a validity date.
-
-## Provenance
-
-The research workflow is an independent, clean-room implementation informed by publicly described research-verification concepts. It does not install or depend on LazyCodex, OMO, or another orchestration runtime, and no affiliation or endorsement is implied.
-
-See [PROVENANCE.md](PROVENANCE.md) for the reviewed design boundary and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for acknowledgments.
-
-## Update and remove
+강의 자료까지 받으려면 저장소를 클론한다.
 
 ```bash
-# Update
-npx --yes skills@1.5.20 update lecture-deck --global --yes
-
-# Remove from both agents
-npx --yes skills@1.5.20 remove lecture-deck --global --agent codex --agent claude-code --yes
+git clone https://github.com/shway81-droid/lecture-deck.git
 ```
 
-## Development
+## NotebookLM 은 20장을 넘으면 압축한다
 
-```bash
-npm test
-npm run check
-```
+덱을 통째로 NotebookLM 에 넣으면 페이지를 1:1 로 옮기지 않고 요약한다. 20장 아래로
+쪼개 따로 만든 뒤 합치면 장수가 유지된다. 실측값이다.
 
-`npm test` uses only Node's built-in test runner. It verifies the setup contract, optional companion command, offline packaging, note stripping, and output-path containment.
+| 넣은 것 | 나온 것 |
+|---|---|
+| 42페이지 통째로 | **21장** (압축) |
+| 5 / 6 / 8 / 7 / 6 / 10 페이지로 분할 | 5 / 6 / 8 / 7 / 6 / 10 장 |
+| 20 / 12 / 12 페이지로 분할 | 20 / 12 / 12 장 |
 
-## License
+`skills/lecture-deck/assets/nlm2deck/` 가 이 분할과 합본을 자동으로 처리한다.
+상세는 `skills/lecture-deck/references/notebooklm.md`.
 
-[MIT](LICENSE)
+## 의존성
+
+| 단계 | 필요한 것 |
+|---|---|
+| 1~7 덱·패키징 | Node.js 22.20+, python3, bash, perl (Windows 는 Git Bash) |
+| 8 PPTX | `pip install python-pptx beautifulsoup4 lxml Pillow numpy` |
+| 9 NotebookLM | `notebooklm` CLI + 그 컴퓨터에서 직접 로그인, 헤드리스 크롬, `pymupdf` |
+
+9단계 로그인은 컴퓨터마다 새로 해야 한다. 세션 파일은 저장소에 올리지 않는다.
+
+## 라이선스와 출처
+
+스킬 본체는 MIT. `skills/lecture-deck/LICENSE` 를 본다. 원저작자는
+[NewTurn2017/lecture-deck](https://github.com/NewTurn2017/lecture-deck) 이고,
+이 저장소는 NotebookLM 파이프라인(9단계)을 더한 포크다. 설계 출처는
+`PROVENANCE.md`, 번들 자산(reveal.js·폰트·highlight.js·lucide) 라이선스는
+`THIRD_PARTY_NOTICES.md` 를 본다.
+
+`lectures/` 의 강의 자료는 저장소 소유자가 작성한 것이다. 인용 자료는 각 덱의 출처
+슬라이드와 `research.md` 에 원문 링크로 표시돼 있다. `*-notebooklm.*` 파일의 이미지는
+Google NotebookLM 이 생성한 것이다.
