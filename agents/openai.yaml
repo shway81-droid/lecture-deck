@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lecture Deck"
+  short_description: "리서치부터 오프라인 배포용 강의 덱까지 한 번에 제작"
+  default_prompt: "Use $lecture-deck to create a source-backed Korean lecture deck for my topic."

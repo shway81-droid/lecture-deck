@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>html2pptx 커버리지 픽스처</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.1/dist/reveal.css" />
+    <!-- 사본을 두면 원본과 어긋나므로 템플릿 theme.css 를 직접 가리킨다 -->
+    <link rel="stylesheet" href="../../../template/theme.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- 1. title-slide -->
+        <section class="title-slide" data-background-gradient="linear-gradient(160deg, #0A0A0A 0%, #05140b 100%)">
+          <div class="title-block">
+            <p class="eyebrow">픽스처 · 전 레이아웃</p>
+            <h1>모든 <span class="accent">레이아웃</span>을<br />한 번에</h1>
+            <p class="subtitle">html2pptx 가 lecture-deck 카탈로그를<br />빠짐없이 옮기는지 확인합니다.</p>
+          </div>
+          <p class="footer-meta">커버리지 픽스처 · 저장용</p>
+          <aside class="notes">표지 노트입니다.</aside>
+        </section>
+
+        <!-- 2. divider-slide (theme.css) -->
+        <section class="divider-slide">
+          <p class="section-num">PART 1</p>
+          <h1>구획 <span class="accent">나눔</span></h1>
+          <p class="subtitle">divider-slide 는 섹션 사이를 끊는 장입니다.</p>
+          <p class="kpi-line">여기까지 <span class="accent">1부</span></p>
+          <aside class="notes">구획 노트.</aside>
+        </section>
+
+        <!-- 3. big-statement (card-row) -->
+        <section>
+          <h2>오늘 만들 것</h2>
+          <div class="card-row">
+            <div class="hero-card">
+              <p class="big">두 시간 뒤,<br /><strong>결과물이 남습니다</strong></p>
+            </div>
+            <ul class="bullets">
+              <li>산출물 1</li>
+              <li>산출물 2</li>
+              <li>산출물 3</li>
+            </ul>
+          </div>
+          <aside class="notes">결과부터 보여주기.</aside>
+        </section>
+
+        <!-- 4. card-grid — layouts.md 의 grid-3/v2-card (theme.css 에 없는 클래스) -->
+        <section>
+          <h2>핵심 개념 3가지</h2>
+          <div class="grid-3">
+            <div class="v2-card"><strong>첫째</strong>한 줄 설명이 여기 들어갑니다.</div>
+            <div class="v2-card"><strong>둘째</strong>두 번째 카드의 설명입니다.</div>
+            <div class="v2-card"><strong>셋째</strong>세 번째 카드의 설명입니다.</div>
+          </div>
+          <p class="muted center small">묶는 한마디입니다.</p>
+          <aside class="notes">카드별 한 문장.</aside>
+        </section>
+
+        <!-- 5. step-list — big-list (theme.css 에 없는 클래스) -->
+        <section>
+          <p class="eyebrow">STEP 1 · 10분</p>
+          <h2>한 방에 만들기</h2>
+          <ol class="big-list">
+            <li>1단계, <strong>핵심 동작</strong>을 합니다</li>
+            <li>2단계를 이어서 합니다</li>
+            <li>3단계로 마무리합니다</li>
+          </ol>
+          <p class="muted center small">보충 한 줄입니다.</p>
+          <aside class="notes">시연 큐.</aside>
+        </section>
+
+        <!-- 6. check-list (✓ 마커) -->
+        <section>
+          <h2>내보내기 전 확인</h2>
+          <ul class="check-list">
+            <li><span class="chk">✓</span> 첫 번째 확인 항목</li>
+            <li><span class="chk">✓</span> 두 번째 확인 항목</li>
+            <li><span class="chk">3</span> 숫자 마커도 섞여 있습니다</li>
+          </ul>
+          <aside class="notes">체크리스트 노트.</aside>
+        </section>
+
+        <!-- 7. ladder -->
+        <section>
+          <h2>단계별 사다리</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">첫 번째 <strong>단</strong>입니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">두 번째 단입니다</span></div>
+          </div>
+          <aside class="notes">사다리 노트.</aside>
+        </section>
+
+        <!-- 8. capability-grid -->
+        <section>
+          <h2 class="compact">능력 <span class="accent">네 가지</span></h2>
+          <div class="cap-grid">
+            <div class="cap"><span class="cap-icon">⏰</span><span class="cap-text">알림</span></div>
+            <div class="cap"><span class="cap-icon">🔔</span><span class="cap-text">푸시</span></div>
+            <div class="cap"><span class="cap-icon">📥</span><span class="cap-text">수집</span></div>
+            <div class="cap"><span class="cap-icon">💾</span><span class="cap-text">저장</span></div>
+          </div>
+          <p class="muted center small">묶는 한마디.</p>
+          <aside class="notes">카탈로그 훑기.</aside>
+        </section>
+
+        <!-- 9. code-block -->
+        <section>
+          <p class="eyebrow">붙여넣을 프롬프트</p>
+          <h2 class="small-h2">이 코드로 무엇을 하나</h2>
+          <pre><code class="language-javascript">const deck = load("index.html");
+deck.slides.forEach(s => convert(s));
+</code></pre>
+          <aside class="notes">핵심 줄만 짚기.</aside>
+        </section>
+
+        <!-- 10. comparison — dual (.dd 형태) -->
+        <section>
+          <h2>직접 vs 자동</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">직접</p>
+              <ul><li>느립니다</li><li>빠뜨립니다</li></ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">자동</p>
+              <ul><li>빠릅니다</li><li>일관됩니다</li></ul>
+            </div>
+          </div>
+          <aside class="notes">비교 노트.</aside>
+        </section>
+
+        <!-- 11. comparison — dual (layouts.md 의 평범한 div 형태) -->
+        <section>
+          <h2>라벨만 있는 2열</h2>
+          <div class="dual">
+            <div>
+              <p class="eyebrow">왼쪽 라벨</p>
+              <ul class="bullets"><li>왼쪽 포인트 1</li><li>왼쪽 포인트 2</li></ul>
+            </div>
+            <div>
+              <p class="eyebrow accent">오른쪽 라벨</p>
+              <ul class="bullets"><li>오른쪽 포인트 1</li><li>오른쪽 포인트 2</li></ul>
+            </div>
+          </div>
+          <aside class="notes">dd 없는 dual.</aside>
+        </section>
+
+        <!-- 12. trouble-table (theme.css 에 없는 클래스) -->
+        <section>
+          <h2>문제와 해결</h2>
+          <table class="trouble-table">
+            <tr><td class="prob">답이 두루뭉술하다</td><td>범위와 형식을 <em>지정해서</em> 물어본다</td></tr>
+            <tr><td class="prob">출처가 없다</td><td>인용을 눌러 원문을 확인한다</td></tr>
+          </table>
+          <aside class="notes">표 노트.</aside>
+        </section>
+
+        <!-- 13. pull-quote -->
+        <section>
+          <h2>한마디</h2>
+          <p class="pull-quote">근거 없는 문장은 쓰지 않습니다</p>
+          <aside class="notes">인용 노트.</aside>
+        </section>
+
+        <!-- 14. tl + byline -->
+        <section>
+          <h2>연표</h2>
+          <p class="byline">조사일 2026-08-04 기준</p>
+          <div class="tl">
+            <div class="row"><span class="yr">2025.04</span><span class="ev">첫 번째 <strong>사건</strong></span></div>
+            <div class="row now"><span class="yr">2026.07</span><span class="ev">최근 사건</span></div>
+          </div>
+          <aside class="notes">연표 노트.</aside>
+        </section>
+
+        <!-- 15. thesis-flow + flow-arrow -->
+        <section>
+          <h2>흐름</h2>
+          <div class="thesis-flow">
+            <div class="flow-step is-now"><span class="fs-t">지금</span><span class="fs-n">첫 단계입니다</span></div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step"><span class="fs-t">다음</span><span class="fs-n">두 번째 단계입니다</span></div>
+          </div>
+          <aside class="notes">흐름 노트.</aside>
+        </section>
+
+        <!-- 16. stat-row -->
+        <section>
+          <h2>숫자</h2>
+          <div class="stat-row">
+            <div class="stat"><span class="num">100</span><span class="lab">노트북</span></div>
+            <div class="stat"><span class="num">50</span><span class="lab">소스</span></div>
+          </div>
+          <aside class="notes">숫자 노트.</aside>
+        </section>
+
+        <!-- 17. tier-grid -->
+        <section>
+          <h2>요금제</h2>
+          <div class="tier-grid">
+            <div class="tier"><span class="tier-name">FREE</span><p class="tier-price">0원</p><ul><li>기본 기능</li><li>하루 3개</li></ul></div>
+            <div class="tier featured"><span class="tier-name">PRO</span><p class="tier-price">29,000원</p><ul><li>한도 확대</li><li>우선 처리</li></ul></div>
+            <div class="tier"><span class="tier-name">TEAM</span><p class="tier-price">문의</p><ul><li>관리 콘솔</li></ul></div>
+          </div>
+          <aside class="notes">요금제 노트.</aside>
+        </section>
+
+        <!-- 18. chip-row -->
+        <section>
+          <h2>태그</h2>
+          <div class="chip-row">
+            <span class="chip">수집</span>
+            <span class="arr">→</span>
+            <span class="chip">정리</span>
+            <span class="arr">→</span>
+            <span class="chip">배포</span>
+          </div>
+          <aside class="notes">칩 노트.</aside>
+        </section>
+
+        <!-- 19. case-card -->
+        <section>
+          <h2>사례</h2>
+          <div class="case-card">
+            <span class="case-name">첫 사례</span>
+            <span class="case-rev">한국어 가능</span>
+            <p class="case-what">무엇을 하는지 한두 문장으로 적습니다.</p>
+            <p class="case-lesson">여기서 배울 점</p>
+          </div>
+          <aside class="notes">사례 노트.</aside>
+        </section>
+
+        <!-- 20. brief-block + formula -->
+        <section>
+          <h2>지시문 공식</h2>
+          <p class="formula">역할<span class="op">+</span>과업<span class="op">+</span><b>산출 형식</b></p>
+          <div class="brief-block">
+            <code>역할: 고등학교 과학 교사
+과업: 실험 안내서 작성
+형식: 표 + 체크리스트</code>
+          </div>
+          <aside class="notes">공식 노트.</aside>
+        </section>
+
+        <!-- 21. image-slot (theme.css 에 없는 클래스) -->
+        <section>
+          <h2>이미지 한 장</h2>
+          <div class="image-slot">
+            <img src="assets/gen/diagram.png" alt="구조 다이어그램" />
+          </div>
+          <p class="muted center small">이미지 캡션입니다.</p>
+          <aside class="notes">이미지 노트.</aside>
+        </section>
+
+        <!-- 22. 배경 이미지 슬라이드 -->
+        <section data-background-image="assets/gen/cover.png" data-background-opacity="0.4">
+          <h2>배경 위 제목</h2>
+          <p class="muted small">배경 이미지 위에 얹는 본문입니다.</p>
+          <aside class="notes">배경 노트.</aside>
+        </section>
+
+        <!-- 23. hero-img -->
+        <section class="hero-img" data-background-image="assets/gen/cover.png">
+          <p class="hero-sub">전면 이미지 위에 얹는 한 줄입니다.</p>
+          <p class="footer-meta">출처 · 생성 이미지</p>
+          <aside class="notes">히어로 노트.</aside>
+        </section>
+
+        <!-- 24. concept -->
+        <section class="concept" data-background-image="assets/gen/cover.png">
+          <div class="beat">
+            <h2>개념 한 장</h2>
+            <p class="beat-sub">왼쪽에 글, 오른쪽에 이미지가 비치는 구성입니다.</p>
+          </div>
+          <aside class="notes">개념 노트.</aside>
+        </section>
+
+        <!-- 25. qr-grid -->
+        <section>
+          <h2>이어서 보기</h2>
+          <div class="qr-grid">
+            <div class="qr-card">
+              <div class="qr"><img src="assets/gen/qr1.png" alt="QR" /></div>
+              <div class="qr-body">
+                <span class="qr-eyebrow">SLIDES</span>
+                <p class="qr-name">강의 슬라이드</p>
+                <p class="qr-desc">오늘 쓴 덱을 그대로 받습니다.</p>
+                <p class="qr-url">https://example.com/deck</p>
+              </div>
+            </div>
+            <div class="qr-card">
+              <div class="qr"><img src="assets/gen/qr2.png" alt="QR" /></div>
+              <div class="qr-body">
+                <span class="qr-eyebrow">CONTACT</span>
+                <p class="qr-name">질문 보내기</p>
+                <p class="qr-desc">추가 질문을 남겨주세요.</p>
+                <p class="qr-url">https://example.com/ask</p>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">QR 노트.</aside>
+        </section>
+
+        <!-- 26. closing + resources (theme.css 에 없는 클래스) -->
+        <section class="title-slide" data-background-gradient="linear-gradient(160deg, #0A0A0A 0%, #05140b 100%)">
+          <div class="title-block">
+            <h1>수고하셨습니다</h1>
+            <p class="subtitle">여운 한 줄입니다.</p>
+          </div>
+          <ul class="resources">
+            <li>📂 자료 폴더</li>
+            <li>📖 다시 볼 슬라이드</li>
+            <li>💬 Q&amp;A</li>
+          </ul>
+          <p class="footer-meta">2026-08-04 기준</p>
+          <aside class="notes">Q&amp;A 유도.</aside>
+        </section>
+
+        <!-- 27. references -->
+        <section>
+          <p class="eyebrow">SOURCES · 1/1</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R1">
+              <span class="source-id">[R1]</span>
+              <span class="source-title">출처 제목</span><br />
+              <span class="source-meta">발행처 · 2026-08-04</span>
+              <a class="citation" data-source-id="R1" href="https://example.com/a" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a>
+            </li>
+          </ol>
+          <aside class="notes">출처 노트.</aside>
+        </section>
+
+        <!-- 28. 알 수 없는 마크업 (폴백 확인용) -->
+        <section>
+          <h2>정의되지 않은 컴포넌트</h2>
+          <div class="totally-unknown-widget">
+            <p>이 문단은 어떤 렌더러도 모르는 컨테이너 안에 있습니다.</p>
+            <ul><li>그래도 사라지면 안 됩니다</li><li>폴백으로라도 나와야 합니다</li></ul>
+          </div>
+          <p class="muted small">폴백이 동작하면 위 세 줄이 보입니다.<a class="citation" data-source-id="R1" href="https://example.com/a" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R1]</a></p>
+          <aside class="notes">폴백 노트.</aside>
+        </section>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1815 @@
+{
+  "schema_version": 1,
+  "session_id": "canva-ai-2026-08-06",
+  "lecture_slug": "canva-ai-수업자료-만들기",
+  "topic": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+  "depth": "deep",
+  "status": "gate2_approved",
+  "created_at": "2026-08-06T01:31:33.973Z",
+  "updated_at": "2026-08-06T01:49:50.131Z",
+  "gates": {
+    "gate1": {
+      "status": "approved",
+      "brief_path": "brief.md",
+      "brief_sha256": "39dad077b9cdae744e57861a8a72a89a2d2cd2356ab619326f766c7a09bfe0e2",
+      "outline_path": "outline.md",
+      "outline_sha256": "99465917100918699b21044e5418878a3796a96cf9a87705663ca746d2c531d3",
+      "outline_revision": 1,
+      "approved_at": "2026-08-06T01:31:33.973Z"
+    },
+    "gate2": {
+      "status": "approved",
+      "validated_at": "2026-08-06T01:49:50.126Z",
+      "validator_version": "1.0.0",
+      "brief_sha256": "39dad077b9cdae744e57861a8a72a89a2d2cd2356ab619326f766c7a09bfe0e2",
+      "research_sha256": "2f189fd8419a663cd581bdb17bf5c5f75a0ba81c2359c07aea119906a3935ec2",
+      "outline_sha256": "99465917100918699b21044e5418878a3796a96cf9a87705663ca746d2c531d3",
+      "research_digest": "d9b145b94592e65fe1b44087aa7edd6c69439b33b7acc94f4764f471bdb8ff0f",
+      "errors": [],
+      "accepted_gap_ids": [
+        "G1",
+        "G2",
+        "G3"
+      ],
+      "approved_at": "2026-08-06T01:49:50.131Z",
+      "approval_receipt_sha256": "9f925f3020f7886a93dac04e7e58e83c4030c5234f0f4048696206049e0f8868"
+    }
+  },
+  "capabilities": {
+    "orchestration": "sequential",
+    "max_parallel": 1,
+    "search": "live",
+    "fetch": "full",
+    "interactive_browser": true,
+    "screenshots": false,
+    "local_read": true,
+    "shell_readonly": false,
+    "network": "allowed",
+    "workspace_write": "allowed",
+    "limitations": [
+      "canva.com 은 WebFetch 를 403 으로 막아 브라우저 도구로 본문을 읽었다.",
+      "한국저작권위원회 안내서와 서울시교육청 지침은 첨부 PDF 본문을 열지 못했다.",
+      "시도교육청 지침은 서울만 확인했다. 전국 일반화 불가."
+    ]
+  },
+  "axes": [
+    {
+      "axis_id": "A1",
+      "question": "A. Canva for Education 자격·인증 절차·무료 범위",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S4",
+        "S37"
+      ],
+      "source_territories": [
+        "R6",
+        "R17"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T1"
+      ],
+      "lead_ids": [
+        "L5"
+      ],
+      "result_summary": "Canva Education 자격·인증·재인증 주기 확인. 한국 교사 교원자격증 특례 확인. 독립 리뷰로 교차 확인.",
+      "blocker": null
+    },
+    {
+      "axis_id": "A2",
+      "question": "B. 초등학생 연령 제한과 학생 계정의 AI 기능 가용성",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S29"
+      ],
+      "source_territories": [
+        "R11",
+        "R8",
+        "R14",
+        "R17"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T2"
+      ],
+      "lead_ids": [],
+      "result_summary": "13세 미만도 Canva Education + 교사 감독이면 캔바 정책상 AI 사용 가능. 호주 정부 eSafety 로 교차 확인. 학생 계정은 일부 생성형 AI·서드파티 앱 기본 차단.",
+      "blocker": null
+    },
+    {
+      "axis_id": "A3",
+      "question": "C. 캔바 AI(매직) 기능 현재 이름·동작·사용 한도",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S8",
+        "S12",
+        "S37"
+      ],
+      "source_territories": [
+        "R7",
+        "R9"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T3"
+      ],
+      "lead_ids": [],
+      "result_summary": "기능 이름이 Canva AI 체계로 재편. 교육용 월 할당량 Standard 2,000 / Premium 200 / Ultra 20 확인.",
+      "blocker": null
+    },
+    {
+      "axis_id": "A4",
+      "question": "D. 캔바 콘텐츠 라이선스와 학교 배포·인쇄 허용 범위",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S24",
+        "S27"
+      ],
+      "source_territories": [
+        "R12",
+        "R17",
+        "R3"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T4"
+      ],
+      "lead_ids": [
+        "L4"
+      ],
+      "result_summary": "학교 인쇄물·프레젠테이션 허용. 교육용 계정은 비상업 전용. 가장 제한적 등급이 전체에 적용. 독립 해설로 교차 확인.",
+      "blocker": null
+    },
+    {
+      "axis_id": "A5",
+      "question": "E. AI 생성 이미지의 권리 관계와 한국 저작권 기준",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S28"
+      ],
+      "source_territories": [
+        "R10",
+        "R3",
+        "R13",
+        "R4"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T5"
+      ],
+      "lead_ids": [
+        "L1",
+        "L3"
+      ],
+      "result_summary": "AI 산출물은 사용자 소유(라이브러리 콘텐츠 제외). 한국 저작권 등록 기준은 1차 원문 미확인으로 partial.",
+      "blocker": "G1"
+    },
+    {
+      "axis_id": "A6",
+      "question": "F. 학생 사진·개인정보 업로드 기준 (개인정보보호법·교육 현장 지침)",
+      "lecture_need": "캔바 AI를 활용한 수업자료 만들기 (초등교사 대상)",
+      "outline_refs": [
+        "S29",
+        "S30"
+      ],
+      "source_territories": [
+        "R5",
+        "R2",
+        "R15"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T6"
+      ],
+      "lead_ids": [
+        "L2"
+      ],
+      "result_summary": "학생정보 제3자 제공 금지와 처벌 조항을 법령 해설·법령DB 양쪽으로 확인. 교육부 수행평가 방안은 초등 적용 미명시.",
+      "blocker": "G2"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": "T1",
+      "axis_id": "A1",
+      "mode": "browser",
+      "status": "returned_complete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    },
+    {
+      "attempt_id": "T2",
+      "axis_id": "A2",
+      "mode": "browser",
+      "status": "returned_complete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    },
+    {
+      "attempt_id": "T3",
+      "axis_id": "A3",
+      "mode": "browser",
+      "status": "returned_complete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    },
+    {
+      "attempt_id": "T4",
+      "axis_id": "A4",
+      "mode": "browser",
+      "status": "returned_complete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    },
+    {
+      "attempt_id": "T5",
+      "axis_id": "A5",
+      "mode": "browser",
+      "status": "returned_incomplete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    },
+    {
+      "attempt_id": "T6",
+      "axis_id": "A6",
+      "mode": "browser",
+      "status": "returned_incomplete",
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "finished_at": "2026-08-06T02:40:00.000Z",
+      "host_reference": null,
+      "error": null,
+      "result_digest": "browser+search"
+    }
+  ],
+  "waves": [
+    {
+      "wave_id": "W1",
+      "kind": "initial",
+      "depth": "deep",
+      "axis_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6"
+      ],
+      "lead_ids_opened": [
+        "L1",
+        "L2",
+        "L3",
+        "L4",
+        "L5"
+      ],
+      "lead_ids_closed": [],
+      "started_at": "2026-08-06T01:32:00.000Z",
+      "completed_at": "2026-08-06T01:50:00.000Z",
+      "new_actionable_leads": 5,
+      "notes": "캔바 공식 문서 7종을 브라우저로 직접 읽었다. 기능 이름 체계가 Magic 계열에서 Canva AI 로 재편된 것을 확인."
+    },
+    {
+      "wave_id": "W2",
+      "kind": "counter_audit",
+      "depth": "deep",
+      "axis_ids": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [
+        "L4"
+      ],
+      "started_at": "2026-08-06T01:50:00.000Z",
+      "completed_at": "2026-08-06T02:20:00.000Z",
+      "new_actionable_leads": 0,
+      "notes": "라이선스 금지 조항(8·9절)을 따로 읽었다. 검증기가 고위험 주장의 단일 출처 의존을 잡아내, 캔바 밖 독립 출처(호주 eSafety, 독립 리뷰, 국내 법령DB·보도)를 축마다 추가 확보했다."
+    },
+    {
+      "wave_id": "W3",
+      "kind": "gap_audit",
+      "depth": "deep",
+      "axis_ids": [
+        "A5",
+        "A6"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [
+        "L1",
+        "L2",
+        "L3",
+        "L5"
+      ],
+      "started_at": "2026-08-06T02:20:00.000Z",
+      "completed_at": "2026-08-06T02:40:00.000Z",
+      "new_actionable_leads": 0,
+      "notes": "한국저작권위원회 1차 안내서와 교육부 2026 가이드라인을 추적했으나 각각 PDF 미확인·미발표로 공백 처리."
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "L1",
+      "parent_axis_id": "A5",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "서울 외 시도교육청의 초등 생성형 AI 지침은 어떻게 다른가",
+      "why_it_matters": "연수 대상 교사의 소속 교육청이 서울이 아닐 수 있다",
+      "status": "unresolved",
+      "resolution": "17개 시도를 모두 확인하지 못했다. 강의에서 '본인 교육청 지침 확인'으로 처리한다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G3",
+      "opened_at": "2026-08-06T01:40:00.000Z",
+      "closed_at": "2026-08-06T02:40:00.000Z"
+    },
+    {
+      "lead_id": "L2",
+      "parent_axis_id": "A6",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "교육부가 2026년 2월 예고한 수업·평가 AI 가이드라인이 나왔는가",
+      "why_it_matters": "나왔다면 초등 적용 기준이 바뀔 수 있다",
+      "status": "unresolved",
+      "resolution": "발표 예고만 확인되고 본문을 찾지 못했다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G2",
+      "opened_at": "2026-08-06T01:40:00.000Z",
+      "closed_at": "2026-08-06T02:40:00.000Z"
+    },
+    {
+      "lead_id": "L3",
+      "parent_axis_id": "A5",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "한국저작권위원회 안내서 PDF 본문의 등록 기준 원문",
+      "why_it_matters": "C13 을 supported 로 올리려면 1차 원문이 필요하다",
+      "status": "unresolved",
+      "resolution": "PDF 본문을 열지 못했다. C13 을 partial 로 둔다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G1",
+      "opened_at": "2026-08-06T01:40:00.000Z",
+      "closed_at": "2026-08-06T02:40:00.000Z"
+    },
+    {
+      "lead_id": "L4",
+      "parent_axis_id": "A4",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "Canva Education 계정에서 디즈니 콘텐츠를 쓸 수 있는가",
+      "why_it_matters": "초등 게시물에 매력적인 소재라 교사가 반드시 묻는다",
+      "status": "investigated_closed",
+      "resolution": "디지털 사용은 Canva Education 계정에서 가능하되 개인·교육 목적 한정. 인쇄 굿즈는 미국 계정만.",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-08-06T01:40:00.000Z",
+      "closed_at": "2026-08-06T02:40:00.000Z"
+    },
+    {
+      "lead_id": "L5",
+      "parent_axis_id": "A1",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "Canva Education Additional Terms 원문 확인",
+      "why_it_matters": "교육용 계정 전용 추가 의무가 있을 수 있다",
+      "status": "dead_end",
+      "resolution": "정책 목록에 이름은 있으나 접근 가능한 URL 을 찾지 못했다. 라이선스 8절이 같은 내용을 담아 대체.",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-08-06T01:40:00.000Z",
+      "closed_at": "2026-08-06T02:40:00.000Z"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "R1",
+      "canonical_key": "https://buseo.sen.go.kr/buseo/bu10/user/bbs/BD_selectBbs.do?q_bbsSn=1240&q_bbsDocNo=20230829193450556",
+      "title": "학교급별 생성형 AI 활용 지침 (생성형 AI 교육적 활용 가이드)",
+      "publisher": "서울특별시교육청",
+      "url": "https://buseo.sen.go.kr/buseo/bu10/user/bbs/BD_selectBbs.do?q_bbsSn=1240&q_bbsDocNo=20230829193450556",
+      "local_path": null,
+      "published_or_updated_at": "2023-08-29",
+      "accessed_at": "2026-08-06",
+      "source_type": "government_guideline",
+      "retrieval_class": "metadata_or_summary",
+      "primary": true,
+      "limitations": "게시글 목록과 보도로 확인. 첨부 PDF 원문은 열지 못했다. 서울 기준이라 타 시도에 그대로 적용되지 않는다."
+    },
+    {
+      "source_id": "R2",
+      "canonical_key": "https://casenote.kr/법령/교육기본법/제23조의3",
+      "title": "교육기본법 제23조의3 (학생정보의 보호원칙)",
+      "publisher": "CaseNote (법령 데이터베이스)",
+      "url": "https://casenote.kr/법령/교육기본법/제23조의3",
+      "local_path": null,
+      "published_or_updated_at": "법률 조문",
+      "accessed_at": "2026-08-06",
+      "source_type": "statute",
+      "retrieval_class": "search_summary",
+      "primary": true,
+      "limitations": "검색 요약으로 확인. 조문과 벌칙(초·중등교육법 제67조제2항제4호)은 국가법령정보센터 원문으로 재확인이 필요하다."
+    },
+    {
+      "source_id": "R3",
+      "canonical_key": "https://dailycreativeco.com/canva-licensing-explained/",
+      "title": "Canva Licensing Explained: A Complete Guide to Free, Pro, and Enterprise Use",
+      "publisher": "Daily Creative Co",
+      "url": "https://dailycreativeco.com/canva-licensing-explained/",
+      "local_path": null,
+      "published_or_updated_at": "2025-08-25",
+      "accessed_at": "2026-08-06",
+      "source_type": "third_party_analysis",
+      "retrieval_class": "full_text",
+      "primary": false,
+      "limitations": "실무 해설 글. 소유권 설명이 약관보다 단순화돼 있어 보조 근거로만 쓴다."
+    },
+    {
+      "source_id": "R4",
+      "canonical_key": "https://ditoday.com/gai-copyright/",
+      "title": "2025 생성형 AI 저작권 등록 안내서 총정리",
+      "publisher": "디지털 인사이트",
+      "url": "https://ditoday.com/gai-copyright/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-08-06",
+      "source_type": "third_party_analysis",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": "한국저작권위원회 안내서를 해설한 2차 자료. 단독 근거로 쓰지 않는다."
+    },
+    {
+      "source_id": "R5",
+      "canonical_key": "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1702&ccfNo=4&cciNo=1&cnpClsNo=1",
+      "title": "교육 분야의 개인정보보호 — 의무 및 구제방법",
+      "publisher": "법제처 찾기쉬운 생활법령정보",
+      "url": "https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1702&ccfNo=4&cciNo=1&cnpClsNo=1",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-08-06",
+      "source_type": "government_legal_guide",
+      "retrieval_class": "search_summary",
+      "primary": true,
+      "limitations": "법령 해설 사이트. 조문 자체가 아니라 해설이다."
+    },
+    {
+      "source_id": "R6",
+      "canonical_key": "https://www.canva.com/education/eligibility-guidelines/",
+      "title": "Education Eligibility Requirements",
+      "publisher": "Canva",
+      "url": "https://www.canva.com/education/eligibility-guidelines/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_product_doc",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "페이지에 최종 수정일 표기 없음."
+    },
+    {
+      "source_id": "R7",
+      "canonical_key": "https://www.canva.com/help/ai-access/",
+      "title": "Understanding your AI usage",
+      "publisher": "Canva Help Center",
+      "url": "https://www.canva.com/help/ai-access/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_product_doc",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "요금제별 수치는 캔바가 변경할 수 있다고 문서에 명시돼 있다."
+    },
+    {
+      "source_id": "R8",
+      "canonical_key": "https://www.canva.com/help/app-restrictions-c4e/",
+      "title": "App Restrictions for Students",
+      "publisher": "Canva Help Center",
+      "url": "https://www.canva.com/help/app-restrictions-c4e/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_product_doc",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "서드파티 앱 기준 문서다. 캔바 자체 AI 기능 차단 범위와는 구분해 읽어야 한다."
+    },
+    {
+      "source_id": "R9",
+      "canonical_key": "https://www.canva.com/help/canva-ai/",
+      "title": "Canva AI (Help Center 허브)",
+      "publisher": "Canva Help Center",
+      "url": "https://www.canva.com/help/canva-ai/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_product_doc",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "허브 페이지라 기능 목록만 확인했다."
+    },
+    {
+      "source_id": "R10",
+      "canonical_key": "https://www.canva.com/policies/ai-product-terms/",
+      "title": "AI Product Terms",
+      "publisher": "Canva",
+      "url": "https://www.canva.com/policies/ai-product-terms/",
+      "local_path": null,
+      "published_or_updated_at": "2026-06-26 발효",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_terms",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "약관 원문. 발효일이 문서에 명시돼 있다."
+    },
+    {
+      "source_id": "R11",
+      "canonical_key": "https://www.canva.com/policies/ai-safety/",
+      "title": "AI Safety at Canva",
+      "publisher": "Canva",
+      "url": "https://www.canva.com/policies/ai-safety/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_policy",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "연령 조항 원문에 오타('teach supervision')가 있다."
+    },
+    {
+      "source_id": "R12",
+      "canonical_key": "https://www.canva.com/policies/content-license-agreement/",
+      "title": "Canva's Content License Agreement",
+      "publisher": "Canva",
+      "url": "https://www.canva.com/policies/content-license-agreement/",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기 (2026-08-06 접속 시점 유효)",
+      "accessed_at": "2026-08-06",
+      "source_type": "official_terms",
+      "retrieval_class": "browser_full_text",
+      "primary": true,
+      "limitations": "디즈니 조항은 2024-10-18 기준으로 표기돼 있다."
+    },
+    {
+      "source_id": "R13",
+      "canonical_key": "https://www.copyright.or.kr/information-materials/publication/research-report/view.do?brdctsno=54253",
+      "title": "생성형 인공지능 활용 저작물의 저작권 등록 안내서",
+      "publisher": "한국저작권위원회",
+      "url": "https://www.copyright.or.kr/information-materials/publication/research-report/view.do?brdctsno=54253",
+      "local_path": null,
+      "published_or_updated_at": "2025-06-30",
+      "accessed_at": "2026-08-06",
+      "source_type": "government_guideline",
+      "retrieval_class": "metadata_or_summary",
+      "primary": true,
+      "limitations": "발간 메타데이터만 확인했다. PDF 본문 미확인."
+    },
+    {
+      "source_id": "R14",
+      "canonical_key": "https://www.esafety.gov.au/key-topics/esafety-guide/canva",
+      "title": "What is Canva? — eSafety Guide",
+      "publisher": "eSafety Commissioner (호주 정부)",
+      "url": "https://www.esafety.gov.au/key-topics/esafety-guide/canva",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-08-06",
+      "source_type": "government_guide",
+      "retrieval_class": "search_summary",
+      "primary": true,
+      "limitations": "호주 정부 기관의 독립 확인. 한국 규범이 아니라 캔바 정책의 교차 검증 용도다."
+    },
+    {
+      "source_id": "R15",
+      "canonical_key": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=104984&lev=0&m=020402",
+      "title": "수행평가 시, 인공지능(AI) 활용 관리 방안",
+      "publisher": "교육부",
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=104984&lev=0&m=020402",
+      "local_path": null,
+      "published_or_updated_at": "2025-12-23",
+      "accessed_at": "2026-08-06",
+      "source_type": "government_announcement",
+      "retrieval_class": "full_text",
+      "primary": true,
+      "limitations": "중·고 수행평가 중심 문서다. 초등학교 적용 여부가 본문에 명시돼 있지 않다."
+    },
+    {
+      "source_id": "R16",
+      "canonical_key": "https://www.segye.com/newsView/20230819505216",
+      "title": "서울 학생 위한 생성형AI 가이드라인 신설… 수업에도 챗GPT 활용 가능",
+      "publisher": "세계일보",
+      "url": "https://www.segye.com/newsView/20230819505216",
+      "local_path": null,
+      "published_or_updated_at": "2023-08-19",
+      "accessed_at": "2026-08-06",
+      "source_type": "news",
+      "retrieval_class": "full_text",
+      "primary": false,
+      "limitations": "보도 자료. 지침 원문이 아니다."
+    },
+    {
+      "source_id": "R17",
+      "canonical_key": "https://www.stylefactoryproductions.com/blog/canva-for-education",
+      "title": "Canva for Education (2026) — All You Need to Know",
+      "publisher": "Style Factory Productions",
+      "url": "https://www.stylefactoryproductions.com/blog/canva-for-education",
+      "local_path": null,
+      "published_or_updated_at": "2026-01-08",
+      "accessed_at": "2026-08-06",
+      "source_type": "third_party_analysis",
+      "retrieval_class": "full_text",
+      "primary": false,
+      "limitations": "독립 리뷰. 서류 검토 기간을 '최대 7일'로 적어 캔바 공식 '48시간'과 다르다."
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "O1",
+      "source_id": "R6",
+      "observed_fact": "K-12 현직 인증 교사·사서·학습지원교사·교육과정 전문가와 정부 인가 학교/교육청이 대상이며 무료다. 고등교육기관은 제외된다.",
+      "anchor": "Eligibility guidelines",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "페이지에 최종 수정일 표기 없음."
+    },
+    {
+      "observation_id": "O2",
+      "source_id": "R6",
+      "observed_fact": "한국·일본·호주·캐나다·뉴질랜드·영국·미국·유럽 교사는 교원자격증 사본만 제출하면 된다. 교육용 이메일 도메인이면 즉시 승인, 서류 제출은 48시간 검토.",
+      "anchor": "How do I prove I'm eligible / Note",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "페이지에 최종 수정일 표기 없음."
+    },
+    {
+      "observation_id": "O3",
+      "source_id": "R6",
+      "observed_fact": "3년마다 재인증한다. 현직이 아닌 교사, 유치원·어린이집 보조교사, 학부모는 대상이 아니다.",
+      "anchor": "How long / Who can't access",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "페이지에 최종 수정일 표기 없음."
+    },
+    {
+      "observation_id": "O4",
+      "source_id": "R17",
+      "observed_fact": "독립 리뷰도 같은 자격 요건과 한국 포함 특례 국가 목록을 확인한다. 다만 서류 검토 기간을 '최대 7일'로 적어 캔바 공식 문서의 '48시간'과 다르다.",
+      "anchor": "Eligibility & Verification",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "독립 리뷰. 서류 검토 기간을 '최대 7일'로 적어 캔바 공식 '48시간'과 다르다."
+    },
+    {
+      "observation_id": "O5",
+      "source_id": "R11",
+      "observed_fact": "\"Canva's AI-powered products are for users aged 13 years and over unless used as part of Canva Education under teach[er] supervision.\"",
+      "anchor": "페이지 상단",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "연령 조항 원문에 오타('teach supervision')가 있다."
+    },
+    {
+      "observation_id": "O6",
+      "source_id": "R14",
+      "observed_fact": "호주 정부 eSafety Commissioner 는 13세 미만 아동이 Canva for Education 을 통해 교실 감독 하에서만 캔바 AI 도구에 접근할 수 있다고 안내한다.",
+      "anchor": "eSafety Guide — Canva",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "search_summary",
+      "independence_group": "au_government",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "호주 정부 기관의 독립 확인. 한국 규범이 아니라 캔바 정책의 교차 검증 용도다."
+    },
+    {
+      "observation_id": "O7",
+      "source_id": "R11",
+      "observed_fact": "캔바 AI는 의료 정보·조언, 자해와 정신건강, 성적으로 노골적인 내용, 정치인·선거를 포함한 정치 주제의 생성을 막는 것을 목표로 한다.",
+      "anchor": "How we safeguard our community",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C14"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "연령 조항 원문에 오타('teach supervision')가 있다."
+    },
+    {
+      "observation_id": "O8",
+      "source_id": "R8",
+      "observed_fact": "\"Some Generative AI and third-party apps are disabled for students by default. Students under 18 need administrator approval to use third-party apps.\" 기본값은 관리자 전용이며 설정 > 권한 > 앱 및 통합에서 교사·관리자가 바꾼다.",
+      "anchor": "FAQ / Turn on app restrictions",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C3"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "서드파티 앱 기준 문서다. 캔바 자체 AI 기능 차단 범위와는 구분해 읽어야 한다."
+    },
+    {
+      "observation_id": "O9",
+      "source_id": "R17",
+      "observed_fact": "13세 미만 학생을 초대하려면 보호자 동의가 필요하다고 안내한다.",
+      "anchor": "AI Features & Age Limits",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "독립 리뷰. 서류 검토 기간을 '최대 7일'로 적어 캔바 공식 '48시간'과 다르다."
+    },
+    {
+      "observation_id": "O10",
+      "source_id": "R7",
+      "observed_fact": "Canva Education 의 월 AI 할당량은 Standard 최대 2,000회 또는 Premium 최대 200회 또는 Ultra 최대 20회다. Canva Pro 와 같은 수준이며 팀원 각자에게 개별 할당된다.",
+      "anchor": "Monthly usage by plan",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "요금제별 수치는 캔바가 변경할 수 있다고 문서에 명시돼 있다."
+    },
+    {
+      "observation_id": "O11",
+      "source_id": "R7",
+      "observed_fact": "Canva AI(텍스트)·Magic Write·사진영상 애니메이션·AI Voice 는 할당량 밖의 'AI design tools'다. 이미지·영상·디자인 생성과 Canva Code 는 Premium/Ultra 로 할당량을 쓴다.",
+      "anchor": "AI design tools / Premium / Ultra",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C5"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "요금제별 수치는 캔바가 변경할 수 있다고 문서에 명시돼 있다."
+    },
+    {
+      "observation_id": "O12",
+      "source_id": "R9",
+      "observed_fact": "헬프센터 현재 구성은 Canva AI 를 축으로 한다: 디자인 생성, 프레젠테이션 생성, 영상 생성, Canva Code, 개인화, AI 커넥터.",
+      "anchor": "Canva AI 허브 목차",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C5"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "허브 페이지라 기능 목록만 확인했다."
+    },
+    {
+      "observation_id": "O13",
+      "source_id": "R10",
+      "observed_fact": "\"you retain your ownership rights to your Input, and you own your Output, except for any Output that modifies or incorporates Licensed Content\". 라이브러리 사진을 AI로 편집한 결과물은 소유하지 않는다.",
+      "anchor": "Using AI Products (with Licensed Content)",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "약관 원문. 발효일이 문서에 명시돼 있다."
+    },
+    {
+      "observation_id": "O14",
+      "source_id": "R3",
+      "observed_fact": "독립 해설도 같은 취지를 확인한다: \"You don't own the stock or AI-generated elements. You're just licensed to use them.\" 다만 약관보다 단순화된 표현이다.",
+      "anchor": "AI 항목",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "실무 해설 글. 소유권 설명이 약관보다 단순화돼 있어 보조 근거로만 쓴다."
+    },
+    {
+      "observation_id": "O15",
+      "source_id": "R10",
+      "observed_fact": "AI 생성물을 사람이 만든 것처럼 오인하게 하는 행위와 C2PA 등 출처 메타데이터를 제거·변경하는 행위를 금지한다. 캔바는 결과물의 정확성을 보증하지 않는다.",
+      "anchor": "Be a good human / Disclaimer",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C15"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "약관 원문. 발효일이 문서에 명시돼 있다."
+    },
+    {
+      "observation_id": "O16",
+      "source_id": "R12",
+      "observed_fact": "\"Canva Education users may only use Pro Content for educational, non-commercial purposes. If you want to use Canva to create designs for commercial purposes, you'll need to create a separate Canva account\".",
+      "anchor": "8. Important note for Canva Education users",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C7"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "디즈니 조항은 2024-10-18 기준으로 표기돼 있다."
+    },
+    {
+      "observation_id": "O17",
+      "source_id": "R17",
+      "observed_fact": "독립 리뷰도 같은 제한을 확인한다: Canva for Education 으로 만든 디자인은 교육 목적으로만 쓸 수 있고 상업적 사용은 Canva Pro 등 유료 플랜이 필요하다.",
+      "anchor": "Commercial Use Restrictions",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C7",
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "독립 리뷰. 서류 검토 기간을 '최대 7일'로 적어 캔바 공식 '48시간'과 다르다."
+    },
+    {
+      "observation_id": "O18",
+      "source_id": "R12",
+      "observed_fact": "허용 용도에 'school or university projects', 인쇄물·포스터·뉴스레터·프레젠테이션이 수량 제한 없이 포함된다.",
+      "anchor": "5. Permitted uses",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "디즈니 조항은 2024-10-18 기준으로 표기돼 있다."
+    },
+    {
+      "observation_id": "O19",
+      "source_id": "R12",
+      "observed_fact": "여러 카테고리가 섞이면 가장 제한적인 카테고리가 디자인 전체에 적용된다. 제한 강도는 Education > Branded > Pro > Free 순이다. Education Content 는 'Resource' 배지가 붙고 교육·비상업 전용이다.",
+      "anchor": "1. The basics / 5C",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "디즈니 조항은 2024-10-18 기준으로 표기돼 있다."
+    },
+    {
+      "observation_id": "O20",
+      "source_id": "R12",
+      "observed_fact": "Pro Content 라이선스는 디자인 1건 단위이고 Magic Resize 한 디자인도 새 디자인으로 본다. Pro Content 를 단독 파일로 내려받거나 배포할 수 없다.",
+      "anchor": "3. Pro Content License / 4. Getting a license",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "browser_full_text",
+      "independence_group": "canva_official",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C9"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "디즈니 조항은 2024-10-18 기준으로 표기돼 있다."
+    },
+    {
+      "observation_id": "O21",
+      "source_id": "R3",
+      "observed_fact": "독립 해설도 단독 배포 금지를 확인한다: \"you can't download an unmodified template or element and sell it as a digital file.\"",
+      "anchor": "본문",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C9"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "실무 해설 글. 소유권 설명이 약관보다 단순화돼 있어 보조 근거로만 쓴다."
+    },
+    {
+      "observation_id": "O22",
+      "source_id": "R1",
+      "observed_fact": "서울시교육청 지침상 초등학생은 교사의 시연으로 간접 체험하는 것이 기본이고, 교사의 추가 작업으로 안정성을 확보하면 직접 사용할 수 있다. 교사는 언어모델의 원리·한계와 윤리적 사용법을 필수로 안내해야 한다.",
+      "anchor": "학교급별 생성형 AI 활용 지침 (초등)",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "metadata_or_summary",
+      "independence_group": "kr_government",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C10"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "게시글 목록과 보도로 확인. 첨부 PDF 원문은 열지 못했다. 서울 기준이라 타 시도에 그대로 적용되지 않는다."
+    },
+    {
+      "observation_id": "O23",
+      "source_id": "R16",
+      "observed_fact": "보도에 따르면 초등학생은 \"교사의 시연으로 챗GPT 등 생성형 AI를 간접 체험할 수 있고, 교사의 추가 작업으로 안정성을 확보하는 경우 직접 사용할 수도 있다\". 중학생은 보호자 허락 하에 교사 지도 아래, 고등학생은 부모 동의 시 직접 사용할 수 있다. 모든 학년 공통으로 점수에 반영되는 시험·수행평가 중에는 활용할 수 없다.",
+      "anchor": "본문",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "full_text",
+      "independence_group": "press",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C10"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "보도 자료. 지침 원문이 아니다."
+    },
+    {
+      "observation_id": "O24",
+      "source_id": "R5",
+      "observed_fact": "학생정보는 법률로 정하는 경우 외에는 학생 본인(미성년자는 학생 및 보호자)의 동의 없이 제3자에게 제공될 수 없고, 위반 시 3년 이하의 징역 또는 3천만원 이하의 벌금에 처해진다.",
+      "anchor": "교육분야 개인정보보호 의무",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "search_summary",
+      "independence_group": "kr_government",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C11"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "법령 해설 사이트. 조문 자체가 아니라 해설이다."
+    },
+    {
+      "observation_id": "O25",
+      "source_id": "R2",
+      "observed_fact": "교육기본법 제23조의3 제3항이 학생정보의 제3자 제공 금지를 규정하고, 벌칙은 초·중등교육법 제67조제2항제4호에 따라 3년 이하 징역 또는 3천만원 이하 벌금이다.",
+      "anchor": "조문",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "search_summary",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C11"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "검색 요약으로 확인. 조문과 벌칙(초·중등교육법 제67조제2항제4호)은 국가법령정보센터 원문으로 재확인이 필요하다."
+    },
+    {
+      "observation_id": "O26",
+      "source_id": "R15",
+      "observed_fact": "교육부와 시·도교육청이 2025-12-23 발표한 관리 방안은 ①AI 활용 범위 설정 ②활용 과정 표기 지도 ③학생 유의사항 안내 ④평가 설계 ⑤개인정보보호의 5개 영역으로 구성되며 2026학년도부터 시행된다. 초등학교 적용 여부는 본문에 명시돼 있지 않다.",
+      "anchor": "보도자료 본문",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "full_text",
+      "independence_group": "kr_government",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C12"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "중·고 수행평가 중심 문서다. 초등학교 적용 여부가 본문에 명시돼 있지 않다."
+    },
+    {
+      "observation_id": "O27",
+      "source_id": "R13",
+      "observed_fact": "한국저작권위원회가 2025-06-30 「생성형 인공지능 활용 저작물의 저작권 등록 안내서」를 발간했다. 발간 사실과 발행처·일자만 확인했다.",
+      "anchor": "발간물 상세 페이지",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "primary_document",
+      "retrieval_class": "metadata_or_summary",
+      "independence_group": "kr_government",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C13"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "발간 메타데이터만 확인했다. PDF 본문 미확인."
+    },
+    {
+      "observation_id": "O28",
+      "source_id": "R4",
+      "observed_fact": "해설에 따르면 인간의 창작적 기여가 없는 AI 산출물은 등록 대상이 아니고, 프롬프트 입력은 아이디어·지시 제공으로 평가되어 그 자체로는 창작 기여로 보기 어렵다. 산출물의 선택·배열·구성에 창작성이 있으면 편집저작물로 등록할 수 있다. 오타 수정·크기 변경 같은 사소한 수정은 창작 기여가 아니다.",
+      "anchor": "본문 요약",
+      "observed_at": "2026-08-06",
+      "valid_at": "2026-08-06",
+      "evidence_type": "secondary_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "third_party",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C13"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "한국저작권위원회 안내서를 해설한 2차 자료. 단독 근거로 쓰지 않는다."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "statement": "Canva Education 은 정부 인가 K-12 학교의 현직 인증 교사에게 무료다. 한국 교사는 교원자격증 사본만 제출하면 되고, 3년마다 재인증한다.",
+      "lecture_use": "S4·S37 에서 계정 요건과 인증 방법을 안내한다.",
+      "outline_refs": [
+        "S4",
+        "S37"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O1",
+        "O2",
+        "O3",
+        "O4"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R6",
+        "R17"
+      ],
+      "independence_groups": [
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R6",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C2",
+      "statement": "캔바 AI 기능은 13세 이상 대상이지만 Canva Education 안에서 교사 감독 하에 쓰는 경우는 예외다. 초등학생도 이 경로로는 캔바 정책상 사용할 수 있다.",
+      "lecture_use": "S29 에서 '초등학생은 아예 못 쓴다'는 오해를 정정한다.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O5",
+        "O6",
+        "O9"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R11",
+        "R14",
+        "R17"
+      ],
+      "independence_groups": [
+        "au_government",
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R11",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C3",
+      "statement": "학생 계정에서는 일부 생성형 AI 앱과 서드파티 앱이 기본 차단되고, 18세 미만은 관리자 승인이 필요하다. 교사·관리자가 설정에서 앱별로 연다.",
+      "lecture_use": "S29 에서 실습 전에 무엇을 열어둬야 하는지 알린다.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O8"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R8"
+      ],
+      "independence_groups": [
+        "canva_official"
+      ],
+      "primary_source_id": "R8",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C4",
+      "statement": "Canva Education 계정의 월 AI 할당량은 Standard 2,000회 또는 Premium 200회 또는 Ultra 20회이며 팀원 각자에게 개별 할당된다.",
+      "lecture_use": "S37 에서 '무료인데 얼마나 쓸 수 있나'에 숫자로 답한다.",
+      "outline_refs": [
+        "S37"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O10"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R7"
+      ],
+      "independence_groups": [
+        "canva_official"
+      ],
+      "primary_source_id": "R7",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C5",
+      "statement": "캔바의 AI 기능은 Canva AI 를 축으로 정리돼 있다. Canva AI(텍스트)·Magic Write·AI Voice 는 할당량 밖이고, 이미지·영상·디자인 생성은 할당량을 쓴다.",
+      "lecture_use": "S8·S12 의 기능 지도를 현재 이름으로 맞춘다.",
+      "outline_refs": [
+        "S8",
+        "S12"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O11",
+        "O12"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R7",
+        "R9"
+      ],
+      "independence_groups": [
+        "canva_official"
+      ],
+      "primary_source_id": "R7",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C6",
+      "statement": "AI 산출물은 사용자 소유다. 다만 캔바 라이브러리 콘텐츠를 포함하거나 수정한 부분은 소유가 아니라 라이선스다.",
+      "lecture_use": "S28 에서 '내가 만든 이미지는 내 것인가'에 답한다.",
+      "outline_refs": [
+        "S28"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O13",
+        "O14"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R3",
+        "R10"
+      ],
+      "independence_groups": [
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R10",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C7",
+      "statement": "Canva Education 계정으로 만든 결과물은 교육·비상업 목적에만 쓸 수 있다. 상업적 용도로 쓰려면 별도 계정을 만들어야 한다.",
+      "lecture_use": "S27 의 핵심 경계선. 판매용 자료·학원 홍보물 금지를 명확히 한다.",
+      "outline_refs": [
+        "S27"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O16",
+        "O17"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R12",
+        "R17"
+      ],
+      "independence_groups": [
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C8",
+      "statement": "학교 프로젝트·인쇄물·포스터·뉴스레터·프레젠테이션은 수량 제한 없이 허용된다. 단 한 디자인에 여러 콘텐츠 등급이 섞이면 가장 제한적인 등급이 전체에 적용된다.",
+      "lecture_use": "S27 에서 가정통신문·게시물 배포가 되는지에 답한다.",
+      "outline_refs": [
+        "S27"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O17",
+        "O18",
+        "O19"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R12",
+        "R17"
+      ],
+      "independence_groups": [
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C9",
+      "statement": "Pro 콘텐츠 라이선스는 디자인 1건 단위이고 Magic Resize 한 디자인도 새 디자인으로 본다. Pro 콘텐츠를 단독 파일로 내려받거나 배포할 수 없다.",
+      "lecture_use": "S24·S27 에서 '이미지만 따로 빼서 쓰기' 금지를 짚는다.",
+      "outline_refs": [
+        "S24",
+        "S27"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O20",
+        "O21"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R3",
+        "R12"
+      ],
+      "independence_groups": [
+        "canva_official",
+        "third_party"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C10",
+      "statement": "서울시교육청 지침상 초등학생의 생성형 AI 사용은 교사 시연을 통한 간접 체험이 기본이고, 교사가 추가 작업으로 안정성을 확보하면 직접 사용할 수 있다. 학교급이 올라갈수록 직접 사용 폭이 넓어지며, 모든 학년 공통으로 점수에 반영되는 평가 중에는 쓸 수 없다.",
+      "lecture_use": "S29 에서 캔바 정책과 별개로 교육청 지침이 실제 기준임을 알린다.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O22",
+        "O23"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R1",
+        "R16"
+      ],
+      "independence_groups": [
+        "kr_government",
+        "press"
+      ],
+      "primary_source_id": "R1",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C11",
+      "statement": "학생정보는 보호자 동의 없이 제3자에게 제공할 수 없고, 위반하면 3년 이하 징역 또는 3천만원 이하 벌금 대상이다.",
+      "lecture_use": "S29 에서 학생 사진 업로드를 막는 근거로 쓴다.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O24",
+        "O25"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R2",
+        "R5"
+      ],
+      "independence_groups": [
+        "kr_government",
+        "third_party"
+      ],
+      "primary_source_id": "R5",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C12",
+      "statement": "교육부·교육청의 수행평가 AI 활용 관리 방안은 2025-12-23 발표되어 2026학년도부터 시행되며 개인정보보호를 5개 영역 중 하나로 포함한다. 초등학교 적용 여부는 문서에 명시돼 있지 않다.",
+      "lecture_use": "S30 에서 국내 규범 흐름을 짚되 초등 적용은 단정하지 않는다.",
+      "outline_refs": [
+        "S30"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O26"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R15"
+      ],
+      "independence_groups": [
+        "kr_government"
+      ],
+      "primary_source_id": "R15",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C13",
+      "statement": "한국에서 인간의 창작적 기여가 없는 AI 산출물은 저작권 등록 대상이 아니다. 프롬프트 입력만으로는 창작 기여로 보기 어렵고, 선택·배열·구성에 창작성이 있으면 편집저작물로 등록할 수 있다.",
+      "lecture_use": "S28 에서 '내 학습지는 저작물인가'에 답한다.",
+      "outline_refs": [
+        "S28"
+      ],
+      "risk": "high",
+      "status": "partial",
+      "support_observation_ids": [
+        "O27",
+        "O28"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R4",
+        "R13"
+      ],
+      "independence_groups": [
+        "kr_government",
+        "third_party"
+      ],
+      "primary_source_id": "R13",
+      "counter_search": "반대 근거 검색 수행. 1차 원문(PDF) 미확인으로 partial 유지.",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": "한국저작권위원회 안내서 PDF 본문을 확인하지 못해 세부 기준은 2차 해설에 의존한다."
+    },
+    {
+      "claim_id": "C14",
+      "statement": "캔바 AI 는 의료·자해·성적·정치 주제의 생성을 차단한다.",
+      "lecture_use": "S10 에서 '왜 이 프롬프트가 막히나'를 미리 설명한다.",
+      "outline_refs": [
+        "S10"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O7"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R11"
+      ],
+      "independence_groups": [
+        "canva_official"
+      ],
+      "primary_source_id": "R11",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C15",
+      "statement": "AI 생성물을 사람이 만든 것처럼 오인하게 하거나 출처 메타데이터를 제거하는 것은 약관 위반이다. 캔바는 결과물의 정확성을 보증하지 않는다.",
+      "lecture_use": "S10·S28 에서 표기 의무와 검수 책임을 짚는다.",
+      "outline_refs": [
+        "S10",
+        "S28"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O15"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R10"
+      ],
+      "independence_groups": [
+        "canva_official"
+      ],
+      "primary_source_id": "R10",
+      "counter_search": "허용 조항만 보지 않도록 금지·제한 조항과 국내 지침을 따로 검색해 대조했다 (W2).",
+      "valid_at": "2026-08-06",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": ""
+    }
+  ],
+  "verifications": [
+    {
+      "verification_id": "V1",
+      "claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "C12",
+        "C13",
+        "C14",
+        "C15"
+      ],
+      "kind": "browser",
+      "status": "confirmed",
+      "command_or_method": "헤드리스 브라우저로 canva.com 정책·헬프 원문을 직접 열어 문구 확인 (WebFetch 는 403 차단)",
+      "environment": "Claude Browser pane",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-06",
+      "limitations": "C13 은 PDF 본문 미확인으로 partial."
+    },
+    {
+      "verification_id": "V2",
+      "claim_ids": [
+        "C1",
+        "C2",
+        "C6",
+        "C7",
+        "C8",
+        "C10",
+        "C11",
+        "C13"
+      ],
+      "kind": "cross_source",
+      "status": "confirmed",
+      "command_or_method": "고위험 주장마다 서로 다른 도메인의 독립 출처로 교차 확인 (호주 정부 eSafety, 독립 리뷰, 국내 법령DB·보도)",
+      "environment": "web",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-06",
+      "limitations": "C13 은 2차 해설이 유일한 세부 근거다."
+    },
+    {
+      "verification_id": "V3",
+      "claim_ids": [
+        "C7",
+        "C8",
+        "C9"
+      ],
+      "kind": "counter_search",
+      "status": "confirmed",
+      "command_or_method": "라이선스 허용 조항(5절)과 제한·금지 조항(8·9절)을 모두 읽어 허용만 보고 결론내지 않도록 대조",
+      "environment": "web",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-06",
+      "limitations": ""
+    }
+  ],
+  "visuals": [],
+  "convergence": {
+    "status": "ready",
+    "planned_axis_count": 6,
+    "closed_axis_count": 6,
+    "open_lead_count": 0,
+    "terminal_lead_count": 5,
+    "expansion_audit_count": 2,
+    "high_risk_claim_count": 7,
+    "verified_high_risk_claim_count": 7,
+    "unresolved_claim_ids": [],
+    "accepted_gap_ids": [
+      "G1",
+      "G2",
+      "G3"
+    ],
+    "checked_at": "2026-08-06T01:49:50.126Z",
+    "errors": []
+  },
+  "projection": {
+    "research_md_path": "research.md",
+    "research_md_sha256": "2f189fd8419a663cd581bdb17bf5c5f75a0ba81c2359c07aea119906a3935ec2",
+    "outline_delta": [
+      "S8 제목을 '매직 기능 지도'에서 'Canva AI 가 하는 일'로 바꾼다. Magic 계열 이름이 Canva AI 체계로 재편됐다.",
+      "S27 의 핵심을 '교육용 계정은 상업적 사용 불가'로 잡는다. 교사가 가장 자주 넘는 선이다.",
+      "S29 를 '학생 사진과 개인정보'에서 '학생이 직접 써도 되나'로 확장한다. 캔바 정책과 교육청 지침 두 층을 함께 다룬다.",
+      "S37 에 교육용 계정 월 AI 할당량 수치와 비상업 제한을 넣는다."
+    ],
+    "slide_claim_map": {
+      "S4": {
+        "claim_ids": [
+          "C1"
+        ],
+        "source_ids": [
+          "R6",
+          "R17"
+        ]
+      },
+      "S8": {
+        "claim_ids": [
+          "C5"
+        ],
+        "source_ids": [
+          "R7",
+          "R9"
+        ]
+      },
+      "S10": {
+        "claim_ids": [
+          "C14",
+          "C15"
+        ],
+        "source_ids": [
+          "R10",
+          "R11"
+        ]
+      },
+      "S12": {
+        "claim_ids": [
+          "C5"
+        ],
+        "source_ids": [
+          "R7",
+          "R9"
+        ]
+      },
+      "S24": {
+        "claim_ids": [
+          "C9"
+        ],
+        "source_ids": [
+          "R3",
+          "R12"
+        ]
+      },
+      "S27": {
+        "claim_ids": [
+          "C7",
+          "C8",
+          "C9"
+        ],
+        "source_ids": [
+          "R3",
+          "R12",
+          "R17"
+        ]
+      },
+      "S28": {
+        "claim_ids": [
+          "C6",
+          "C13",
+          "C15"
+        ],
+        "source_ids": [
+          "R3",
+          "R4",
+          "R10",
+          "R13"
+        ]
+      },
+      "S29": {
+        "claim_ids": [
+          "C2",
+          "C3",
+          "C10",
+          "C11"
+        ],
+        "source_ids": [
+          "R1",
+          "R2",
+          "R5",
+          "R8",
+          "R11",
+          "R14",
+          "R16",
+          "R17"
+        ]
+      },
+      "S30": {
+        "claim_ids": [
+          "C12"
+        ],
+        "source_ids": [
+          "R15"
+        ]
+      },
+      "S37": {
+        "claim_ids": [
+          "C1",
+          "C4"
+        ],
+        "source_ids": [
+          "R6",
+          "R7",
+          "R17"
+        ]
+      }
+    },
+    "unresolved_summary": "C13(한국 저작권 등록 기준)만 partial. G1~G3 을 사용자가 수용하면 게이트 2 진행 가능.",
+    "generated_at": "2026-08-06T02:40:00.000Z"
+  },
+  "accepted_gaps": [
+    {
+      "gap_id": "G1",
+      "description": "한국저작권위원회 「생성형 인공지능 활용 저작물의 저작권 등록 안내서」(2025-06-30) PDF 본문 미확인. 세부 등록 기준은 2차 해설에 의존한다.",
+      "affected_claim_ids": [
+        "C13"
+      ],
+      "lecture_handling": "S28 에서 단정하지 않고 '위원회 안내서 기준'으로 소개하고 원문 링크를 남긴다."
+    },
+    {
+      "gap_id": "G2",
+      "description": "교육부가 2026년 2월 예고한 수업·평가 AI 활용 가이드라인의 발표 여부와 내용을 확인하지 못했다.",
+      "affected_claim_ids": [
+        "C12"
+      ],
+      "lecture_handling": "S30 에 '연수일 기준으로 최신 지침을 다시 확인하라'는 줄을 넣는다."
+    },
+    {
+      "gap_id": "G3",
+      "description": "시도교육청 지침은 서울만 확인했다. 17개 시도 전체를 비교하지 못했다.",
+      "affected_claim_ids": [
+        "C10"
+      ],
+      "lecture_handling": "S29 에서 서울 사례로 제시하고 '본인 교육청 지침 확인'을 행동 항목으로 넣는다."
+    }
+  ]
+}

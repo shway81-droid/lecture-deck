@@ -1,0 +1,571 @@
+/* ==========================================================================
+   lecture-deck theme — "따뜻한 종이" (Warm Paper)
+
+   NotebookLM 이 같은 원고로 생성한 참고 덱의 디자인 언어를 옮긴 것이다.
+   · 크림 종이 배경 + 부드러운 그림자 (검정 배경의 반대편)
+   · 딥네이비 잉크 + 테라코타 강조 + 세이지 보조
+   · 헤어라인 카드 대신 흰 카드 + 낮은 그림자로 층을 만든다
+
+   index.html 은 건드리지 않는다. 이 파일만 갈아끼우면 디자인이 바뀐다.
+   원본 WithGenie 그린 테마는 스킬 템플릿(assets/template/theme.css)에 그대로 있다.
+   ========================================================================== */
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --wp-paper:      #F3EFE7;   /* 크림 종이 배경 */
+  --wp-paper-hi:   #FBF9F4;   /* 빛 닿는 밝은 쪽 */
+  --wp-card:       #FFFFFF;
+  --wp-ink:        #21334A;   /* 딥네이비 — 제목 */
+  --wp-body:       #3E3D39;   /* 본문 */
+  --wp-muted:      #7A756C;
+  --wp-terra:      #B0745C;   /* 강조 */
+  --wp-terra-deep: #8E5741;
+  --wp-terra-wash: #F3E6DF;
+  --wp-sage:       #909666;   /* 보조 */
+  --wp-sage-wash:  #EDEFE3;
+  --wp-rule:       #E0D9CC;
+  --wp-rule-soft:  #EDE8DE;
+
+  --shadow-card:  0 1px 2px rgba(80,60,40,.06), 0 6px 16px rgba(80,60,40,.09);
+  --shadow-lift:  0 2px 4px rgba(80,60,40,.07), 0 14px 32px rgba(80,60,40,.13);
+
+  --font-sans:  "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* 구 테마 변수 별칭 — 남아 있는 참조가 깨지지 않도록 */
+  --fg:        var(--wp-body);
+  --fg-strong: var(--wp-ink);
+  --fg-muted:  var(--wp-muted);
+  --accent:    var(--wp-terra);
+  --rule:      var(--wp-rule);
+}
+
+/* ---------- 배경: 종이 + 왼쪽 위에서 드는 빛 ---------------------------- */
+html { color-scheme: light; background: var(--wp-paper); }
+.reveal-viewport { background: var(--wp-paper); }
+.reveal { background: transparent; }
+
+.reveal-viewport::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(115% 90% at 8% -10%, var(--wp-paper-hi) 0%, transparent 62%),
+    radial-gradient(90% 70% at 100% 108%, rgba(176,116,92,.07) 0%, transparent 60%);
+}
+.reveal .slides { z-index: 1; }
+
+/* index.html 의 data-background-gradient(검정)를 무력화한다.
+   내용을 고치지 않고 디자인만 바꾸기 위한 조치다. */
+.reveal .backgrounds .slide-background,
+.reveal .backgrounds .slide-background-content {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ---------- 타이포 --------------------------------------------------------- */
+/* 기준 24px. 구 테마(22px)보다 키웠다. 카드가 흰 배경 + 그림자로 바뀌면서
+   같은 내용이 더 작아 보이고 아래 여백이 뜨기 때문이다.
+   가장 빽빽한 장(출처 6건)까지 넣어보고 정한 값이다. */
+.reveal {
+  font-family: var(--font-sans);
+  color: var(--wp-body);
+  font-weight: 400;
+  font-size: 24px;
+}
+.reveal .slides { text-align: left; }
+.reveal .slides > section,
+.reveal .slides > section > section {
+  box-sizing: border-box;
+  padding: 34px 60px;
+}
+
+.reveal h1 {
+  font-family: var(--font-sans);
+  font-size: 4em;
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  margin: 0 0 0.2em;
+  color: var(--wp-ink);
+}
+.reveal h2 {
+  font-family: var(--font-sans);
+  font-size: 2.0em;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.7em;
+  color: var(--wp-ink);
+  text-align: center;          /* 참고 덱의 가운데 정렬 제목 */
+}
+.reveal h2.compact { font-size: 1.7em; margin-bottom: 0.5em; }
+.reveal h2.small-h2,
+.reveal .small-h2 {
+  font-size: 1.35em !important;
+  color: var(--wp-muted) !important;
+  font-weight: 600 !important;
+}
+
+.reveal p, .reveal li, .reveal td {
+  font-size: 1.0em;
+  line-height: 1.65;
+  color: var(--wp-body);
+}
+.reveal .muted { color: var(--wp-muted); }
+.reveal .small { font-size: 0.74em; }
+.reveal .center { text-align: center; }
+
+/* 강조 단어: 테라코타 볼드 (구 테마의 세리프 이탤릭 그린 대체) */
+.reveal em,
+.reveal .accent {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--wp-terra);
+  letter-spacing: -0.01em;
+}
+.reveal strong { font-weight: 700; color: var(--wp-ink); }
+
+/* 아이브로우: 테라코타 모노 스탬프 */
+.reveal .eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  font-weight: 500;
+  color: var(--wp-terra);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+.reveal .eyebrow::before { content: ""; }
+
+.reveal a { color: var(--wp-terra); }
+.reveal code {
+  font-family: var(--font-mono);
+  background: var(--wp-terra-wash);
+  border: 1px solid var(--wp-rule);
+  color: var(--wp-terra-deep);
+  padding: 0.1em 0.38em;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+/* 인용 표식 */
+.reveal .citation {
+  font-size: 0.62em;
+  vertical-align: super;
+  color: var(--wp-terra);
+  text-decoration: none;
+  margin-left: 1px;
+}
+
+/* ---------- 표지 / 마무리 -------------------------------------------------- */
+.title-slide {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+/* 내용 높이로 줄어들면 footer-meta 의 bottom 이 본문 위에 겹친다 */
+.reveal .slides > section.title-slide { height: 100%; }
+.title-slide .title-block { max-width: 92%; }
+.title-slide .title-block .eyebrow { font-size: 0.8em; text-align: left; }
+.title-slide h1 { font-size: 4.4em; color: var(--wp-ink); text-align: left; }
+.title-slide h1 .accent,
+.title-slide h1 em { color: var(--wp-terra); }
+.title-slide .subtitle {
+  font-size: 1.3em;
+  color: var(--wp-muted);
+  margin-top: 0.5em;
+  line-height: 1.45;
+  font-weight: 500;
+}
+.title-slide .bullets { margin-top: 1.1em; }
+.title-slide .footer-meta {
+  position: absolute;
+  bottom: 34px;
+  left: 60px;
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  color: var(--wp-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ---------- 목록 ----------------------------------------------------------- */
+.reveal .bullets { list-style: none; padding: 0; margin: 0.4em 0; }
+.reveal .bullets li {
+  position: relative;
+  padding-left: 28px;
+  margin: 0.6em 0;
+  color: var(--wp-body);
+}
+.reveal .bullets li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--wp-terra);
+}
+
+/* ---------- 풀쿼트 --------------------------------------------------------- */
+.reveal .pull-quote {
+  font-size: 2.1em;
+  font-weight: 700;
+  color: var(--wp-ink);
+  text-align: center;
+  margin: 0.45em auto 0.4em;
+  max-width: 900px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  padding: 0.35em 0.6em;
+  position: relative;
+}
+.reveal .pull-quote::before,
+.reveal .pull-quote::after {
+  color: var(--wp-terra);
+  font-family: var(--font-serif);
+  font-size: 1.3em;
+  line-height: 0;
+  position: relative;
+  top: 0.18em;
+}
+.reveal .pull-quote::before { content: "\201C"; margin-right: 0.08em; }
+.reveal .pull-quote::after  { content: "\201D"; margin-left: 0.08em; }
+
+/* ---------- 카드 행 / 히어로 ----------------------------------------------- */
+.card-row, .dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-top: 10px;
+}
+.card-row { align-items: center; }
+
+.hero-card {
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: var(--shadow-lift);
+}
+.hero-card .big { font-size: 1.3em; line-height: 1.5; margin: 0; color: var(--wp-ink); }
+.hero-card .big strong { color: var(--wp-terra); }
+
+/* ---------- 사례 카드 ------------------------------------------------------ */
+.case-card {
+  position: relative;
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 12px;
+  padding: 18px 22px 18px 26px;
+  margin: 10px 0;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.case-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 5px;
+  background: var(--wp-terra);
+}
+.case-card::after { content: none; }
+.case-card .case-name { font-weight: 700; color: var(--wp-ink); font-size: 1.02em; }
+.case-card .case-rev {
+  float: right;
+  font-family: var(--font-mono);
+  color: var(--wp-sage);
+  font-weight: 600;
+  font-size: 0.8em;
+  background: var(--wp-sage-wash);
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+.case-card .case-what { color: var(--wp-body); margin: 8px 0 0; font-size: 0.88em; }
+.case-card .case-lesson {
+  color: var(--wp-terra-deep);
+  font-weight: 600;
+  font-size: 0.86em;
+  margin: 8px 0 0;
+}
+
+/* ---------- 큰 숫자 -------------------------------------------------------- */
+.stat-row { display: flex; gap: 18px; margin: 18px 0; }
+.stat {
+  flex: 1;
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 12px;
+  padding: 22px 18px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+.stat .num {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 2.5em;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--wp-ink);
+  line-height: 1.0;
+}
+.stat .lab {
+  display: block;
+  font-family: var(--font-mono);
+  color: var(--wp-muted);
+  font-size: 0.7em;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+
+/* ---------- 대비 2열 ------------------------------------------------------- */
+.dd {
+  border-radius: 12px;
+  padding: 0 0 18px;
+  border: 1px solid var(--wp-rule-soft);
+  background: var(--wp-card);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.dd .dd-h {
+  font-family: var(--font-sans);
+  font-size: 0.82em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin: 0 0 14px;
+  padding: 11px 20px;
+  color: #FFFFFF;
+  text-align: center;
+}
+/* 참고 덱과 같은 배치: 제약·금지 쪽은 네이비, 허용·권장 쪽은 세이지.
+   테라코타는 강조색이라 '하지 말 것'에 쓰면 시선이 그쪽으로 쏠린다. */
+.dd.do   .dd-h { background: var(--wp-sage); text-decoration: none; }
+.dd.dont .dd-h { background: var(--wp-ink); text-decoration: none; }
+.dd ul { padding-left: 1.15em; margin: 0 20px; }
+.dd li { font-size: 0.86em; margin: 8px 0; color: var(--wp-body); }
+.dd li::marker { color: var(--wp-muted); }
+.dd > p:not(.dd-h) { margin: 8px 20px; font-size: 0.86em; }
+
+/* ---------- 사다리 (단계) --------------------------------------------------- */
+.ladder { margin: 14px 0; }
+.ladder .rung {
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 9px 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+}
+.ladder .rung .rn {
+  width: 30px; height: 30px; flex-shrink: 0;
+  background: var(--wp-ink);
+  border: 0;
+  color: #FFFFFF;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.8em;
+}
+.ladder .rung .rt { font-size: 0.94em; color: var(--wp-body); }
+.ladder .rung .rt strong { color: var(--wp-terra-deep); }
+
+/* ---------- 연표 ----------------------------------------------------------- */
+.tl { margin: 14px 0; display: flex; flex-direction: column; gap: 6px; }
+.tl .row {
+  display: flex; align-items: baseline; gap: 18px;
+  padding: 9px 4px;
+  border-bottom: 1px solid var(--wp-rule);
+}
+.tl .yr {
+  flex-shrink: 0; width: 58px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.9em;
+  color: var(--wp-terra);
+}
+.tl .ev { font-size: 0.92em; color: var(--wp-body); line-height: 1.5; }
+.tl .ev strong { color: var(--wp-ink); }
+.tl .row.now { border-bottom-color: var(--wp-terra); }
+.tl .row.now .ev { color: var(--wp-ink); font-weight: 500; }
+
+/* ---------- 공식 ----------------------------------------------------------- */
+.formula {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 1.3em;
+  color: var(--wp-ink);
+  margin: 14px 0 6px;
+}
+.formula .op { color: var(--wp-muted); padding: 0 6px; font-weight: 400; }
+.formula b { color: var(--wp-terra); font-weight: 700; }
+
+/* ---------- 아이콘 그리드 --------------------------------------------------- */
+.cap-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; }
+.cap {
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 10px;
+  padding: 13px 10px;
+  display: flex; flex-direction: column; gap: 7px;
+  align-items: center; text-align: center;
+  font-size: 0.76em; line-height: 1.3;
+  box-shadow: var(--shadow-card);
+}
+.cap-icon { line-height: 1; display: inline-flex; font-size: 1.5em; }
+.cap-text { color: var(--wp-body); font-family: var(--font-mono); font-size: 0.92em; }
+
+/* ---------- 체크리스트 ------------------------------------------------------ */
+.check-list { list-style: none; padding: 0; margin: 12px 0; }
+.check-list li {
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 10px;
+  padding: 12px 18px;
+  margin: 9px 0;
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.95em;
+  color: var(--wp-body);
+  box-shadow: var(--shadow-card);
+}
+.check-list .chk {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 26px; height: 26px; padding: 0 8px;
+  background: var(--wp-sage);
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-family: var(--font-mono); font-weight: 700; font-size: 0.72em;
+  flex-shrink: 0;
+}
+
+/* ---------- 흐름 단계 ------------------------------------------------------- */
+.thesis-flow { display: flex; align-items: stretch; gap: 12px; margin: 22px 0; }
+.flow-step {
+  flex: 1; position: relative;
+  background: var(--wp-card);
+  border: 1px solid var(--wp-rule-soft);
+  border-radius: 12px;
+  padding: 18px 16px;
+  box-shadow: var(--shadow-card);
+}
+.flow-step.is-now {
+  border-color: var(--wp-terra);
+  background: var(--wp-terra-wash);
+  box-shadow: var(--shadow-lift);
+}
+.flow-step.is-now::before { content: none; }
+.flow-step .fs-t {
+  display: block; font-family: var(--font-mono);
+  color: var(--wp-terra); font-size: 0.62em; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 9px; font-weight: 600;
+}
+.flow-step .fs-n { font-size: 0.98em; line-height: 1.45; color: var(--wp-body); }
+.flow-step .fs-n strong { color: var(--wp-ink); }
+
+/* ---------- 지시문 블록 (어두운 네이비) -------------------------------------- */
+.brief-block {
+  background: var(--wp-ink);
+  border: 0;
+  border-radius: 12px;
+  padding: 22px 26px;
+  margin: 12px 0;
+  box-shadow: var(--shadow-lift);
+}
+.brief-block code {
+  background: transparent; border: 0; padding: 0;
+  font-family: var(--font-mono);
+  color: #EFEAE0;
+  font-size: 0.8em;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+/* ---------- 코드 블록 ------------------------------------------------------- */
+.reveal pre {
+  box-shadow: var(--shadow-card);
+  border-radius: 12px;
+  margin: 14px 0;
+  width: 100%;
+}
+.reveal pre code {
+  border-radius: 12px;
+  padding: 20px 24px;
+  font-size: 0.8em;
+  line-height: 1.7;
+  background: var(--wp-ink);
+  color: #EFEAE0;
+  border: 0;
+}
+
+/* ---------- 출처 목록 ------------------------------------------------------- */
+.source-list {
+  list-style: none;
+  margin: 0.5em 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6em;
+  text-align: left;
+}
+.source-list li {
+  padding: 0.7em 0.9em;
+  border: 1px solid var(--wp-rule-soft);
+  border-left: 4px solid var(--wp-terra);
+  border-radius: 8px;
+  background: var(--wp-card);
+  color: var(--wp-muted);
+  font-size: 0.72em;
+  line-height: 1.45;
+  box-shadow: var(--shadow-card);
+}
+.source-list .source-id {
+  color: var(--wp-terra);
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+.source-list .source-title { color: var(--wp-ink); font-weight: 700; }
+.source-list .source-meta { color: var(--wp-muted); }
+
+/* ---------- KPI 한 줄 ------------------------------------------------------- */
+.kpi-line { font-size: 1.4em; font-weight: 700; line-height: 1.4; margin: 0.4em 0; color: var(--wp-ink); }
+.kpi-line .accent { color: var(--wp-terra); }
+
+/* ---------- reveal 크롬 ----------------------------------------------------- */
+/* 진행바 트랙은 reveal 기본값이 rgba(0,0,0,.2) 다. 검정 배경에서는 안 보였지만
+   크림 배경에서는 회색 가로선으로 드러나므로 옅은 잉크 틴트로 낮춘다. */
+.reveal .progress {
+  color: var(--wp-terra);
+  height: 3px;
+  background: rgba(33, 51, 74, .07);
+}
+.reveal .controls { color: var(--wp-terra); }
+.reveal .slide-number {
+  background: rgba(255,255,255,.7);
+  color: var(--wp-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62em;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+::selection { background: var(--wp-terra); color: #FFFFFF; }
+
+/* ---------- 모션 최소화 ----------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

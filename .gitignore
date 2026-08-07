@@ -1,0 +1,30 @@
+# 중간 산출물 — 결과물만 저장소에 둔다
+lectures/*/notebooklm-chunks/
+lectures/*/*부분합본*
+
+# html2pptx 가 구워두는 배경 이미지 캐시 (PPTX 안에 embed 되므로 재생성 가능)
+assets/html2pptx/cache/
+
+# 파이썬·노드
+__pycache__/
+*.pyc
+node_modules/
+
+# OS·편집기
+.DS_Store
+Thumbs.db
+*.log
+
+# 자격 증명은 절대 올리지 않는다
+.env
+.env.local
+.env*.local
+!.env.example
+*.pem
+*.key
+storage_state.json
+
+# 에이전트 작업 폴더
+.claude/
+.codex/
+.agents/

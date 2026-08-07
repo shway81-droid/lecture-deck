@@ -1,0 +1,35 @@
+{
+  "name": "lecture-deck-skill",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Source-backed lecture deck skill for Codex and Claude",
+  "type": "module",
+  "bin": {
+    "lecture-deck-install": "scripts/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.ko.md",
+    "LICENSE",
+    "PROVENANCE.md",
+    "THIRD_PARTY_NOTICES.md",
+    "agents",
+    "assets",
+    "references",
+    "scripts",
+    "tests"
+  ],
+  "scripts": {
+    "check": "node scripts/setup.mjs check",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NewTurn2017/lecture-deck.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.20.0"
+  }
+}

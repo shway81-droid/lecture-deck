@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <title>노트북LM(현 제미나이 노트북)으로 수업과 업무 자동화하기</title>
+
+    <link rel="stylesheet" href="vendor/reveal/reset.css" />
+    <link rel="stylesheet" href="vendor/reveal/reveal.css" />
+    <link rel="stylesheet" href="vendor/reveal/highlight/monokai.css" />
+    <link rel="stylesheet" href="theme.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+
+        <section class="title-slide" data-background-gradient="linear-gradient(160deg, #0A0A0A 0%, #05140b 100%)">
+          <div class="title-block">
+            <p class="eyebrow">교사·강사 워크숍 · 90~120분 · 실습 4회</p>
+            <h1>노트북LM으로<br />수업과 업무 <span class="accent">자동화</span></h1>
+            <p class="subtitle">내 자료 한 묶음에서 학습 가이드, 퀴즈, 오디오 개요까지 뽑아냅니다.<br />2026년 7월 16일부터 이름은 제미나이 노트북입니다.</p>
+          </div>
+          <p class="footer-meta">모든 제품 정보는 2026-07-27 공식 문서 확인 기준</p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>이름이 바뀌었습니다</h2>
+          <div class="tl">
+            <div class="row"><span class="yr">2025.04</span><span class="ev">한국어 <strong>음성 개요</strong> 지원 시작</span></div>
+            <div class="row"><span class="yr">2026.05</span><span class="ev">구글 드라이브 문서 자동 동기화</span></div>
+            <div class="row now"><span class="yr">2026.07</span><span class="ev">노트북LM이 <strong>제미나이 노트북</strong>이 됨. 16일 발표</span></div>
+          </div>
+          <p class="muted">제품도, 내 노트북도, 공유 링크도 그대로입니다. 이름과 로고만 바뀌었습니다.<a class="citation" data-source-id="R1" href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R1]</a></p>
+          <p class="kpi-line">주소는 여전히 <span class="accent">notebooklm.google.com</span></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>오늘 들고 나갈 4가지</h2>
+          <div class="card-row">
+            <div class="hero-card">
+              <p class="big">두 시간 뒤,<br /><strong>빈손으로 나가지 않습니다</strong></p>
+            </div>
+            <ul class="bullets">
+              <li>예제 자료 5개를 올린 노트북 1권</li>
+              <li>학습 가이드·퀴즈·브리핑 중 산출물 3종</li>
+              <li>한국어 오디오 개요 1개</li>
+              <li>내 반복 업무를 4단계로 적은 워크플로 문서</li>
+            </ul>
+          </div>
+          
+        </section>
+
+
+
+        <section>
+          <h2>챗봇과 뭐가 다른가</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">일반 챗봇</p>
+              <ul>
+                <li>인터넷에서 배운 것 전부에서 답을 만든다</li>
+                <li>출처를 물어보면 없는 논문을 지어낸다</li>
+                <li>내 학교 규정은 모른다</li>
+              </ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">제미나이 노트북</p>
+              <ul>
+                <li>내가 올린 자료 안에서만 답을 만든다</li>
+                <li>문장마다 원문 위치를 붙여준다</li>
+                <li>자료에 없으면 없다고 말한다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">인용에 마우스를 올리면 원문이 뜨고, 누르면 그 위치로 이동합니다.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">START · 5분</p>
+          <h2>여기로 들어오세요</h2>
+          <div class="thesis-flow">
+            <div class="flow-step is-now">
+              <span class="fs-t">권장</span>
+              <span class="fs-n"><strong>notebooklm.google.com</strong><br />전 기능 사용 가능</span>
+            </div>
+            <div class="flow-step">
+              <span class="fs-t">주의</span>
+              <span class="fs-n">제미나이 앱 안의 노트북<br />오디오·비디오·슬라이드 생성 불가</span>
+            </div>
+            <div class="flow-step">
+              <span class="fs-t">주의</span>
+              <span class="fs-n">모바일 앱<br />메모·마인드맵·보고서 불가</span>
+            </div>
+          </div>
+          <p class="muted small">오늘 실습은 노트북 컴퓨터의 웹 브라우저로만 합니다.<a class="citation" data-source-id="R23" href="https://support.google.com/gemininotebook/answer/17003757?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R23]</a><a class="citation" data-source-id="R17" href="https://support.google.com/gemininotebook/answer/16296687?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R17]</a> 구글 계정으로 로그인하고, 배포해 드린 예제 파일 5개를 바탕화면에 풀어두세요.</p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">PART 1 · 노트북 한 권 만들기</p>
+          <h2>화면은 세 칸입니다</h2>
+          <div class="thesis-flow">
+            <div class="flow-step">
+              <span class="fs-t">왼쪽 · 소스</span>
+              <span class="fs-n">올린 자료가 쌓이는 곳. 체크를 끄면 그 자료는 답변에서 빠집니다.</span>
+            </div>
+            <div class="flow-step">
+              <span class="fs-t">가운데 · 채팅</span>
+              <span class="fs-n">질문하는 곳. 답변에 인용이 붙습니다.</span>
+            </div>
+            <div class="flow-step">
+              <span class="fs-t">오른쪽 · 스튜디오</span>
+              <span class="fs-n">산출물을 뽑는 곳. 오늘 시간을 가장 많이 쓸 칸입니다.</span>
+            </div>
+          </div>
+          <p class="muted small">노트북끼리는 서로 못 봅니다. 한 노트북이 다른 노트북의 자료를 참조하지 않습니다.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2 class="compact">넣을 수 있는 것 <span class="accent">여덟 갈래</span></h2>
+          <div class="cap-grid">
+            <div class="cap"><span class="cap-icon">📄</span><span class="cap-text">PDF</span></div>
+            <div class="cap"><span class="cap-icon">📝</span><span class="cap-text">DOCX · TXT · MD</span></div>
+            <div class="cap"><span class="cap-icon">📊</span><span class="cap-text">PPTX · CSV</span></div>
+            <div class="cap"><span class="cap-icon">📚</span><span class="cap-text">ePub</span></div>
+            <div class="cap"><span class="cap-icon">🗂️</span><span class="cap-text">구글 문서·슬라이드·시트</span></div>
+            <div class="cap"><span class="cap-icon">🔗</span><span class="cap-text">웹 주소</span></div>
+            <div class="cap"><span class="cap-icon">▶️</span><span class="cap-text">공개 유튜브</span></div>
+            <div class="cap"><span class="cap-icon">🎙️</span><span class="cap-text">녹음 파일</span></div>
+          </div>
+          <p class="muted center small">소스 하나당 50만 단어 또는 200MB까지. 이미지와 제미나이 대화도 넣을 수 있습니다.<a class="citation" data-source-id="R13" href="https://support.google.com/gemininotebook/answer/16215270?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R13]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>한글 파일은 그냥 안 올라갑니다</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">지원 목록에 없는 것</p>
+              <ul>
+                <li>HWP, HWPX 직접 업로드</li>
+                <li>구글 드라이브에 올린 뒤 연결하기</li>
+                <li>드라이브의 한글 문서 자동 변환</li>
+              </ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">되는 우회로</p>
+              <ul>
+                <li>한글에서 <strong>PDF로 저장</strong> 후 업로드</li>
+                <li>또는 DOCX로 저장 후 업로드</li>
+                <li>표와 각주가 많으면 DOCX 쪽이 덜 깨집니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">공식 지원 형식 목록에 한글 확장자가 없습니다. 2026-07-27 확인 기준입니다.<a class="citation" data-source-id="R13" href="https://support.google.com/gemininotebook/answer/16215270?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R13]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ① · 10분</p>
+          <h2>노트북 한 권 만들기</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">새 노트북 만들기를 누릅니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">배포 파일 중 <strong>교육부 업무계획 PDF</strong>부터 올립니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">추가 버튼으로 교육기본통계, 데이터로 읽는 우리 교육을 더합니다</span></div>
+            <div class="rung"><span class="rn">4</span><span class="rt">웹 주소 하나와 CSV 하나를 더해 소스 5개를 채웁니다</span></div>
+            <div class="rung"><span class="rn">5</span><span class="rt">노트북 이름을 2026 교육정책 브리핑으로 바꿉니다</span></div>
+          </div>
+          
+        </section>
+
+
+
+        <section>
+          <h2>답을 믿기 전에 여기를 누르세요</h2>
+          <p class="pull-quote">인용이 없는 문장은 아직 근거가 없는 문장입니다</p>
+          <ul class="bullets">
+            <li>인용 표시에 마우스를 올리면 원문 문장이 그대로 뜹니다</li>
+            <li>누르면 그 문장이 있는 소스의 위치로 이동합니다</li>
+            <li>소스가 짧으면 문장 단위가 아니라 문서 전체를 가리키기도 합니다</li>
+          </ul>
+          <p class="muted small">이 확인 절차가 오늘 강의에서 가장 중요합니다. 뒤에서 학생부 규정과 다시 연결하겠습니다.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>질문이 결과를 정합니다</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">답이 흐려지는 질문</p>
+              <ul>
+                <li>이 문서 요약해줘</li>
+                <li>교육정책에 대해 설명해줘</li>
+                <li>좋은 내용 알려줘</li>
+              </ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">답이 뾰족해지는 질문</p>
+              <ul>
+                <li>업무계획에서 AI 교육 관련 과제만 골라 표로 정리해줘</li>
+                <li>통계에서 다문화 학생 수 변화와 그 원인 설명을 찾아줘</li>
+                <li>두 문서가 같은 수치를 다르게 적은 곳이 있는지 찾아줘</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">범위, 형식, 대상을 넣으면 답이 달라집니다. 오른쪽 세 번째 질문은 사실 확인용으로 특히 유용합니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ① 이어서 · 10분</p>
+          <h2>질문 세 개, 메모 하나</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">앞 슬라이드 오른쪽 질문 세 개를 그대로 넣어봅니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">답변마다 <strong>인용을 최소 한 번씩 눌러</strong> 원문을 확인합니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">쓸 만한 답변에서 메모로 저장을 누릅니다</span></div>
+            <div class="rung"><span class="rn">4</span><span class="rt">저장한 메모를 열고 소스로 변환을 눌러봅니다</span></div>
+          </div>
+          <p class="muted small">메모를 소스로 바꾸면 그 정리 결과 위에서 다시 질문할 수 있습니다. 노트북당 메모는 1,000개까지입니다.<a class="citation" data-source-id="R15" href="https://support.google.com/gemininotebook/answer/16262519?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R15]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">PART 2 · 산출물 자동 생성</p>
+          <h2 class="compact">스튜디오에서 뽑는 것 <span class="accent">열 가지</span></h2>
+          <div class="cap-grid">
+            <div class="cap"><span class="cap-icon">📝</span><span class="cap-text">메모</span></div>
+            <div class="cap"><span class="cap-icon">🎧</span><span class="cap-text">오디오 오버뷰</span></div>
+            <div class="cap"><span class="cap-icon">🎬</span><span class="cap-text">동영상 오버뷰</span></div>
+            <div class="cap"><span class="cap-icon">🧠</span><span class="cap-text">마인드맵</span></div>
+            <div class="cap"><span class="cap-icon">📑</span><span class="cap-text">보고서</span></div>
+            <div class="cap"><span class="cap-icon">📊</span><span class="cap-text">데이터 테이블</span></div>
+            <div class="cap"><span class="cap-icon">🃏</span><span class="cap-text">플래시카드</span></div>
+            <div class="cap"><span class="cap-icon">✅</span><span class="cap-text">퀴즈</span></div>
+            <div class="cap"><span class="cap-icon">🖥️</span><span class="cap-text">슬라이드 자료</span></div>
+            <div class="cap"><span class="cap-icon">🖼️</span><span class="cap-text">인포그래픽</span></div>
+          </div>
+          <p class="muted center small">연필 아이콘을 누르면 언어, 분량, 난이도를 조절할 수 있습니다.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>학습 가이드 버튼을 찾지 마세요</h2>
+          <div class="thesis-flow">
+            <div class="flow-step">
+              <span class="fs-t">1단계</span>
+              <span class="fs-n">스튜디오에서 <strong>보고서</strong>를 고릅니다</span>
+            </div>
+            <div class="flow-step is-now">
+              <span class="fs-t">2단계</span>
+              <span class="fs-n">그 안에 학습 가이드, 브리핑 문서, FAQ가 들어 있습니다</span>
+            </div>
+            <div class="flow-step">
+              <span class="fs-t">3단계</span>
+              <span class="fs-n">직접 만들기를 고르면 원하는 형식을 글로 지시합니다</span>
+            </div>
+          </div>
+          <p class="muted small">예전에 있던 타임라인 형식은 지금 프리셋 목록에 없습니다. 필요하면 직접 만들기로 지시하세요.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">구글 공식 교사 가이드 · 2026년 7월판</p>
+          <h2>지시문에 넣을 다섯 가지</h2>
+          <p class="formula">역할<span class="op">+</span>과업<span class="op">+</span>대상<span class="op">+</span>맥락<span class="op">+</span><b>산출 형식</b></p>
+          <div class="brief-block">
+            <code>고등학교 과학 교사 입장에서, 7주차 빛의 굴절 수업을 바탕으로
+학생용 실험 안내서를 만들어줘. 학습 목표, 준비물, 단계별 지시,
+관찰 기록란, 성찰 질문 2~3개를 넣고, 고등학생이 읽을 말투로 써줘.</code>
+          </div>
+          <p class="muted small">구글이 교사용으로 배포한 가이드에 PARTS라는 이름으로 정리되어 있습니다.<a class="citation" data-source-id="R4" href="https://docs.google.com/presentation/d/1MTyP-BBusYw2rHKE_lQ2QVDA7uT7ngYaGfBy9HypQdY/edit" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R4]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">복사해서 쓰는 지시문 · 수업</p>
+          <h2 class="small-h2">단원명만 바꿔 넣으면 됩니다</h2>
+          <pre><code class="language-markdown">[수업 설계]
+{7주차 단원}에서 다룬 개념 중 {8주차 단원}을 이해하려면
+다시 짚어야 할 것을 골라줘. 8주차 시작 전에 쓸
+10분짜리 복습 활동도 같이 만들어줘.
+
+[학습 자료]
+{단원}을 바탕으로 학생용 활동지를 만들어줘.
+학습 목표, 준비물, 단계별 지시, 관찰 기록란,
+성찰 질문 2~3개를 넣고 {학년} 학생이 읽을 말투로.
+
+[수준별 자료]
+{단원}으로 세 가지 활동을 만들어줘.
+기초, 보통, 심화 세 수준으로 나누고
+세 버전 모두에 어휘 도움말을 붙여줘.</code></pre>
+          <p class="muted small">구글 공식 교사 가이드의 프롬프트를 우리 교실 말로 옮긴 것입니다.<a class="citation" data-source-id="R4" href="https://docs.google.com/presentation/d/1MTyP-BBusYw2rHKE_lQ2QVDA7uT7ngYaGfBy9HypQdY/edit" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R4]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ② · 12분</p>
+          <h2>수업 자료 두 개 만들기</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">스튜디오에서 보고서를 누르고 <strong>학습 가이드</strong>를 고릅니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">연필 아이콘으로 출력 언어를 한국어로 맞춥니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">퀴즈를 눌러 난이도 보통, 문항 수 기본으로 생성합니다</span></div>
+            <div class="rung"><span class="rn">4</span><span class="rt">나온 결과에서 인용이 안 붙은 문장이 몇 개인지 세어봅니다</span></div>
+          </div>
+          <p class="muted small">4번이 숙제입니다. 옆자리와 몇 개였는지 비교해 보세요.</p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">복사해서 쓰는 지시문 · 업무</p>
+          <h2 class="small-h2">회의와 공문에 바로 쓰는 것</h2>
+          <pre><code class="language-markdown">[협의회 브리핑]
+올린 자료를 바탕으로 다음 교과협의회에서 공유할 요약을 만들어줘.
+다음 2주 핵심 목표, 진도상 유의점, 함께 논의할 지점을 나눠서 써줘.
+A4 한 장 분량으로.
+
+[민원 대비 FAQ]
+학부모가 물어볼 만한 질문 10개와 답을 만들어줘.
+답은 자료에 근거한 문장만 쓰고, 자료에 없으면
+"확인 후 안내드리겠습니다"로 남겨줘.
+
+[회의록 정리]
+회의 녹음을 바탕으로 결정 사항, 담당자, 기한을 표로 정리해줘.
+발언자 이름은 쓰지 말고 직책으로만 표시해줘.</code></pre>
+          <p class="muted small">세 번째 지시문의 마지막 줄이 개인정보 보호 장치입니다.<a class="citation" data-source-id="R4" href="https://docs.google.com/presentation/d/1MTyP-BBusYw2rHKE_lQ2QVDA7uT7ngYaGfBy9HypQdY/edit" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R4]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ② 이어서 · 8분</p>
+          <h2>업무 문서 하나 만들기</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">보고서에서 <strong>브리핑 문서</strong> 또는 FAQ를 고릅니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">앞 슬라이드의 협의회 브리핑 지시문을 붙여 넣습니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">점 세 개 메뉴에서 구글 문서로 내보내기를 눌러봅니다</span></div>
+          </div>
+          <p class="muted small">내보낸 문서를 고쳐도 노트북 쪽은 안 바뀝니다. 공유 권한도 따라가지 않습니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>내보내기 전에 네 줄만 확인</h2>
+          <ul class="check-list">
+            <li><span class="chk">1</span> 인용이 안 붙은 문장을 찾아 지우거나 직접 고쳐 씁니다</li>
+            <li><span class="chk">2</span> 숫자는 원문을 열어 눈으로 대조합니다</li>
+            <li><span class="chk">3</span> 학생 이름, 학번, 연락처가 섞여 들어갔는지 훑습니다</li>
+            <li><span class="chk">4</span> 문장 말투를 내 말투로 두세 군데 고칩니다</li>
+          </ul>
+          <p class="muted center small">4번을 하는 이유는 뒤에서 학생부 규정과 함께 말씀드리겠습니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">PART 3 · 오디오와 동영상</p>
+          <h2>자료가 라디오 방송이 됩니다</h2>
+          <div class="card-row">
+            <div class="hero-card">
+              <p class="big">두 진행자가 내 자료를 놓고<br /><strong>대화하는 형식</strong></p>
+            </div>
+            <ul class="bullets">
+              <li>한국어로 생성됩니다</li>
+              <li>심층 분석, 요약, 비평, 토론 네 형식</li>
+              <li>만드는 데 몇 분 걸립니다</li>
+              <li>무료 계정은 하루 세 개까지</li>
+            </ul>
+          </div>
+          <p class="muted small">한국어 음성 개요는 2025년 4월부터 제공됩니다.<a class="citation" data-source-id="R2" href="https://blog.google/intl/ko-kr/company-news/technology/notebooklm-audio-overviews-50-languages-kr/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R2]</a><a class="citation" data-source-id="R11" href="https://support.google.com/gemininotebook/answer/16212820?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R11]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>한국어에서 막히는 지점</h2>
+          <div class="dual">
+            <div class="dd do">
+              <p class="dd-h">한국어로 됩니다</p>
+              <ul>
+                <li>오디오 개요 생성</li>
+                <li>동영상 개요 중 설명 형식</li>
+                <li>보고서, 퀴즈, 마인드맵, 채팅</li>
+              </ul>
+            </div>
+            <div class="dd dont">
+              <p class="dd-h">영어 전용입니다</p>
+              <ul>
+                <li>오디오 길이 조절(짧게·기본·길게)</li>
+                <li>오디오 <strong>대화형 모드</strong></li>
+                <li>동영상의 시네마틱과 짧은 형식</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">시네마틱과 짧은 형식은 만 18세 이상만 쓸 수 있습니다. 학생 계정에서는 언어와 상관없이 안 나옵니다.<a class="citation" data-source-id="R11" href="https://support.google.com/gemininotebook/answer/16212820?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R11]</a><a class="citation" data-source-id="R20" href="https://support.google.com/gemininotebook/answer/16454555?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R20]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">연필 아이콘 · 맞춤설정</p>
+          <h2 class="small-h2">방송 내용을 내가 정합니다</h2>
+          <pre><code class="language-markdown">중학교 2학년이 듣는다고 생각하고 쉬운 말로 해줘.
+전문 용어가 나오면 바로 풀어서 설명해줘.
+자료에 나온 통계 수치 세 개는 반드시 언급해줘.
+마지막에 학생이 스스로 생각해볼 질문 하나를 남겨줘.</code></pre>
+          <p class="muted small">언어와 형식은 목록에서 고르고, 내용 방향은 이렇게 글로 지시합니다.<a class="citation" data-source-id="R11" href="https://support.google.com/gemininotebook/answer/16212820?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R11]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>소리 말고 그림이 필요할 때</h2>
+          <div class="case-card">
+            <span class="case-name">동영상 개요 · 설명 형식</span>
+            <span class="case-rev">한국어 가능</span>
+            <p class="case-what">자료를 해설 영상으로 만듭니다. 화이트보드, 수채화 같은 그림체를 고를 수 있습니다.</p>
+            <p class="case-lesson">단원 도입 3분 영상으로 쓰기 좋습니다</p>
+          </div>
+          <div class="case-card">
+            <span class="case-name">마인드맵</span>
+            <span class="case-rev">채팅에서 생성</span>
+            <p class="case-what">가지를 눌러 펼치고 접습니다. 노드를 클릭하면 그 주제로 바로 질문할 수 있습니다.</p>
+            <p class="case-lesson">단원 구조를 한 화면에 보여줄 때 씁니다</p>
+          </div>
+          <p class="muted center small">마인드맵은 다른 산출물과 달리 채팅 쪽에서 시작합니다.<a class="citation" data-source-id="R20" href="https://support.google.com/gemininotebook/answer/16454555?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R20]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ③ · 12분</p>
+          <h2>내 오디오 개요 만들기</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">스튜디오에서 오디오 오버뷰 옆 <strong>연필 아이콘</strong>을 누릅니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">언어를 한국어로, 형식을 심층 분석으로 고릅니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">앞 슬라이드의 맞춤 지시를 붙여 넣고 생성합니다</span></div>
+            <div class="rung"><span class="rn">4</span><span class="rt">기다리는 동안 마인드맵을 하나 만들어 봅니다</span></div>
+          </div>
+          <p class="muted small">무료 계정은 오디오와 동영상 각각 하루 세 개, 보고서는 하루 열 개까지입니다.<a class="citation" data-source-id="R12" href="https://support.google.com/gemininotebook/answer/16213268?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R12]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>어디에 놓을 것인가</h2>
+          <div class="case-card">
+            <span class="case-name">예습 과제로</span>
+            <span class="case-rev">수업 전날</span>
+            <p class="case-what">다음 단원 자료로 만든 오디오 개요를 학급 게시판에 올립니다. 읽기 힘들어하는 학생도 듣습니다.</p>
+          </div>
+          <div class="case-card">
+            <span class="case-name">협의회 사전 자료로</span>
+            <span class="case-rev">회의 이틀 전</span>
+            <p class="case-what">긴 공문과 계획서를 오디오로 만들어 공유합니다. 회의 시간에 설명을 반복하지 않아도 됩니다.</p>
+          </div>
+          <div class="case-card">
+            <span class="case-name">복습 자료로</span>
+            <span class="case-rev">시험 2주 전</span>
+            <p class="case-what">한 학기 자료를 모은 노트북에서 퀴즈와 플래시카드를 뽑아 배포합니다.</p>
+          </div>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">PART 4 · 반복 업무 워크플로</p>
+          <h2>자동화라는 말의 뜻</h2>
+          <p class="pull-quote">버튼 한 번에 되는 게 아니라, 매번 같은 순서로 하는 것</p>
+          <ul class="bullets">
+            <li>같은 자료 묶음을 매번 같은 자리에 모읍니다</li>
+            <li>같은 지시문을 매번 같은 순서로 넣습니다</li>
+            <li>결과를 매번 같은 방식으로 검수합니다</li>
+          </ul>
+          
+        </section>
+
+
+
+        <section>
+          <h2>노트북은 복사가 안 됩니다</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">기대했지만 없는 것</p>
+              <ul>
+                <li>노트북 복제 버튼</li>
+                <li>템플릿으로 저장하기</li>
+                <li>사본 만들기</li>
+              </ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">대신 이렇게 합니다</p>
+              <ul>
+                <li>소스 목록을 문서 한 장에 적어둡니다</li>
+                <li>맞춤 지시문도 같은 문서에 모아둡니다</li>
+                <li>새 노트북을 만들고 그 문서를 보며 재구성합니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">공식 안내에 아직 지원되지 않는다고 적혀 있습니다. 2026-07-27 확인 기준입니다.<a class="citation" data-source-id="R16" href="https://support.google.com/gemininotebook/answer/16269187?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R16]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>다시 쓰이는 노트북의 조건</h2>
+          <ul class="check-list">
+            <li><span class="chk">1</span> 한 노트북에 한 가지 목적만 담습니다</li>
+            <li><span class="chk">2</span> 자주 바뀌는 자료는 <strong>구글 문서</strong>로 넣습니다</li>
+            <li><span class="chk">3</span> 지시문은 노트북 밖 문서에 따로 보관합니다</li>
+            <li><span class="chk">4</span> 이름에 학년도와 목적을 넣습니다</li>
+          </ul>
+          <p class="muted small">2번이 중요합니다. 구글 문서와 시트, 슬라이드는 원본을 고치면 몇 분 안에 노트북에도 반영됩니다. PDF나 웹 주소는 올린 시점 그대로 굳습니다.<a class="citation" data-source-id="R26" href="https://workspaceupdates.googleblog.com/2026/05/keep-your-sources-up-to-date-with-automatic-Drive-syncing-in-NotebookLM.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R26]</a><a class="citation" data-source-id="R13" href="https://support.google.com/gemininotebook/answer/16215270?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R13]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>나눠 쓸 때 조심할 것</h2>
+          <div class="dual">
+            <div class="dd do">
+              <p class="dd-h">되는 것</p>
+              <ul>
+                <li>보기 전용과 편집자 두 가지 권한</li>
+                <li>같은 학교 계정끼리 공유</li>
+                <li>개인 계정은 링크 공개도 가능</li>
+              </ul>
+            </div>
+            <div class="dd dont">
+              <p class="dd-h">오해하기 쉬운 것</p>
+              <ul>
+                <li>편집자는 <strong>다른 사람에게 또 공유</strong>할 수 있습니다</li>
+                <li>채팅 화면만 공유해도 원본 접근은 안 막힙니다</li>
+                <li>학교 계정은 외부 공유가 막혀 있습니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">공유 버튼 옆에 지구본 아이콘이 보이면 그 노트북은 공개 상태입니다.<a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R10]</a><a class="citation" data-source-id="R18" href="https://support.google.com/gemininotebook/answer/16322204?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R18]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>한 주를 이렇게 돌립니다</h2>
+          <div class="tl">
+            <div class="row"><span class="yr">월</span><span class="ev">이번 주 공문과 계획서를 <strong>업무 노트북</strong>에 넣고 브리핑 하나 뽑기</span></div>
+            <div class="row"><span class="yr">화</span><span class="ev">다음 단원 자료로 학습 가이드와 활동지 만들기</span></div>
+            <div class="row"><span class="yr">수</span><span class="ev">협의회 녹음 올려 결정 사항 표로 정리하기</span></div>
+            <div class="row"><span class="yr">목</span><span class="ev">다음 주 예습용 오디오 개요 만들어 학급에 올리기</span></div>
+            <div class="row now"><span class="yr">금</span><span class="ev">이번 주 메모를 소스로 변환해 노트북 몸집 키우기</span></div>
+          </div>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">실습 ④ · 15분 · 유일하게 내 업무로</p>
+          <h2 class="small-h2">이 칸을 채워보세요</h2>
+          <div class="brief-block">
+            <code>반복 업무 이름:
+얼마나 자주:              (매주 / 매월 / 학기마다)
+
+1. 모을 자료:            (어디에 있는 무슨 파일인가)
+2. 넣을 지시문:          (한 문장으로)
+3. 뽑을 산출물:          (보고서 / 퀴즈 / 오디오 / 표)
+4. 검수할 것:            (숫자? 이름? 말투?)
+
+노트북 이름:             (학년도 + 목적)</code>
+          </div>
+          <p class="muted small">다 채우면 그 문서가 다음 학기의 복제 버튼입니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">마무리 · 하면 안 되는 것</p>
+          <h2>학교 계정과 개인 계정은 다릅니다</h2>
+          <div class="dual">
+            <div class="dd do">
+              <p class="dd-h">학교 Workspace 계정</p>
+              <ul>
+                <li>모든 교육용 버전에 무료로 포함됩니다</li>
+                <li>피드백을 눌러도 사람이 검토하지 않습니다</li>
+                <li>AI 모델 학습에 쓰이지 않습니다</li>
+              </ul>
+            </div>
+            <div class="dd dont">
+              <p class="dd-h">개인 지메일 계정</p>
+              <ul>
+                <li>좋아요나 싫어요를 누르는 순간 다릅니다</li>
+                <li>올린 자료까지 <strong>사람 검토 대상</strong>이 됩니다</li>
+                <li>최대 3년 보관된다고 안내되어 있습니다</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted center small">학교가 데이터 처리 지역을 지정해도 이 서비스에는 적용되지 않습니다.<a class="citation" data-source-id="R5" href="https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-notebooklm-for-education" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R5]</a><a class="citation" data-source-id="R24" href="https://support.google.com/gemininotebook/answer/17004255?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R24]</a><a class="citation" data-source-id="R6" href="https://knowledge.workspace.google.com/admin/users/access/turn-notebooklm-on-or-off-for-users" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R6]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>학생부에 쓰면 안 된다는 말의 진짜 범위</h2>
+          <div class="dual">
+            <div class="dd dont">
+              <p class="dd-h">금지된 행위</p>
+              <ul>
+                <li>AI가 만든 자료를 서술형 항목에 <strong>그대로 입력</strong></li>
+                <li>학생에게 기재 내용을 작성해 제출하게 하기</li>
+              </ul>
+            </div>
+            <div class="dd do">
+              <p class="dd-h">조건부로 허용된 것</p>
+              <ul>
+                <li>문장을 다듬는 보조 수단으로 쓰기</li>
+                <li>단, 최종 입력 전에 허위·과장 여부를 교사가 확인</li>
+              </ul>
+            </div>
+          </div>
+          <p class="muted small">수행평가에서는 입력창에 이름과 학번을 넣지 않도록 지도하고, 파일 속성에 학번이 남아 있는지까지 확인하라고 되어 있습니다.<a class="citation" data-source-id="R29" href="https://www.goe.go.kr/resource/goe/na/bbs_2675/2026/02/78529f5a-80d1-4b84-bf5e-b6da96f09d30.pdf" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R29]</a><a class="citation" data-source-id="R38" href="https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&amp;boardSeq=104984&amp;lev=0&amp;m=020402" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R38]</a></p>
+          <p class="muted small">교육부가 2026년 2월 안내를 예고한 AI 활용 가이드라인은 오늘 기준으로 발간을 확인하지 못했습니다. 현재 적용되는 규범은 위 두 문서입니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>지키면 되는 최소 규칙</h2>
+          <ul class="check-list">
+            <li><span class="chk">1</span> 학생 이름·학번·연락처는 올리지 않습니다. 파일 속성까지 지웁니다</li>
+            <li><span class="chk">2</span> 초등학생 자료는 만 14세 미만 규정이 걸립니다. 학교 방침을 먼저 확인합니다</li>
+            <li><span class="chk">3</span> 교과서와 문제집을 통째로 올리지 않습니다. 수업 목적 이용은 <strong>일부분</strong>이 원칙입니다</li>
+            <li><span class="chk">4</span> 학생에게 직접 쓰게 하려면 개인 계정 기준 한국은 만 14세 이상입니다</li>
+          </ul>
+          <p class="muted small">개인정보보호위원회가 2026년 5월 이용자용 가이드를 냈습니다. 입력 전 개인정보 확인과 소속 기관 지침 확인이 수칙에 들어 있습니다.<a class="citation" data-source-id="R39" href="https://www.pipc.go.kr/np/cop/bbs/selectBoardArticle.do?bbsId=BS074&amp;mCode=C020010000&amp;nttId=12084" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R39]</a><a class="citation" data-source-id="R34" href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R34]</a><a class="citation" data-source-id="R35" href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%80%EC%9E%91%EA%B6%8C%EB%B2%95" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R35]</a><a class="citation" data-source-id="R8" href="https://support.google.com/accounts/answer/1350409?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R8]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>무료로 어디까지 되나</h2>
+          <div class="stat-row">
+            <div class="stat"><span class="num">100</span><span class="lab">노트북</span></div>
+            <div class="stat"><span class="num">50</span><span class="lab">노트북당 소스</span></div>
+            <div class="stat"><span class="num">50</span><span class="lab">하루 질문</span></div>
+            <div class="stat"><span class="num">3</span><span class="lab">하루 오디오·동영상</span></div>
+          </div>
+          <p class="muted small">보고서와 퀴즈, 마인드맵은 각각 하루 10개, 심층 조사는 월 10회입니다. 학교 Workspace 계정에는 무료로 포함되어 있습니다.<a class="citation" data-source-id="R12" href="https://support.google.com/gemininotebook/answer/16213268?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R12]</a><a class="citation" data-source-id="R5" href="https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-notebooklm-for-education" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R5]</a></p>
+          <p class="muted small">유료로 올리면 한도가 커집니다. Google AI Pro는 월 29,000원으로 표시됩니다. 결제 화면에서 다시 확인하세요.<a class="citation" data-source-id="R7" href="https://one.google.com/about/plans?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R7]</a></p>
+          <p class="footer-meta">한도와 가격은 2026-07-27 확인 기준입니다. 수시로 바뀝니다.</p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>안 될 때 여기부터 보세요</h2>
+          <ul class="check-list">
+            <li><span class="chk">1</span> 한글 파일이 안 올라감. PDF나 DOCX로 저장해서 다시 올립니다</li>
+            <li><span class="chk">2</span> 유튜브가 안 붙음. 비공개이거나 자막이 없는 영상입니다</li>
+            <li><span class="chk">3</span> PDF 오류. 복사 방지가 걸렸거나 스캔본이라 글자가 없습니다</li>
+            <li><span class="chk">4</span> 원본을 고쳤는데 답이 옛날 내용. PDF는 안 바뀌니 구글 문서로 올립니다</li>
+            <li><span class="chk">5</span> 오디오가 계속 안 나옴. 하루 세 개를 넘겼거나 서비스 장애입니다</li>
+          </ul>
+          <p class="muted center small">5번이 의심되면 구글 워크스페이스 상태 대시보드를 확인하세요. 실제 장애 이력이 남아 있습니다.<a class="citation" data-source-id="R30" href="https://www.google.com/appsstatus/dashboard/products/sqTm5ZmzCmb66kvyzcNS/history" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R30]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <h2>오늘 쓴 예제 파일</h2>
+          <div class="tl">
+            <div class="row"><span class="yr">PDF</span><span class="ev">2026년 교육부 업무계획</span></div>
+            <div class="row"><span class="yr">HWPX</span><span class="ev">2025년 교육기본통계 조사 결과</span></div>
+            <div class="row"><span class="yr">PDF</span><span class="ev">데이터로 읽는 우리 교육 제5호</span></div>
+            <div class="row"><span class="yr">URL</span><span class="ev">정책브리핑 교육 정책 기사</span></div>
+            <div class="row"><span class="yr">CSV</span><span class="ev">학교알리미 공개용데이터</span></div>
+          </div>
+          <p class="muted small">다섯 개 모두 공공누리 제1유형입니다. 출처만 밝히면 수업과 연수에 자유롭게 쓸 수 있습니다. 일부 자료는 사진과 영상을 제외한 텍스트에만 적용됩니다.<a class="citation" data-source-id="R31" href="https://www.kogl.or.kr/info/licenseType1.do" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[R31]</a></p>
+          
+        </section>
+
+
+
+        <section>
+          <p class="eyebrow">이 장만 사진 찍어 가세요</p>
+          <h2 class="small-h2">오늘 배운 것 한 장</h2>
+          <div class="brief-block">
+            <code>주소: notebooklm.google.com (제미나이 앱 말고 여기)
+
+1. 소스 모으기       한글은 PDF나 DOCX로 변환. 자주 고칠 건 구글 문서로
+2. 질문으로 확인      인용 눌러 원문 보기. 인용 없는 문장은 안 씀
+3. 스튜디오에서 뽑기   보고서 안에 학습가이드·브리핑·FAQ가 있음
+4. 검수             인용, 숫자, 학생 정보, 말투 네 가지
+5. 재구성            복제 버튼 없음. 소스 목록과 지시문을 문서로 남길 것
+
+절대 하지 말 것: 학생 자료 올린 노트북에서 좋아요·싫어요 누르기</code>
+          </div>
+          
+        </section>
+
+
+
+        <section>
+          <h2>다음 30일</h2>
+          <div class="ladder">
+            <div class="rung"><span class="rn">1</span><span class="rt">오늘 저녁, 오늘 만든 노트북에 <strong>내 자료 3개</strong>를 더 올립니다</span></div>
+            <div class="rung"><span class="rn">2</span><span class="rt">이번 주 안에, 실습④에서 적은 워크플로를 한 번 그대로 돌려봅니다</span></div>
+            <div class="rung"><span class="rn">3</span><span class="rt">2주 안에, 학교 정보 담당자에게 우리 계정 버전을 확인합니다</span></div>
+            <div class="rung"><span class="rn">4</span><span class="rt">한 달 안에, 동학년 선생님 한 분에게 노트북 하나를 공유합니다</span></div>
+          </div>
+          
+        </section>
+
+
+
+        <section class="title-slide" data-background-gradient="linear-gradient(160deg, #0A0A0A 0%, #05140b 100%)">
+          <div class="title-block">
+            <h1>수고하셨습니다</h1>
+            <p class="subtitle">오늘 만든 노트북은 지우지 마세요.<br />다음 단원 자료를 넣는 순간부터 값을 합니다.</p>
+          </div>
+          <ul class="bullets">
+            <li>📂 배포 폴더에 예제 파일 5개, 프롬프트 모음, 출처표시 문구</li>
+            <li>🛠 안 될 때 볼 곳: 구글 워크스페이스 상태 대시보드</li>
+            <li>💬 지금부터 질문 받겠습니다</li>
+          </ul>
+          <p class="footer-meta">2026-07-27 확인 기준 · 제품 정보는 강의일에 다시 확인하세요</p>
+          
+        </section>
+
+
+        <section>
+          <p class="eyebrow">SOURCES · 1/5</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R1"><span class="source-id">[R1]</span> <span class="source-title">NotebookLM is now Gemini Notebook</span><br /><span class="source-meta">Google · 2026-07-16</span> <a class="citation" data-source-id="R1" href="https://blog.google/innovation-and-ai/products/gemini-notebook/notebooklm-gemini-notebook/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R2"><span class="source-id">[R2]</span> <span class="source-title">노트북LM의 AI 음성 개요 한국어 지원</span><br /><span class="source-meta">Google Korea · 2025-04-30</span> <a class="citation" data-source-id="R2" href="https://blog.google/intl/ko-kr/company-news/technology/notebooklm-audio-overviews-50-languages-kr/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R3"><span class="source-id">[R3]</span> <span class="source-title">Generate your own Cinematic Video Overviews</span><br /><span class="source-meta">Google · 2026-03-04</span> <a class="citation" data-source-id="R3" href="https://blog.google/innovation-and-ai/products/notebooklm/generate-your-own-cinematic-video-overviews-in-notebooklm/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R4"><span class="source-id">[R4]</span> <span class="source-title">100+ ways to use Gemini in K-12 education</span><br /><span class="source-meta">Google for Education · 2026-07</span> <a class="citation" data-source-id="R4" href="https://docs.google.com/presentation/d/1MTyP-BBusYw2rHKE_lQ2QVDA7uT7ngYaGfBy9HypQdY/edit" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R5"><span class="source-id">[R5]</span> <span class="source-title">Quickstart Guide to Gemini and NotebookLM for Education</span><br /><span class="source-meta">Google Workspace 관리자 도움말 · 날짜 미표기</span> <a class="citation" data-source-id="R5" href="https://knowledge.workspace.google.com/admin/getting-started/editions/quickstart-guide-to-gemini-and-notebooklm-for-education" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R6"><span class="source-id">[R6]</span> <span class="source-title">사용자별로 Gemini Notebook 사용 설정 또는 사용 중지하기</span><br /><span class="source-meta">Google Workspace 관리자 도움말 · 2026-07-22</span> <a class="citation" data-source-id="R6" href="https://knowledge.workspace.google.com/admin/users/access/turn-notebooklm-on-or-off-for-users" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+          </ol>
+          
+        </section>
+
+        <section>
+          <p class="eyebrow">SOURCES · 2/5</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R7"><span class="source-id">[R7]</span> <span class="source-title">Google One 요금제</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R7" href="https://one.google.com/about/plans?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R8"><span class="source-id">[R8]</span> <span class="source-title">Google 계정의 연령 요건</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R8" href="https://support.google.com/accounts/answer/1350409?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R10"><span class="source-id">[R10]</span> <span class="source-title">Gemini Notebook에서 노트북 만들기</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R10" href="https://support.google.com/gemininotebook/answer/16206563?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R11"><span class="source-id">[R11]</span> <span class="source-title">AI 오디오 오버뷰 생성</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R11" href="https://support.google.com/gemininotebook/answer/16212820?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R12"><span class="source-id">[R12]</span> <span class="source-title">Gemini Notebook 업그레이드 (요금제와 한도표)</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R12" href="https://support.google.com/gemininotebook/answer/16213268?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R13"><span class="source-id">[R13]</span> <span class="source-title">노트북에 새 소스 추가 또는 검색</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R13" href="https://support.google.com/gemininotebook/answer/16215270?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+          </ol>
+          
+        </section>
+
+        <section>
+          <p class="eyebrow">SOURCES · 3/5</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R15"><span class="source-id">[R15]</span> <span class="source-title">메모 만들기 및 추가</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R15" href="https://support.google.com/gemininotebook/answer/16262519?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R16"><span class="source-id">[R16]</span> <span class="source-title">자주 묻는 질문</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R16" href="https://support.google.com/gemininotebook/answer/16269187?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R17"><span class="source-id">[R17]</span> <span class="source-title">모바일 앱에서 사용하기</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R17" href="https://support.google.com/gemininotebook/answer/16296687?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R18"><span class="source-id">[R18]</span> <span class="source-title">공개 노트북 및 추천 노트북</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R18" href="https://support.google.com/gemininotebook/answer/16322204?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R19"><span class="source-id">[R19]</span> <span class="source-title">직장 또는 학교 Google 계정으로 사용하기</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R19" href="https://support.google.com/gemininotebook/answer/16337734?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R20"><span class="source-id">[R20]</span> <span class="source-title">AI 동영상 오버뷰 생성</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R20" href="https://support.google.com/gemininotebook/answer/16454555?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+          </ol>
+          
+        </section>
+
+        <section>
+          <p class="eyebrow">SOURCES · 4/5</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R21"><span class="source-id">[R21]</span> <span class="source-title">슬라이드 자료 생성</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R21" href="https://support.google.com/gemininotebook/answer/16757456?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R22"><span class="source-id">[R22]</span> <span class="source-title">플래시카드 또는 퀴즈 생성</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R22" href="https://support.google.com/gemininotebook/answer/16958963?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R23"><span class="source-id">[R23]</span> <span class="source-title">Gemini 앱의 노트북</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R23" href="https://support.google.com/gemininotebook/answer/17003757?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R24"><span class="source-id">[R24]</span> <span class="source-title">Gemini Notebook의 개인 정보 보호 및 이용약관</span><br /><span class="source-meta">Google · 날짜 미표기</span> <a class="citation" data-source-id="R24" href="https://support.google.com/gemininotebook/answer/17004255?hl=ko" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R25"><span class="source-id">[R25]</span> <span class="source-title">NotebookLM and the Gemini app are now Core Services for Education</span><br /><span class="source-meta">Google Workspace Updates · 2025-04-03</span> <a class="citation" data-source-id="R25" href="https://workspaceupdates.googleblog.com/2025/04/notebookLM-and-gemini-app-core-services-for-education-customers.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R26"><span class="source-id">[R26]</span> <span class="source-title">Keep your sources up to date with automatic Drive syncing</span><br /><span class="source-meta">Google Workspace Updates · 2026-05-26</span> <a class="citation" data-source-id="R26" href="https://workspaceupdates.googleblog.com/2026/05/keep-your-sources-up-to-date-with-automatic-Drive-syncing-in-NotebookLM.html" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+          </ol>
+          
+        </section>
+
+        <section>
+          <p class="eyebrow">SOURCES · 5/5</p>
+          <h2>출처</h2>
+          <ol class="source-list">
+            <li id="source-R28"><span class="source-id">[R28]</span> <span class="source-title">학교알리미 공개용데이터</span><br /><span class="source-meta">KERIS · 공공데이터포털 · 2025-09-24 수정</span> <a class="citation" data-source-id="R28" href="https://www.data.go.kr/data/15014351/fileData.do" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R29"><span class="source-id">[R29]</span> <span class="source-title">2026학년도 학교생활기록부 기재요령 (중학교)</span><br /><span class="source-meta">교육부와 17개 시도교육청 · 2026-02</span> <a class="citation" data-source-id="R29" href="https://www.goe.go.kr/resource/goe/na/bbs_2675/2026/02/78529f5a-80d1-4b84-bf5e-b6da96f09d30.pdf" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R30"><span class="source-id">[R30]</span> <span class="source-title">Google Workspace 상태 대시보드 · NotebookLM 이력</span><br /><span class="source-meta">Google · 갱신형</span> <a class="citation" data-source-id="R30" href="https://www.google.com/appsstatus/dashboard/products/sqTm5ZmzCmb66kvyzcNS/history" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R31"><span class="source-id">[R31]</span> <span class="source-title">공공누리 제1유형 이용조건</span><br /><span class="source-meta">한국문화정보원 · 날짜 미표기</span> <a class="citation" data-source-id="R31" href="https://www.kogl.or.kr/info/licenseType1.do" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R34"><span class="source-id">[R34]</span> <span class="source-title">개인정보 보호법</span><br /><span class="source-meta">법제처 · 법률 제20897호 · 시행 2025-10-02</span> <a class="citation" data-source-id="R34" href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4%EB%B3%B4%ED%98%B8%EB%B2%95" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+            <li id="source-R35"><span class="source-id">[R35]</span> <span class="source-title">저작권법</span><br /><span class="source-meta">법제처 · 법률 제21336호</span> <a class="citation" data-source-id="R35" href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EC%A0%80%EC%9E%91%EA%B6%8C%EB%B2%95" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">[원문]</a></li>
+          </ol>
+          
+        </section>
+
+      </div>
+    </div>
+
+    <script src="vendor/reveal/reveal.js"></script>
+    <script src="vendor/reveal/highlight/highlight.js"></script>
+    
+    <script src="vendor/lucide.min.js"></script>
+    <script>
+      Reveal.initialize({
+        width: 1280,
+        height: 720,
+        margin: 0,
+        minScale: 0.2,
+        maxScale: 2.0,
+        hash: true,
+        slideNumber: "c/t",
+        transition: "fade",
+        backgroundTransition: "fade",
+        controls: true,
+        progress: true,
+        center: true,
+        plugins: [RevealHighlight],
+      });
+      if (window.lucide) {
+        lucide.createIcons();
+        Reveal.on("slidechanged", () => lucide.createIcons());
+      }
+    </script>
+  </body>
+</html>

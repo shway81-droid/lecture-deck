@@ -1,0 +1,1349 @@
+{
+  "schema_version": 1,
+  "session_id": "cowork-2026-08-04",
+  "lecture_slug": "claude-cowork-수업-업무-자동화",
+  "topic": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+  "depth": "deep",
+  "status": "gate2_ready",
+  "created_at": "2026-08-04T05:13:16.869Z",
+  "updated_at": "2026-08-04T05:43:55.913Z",
+  "gates": {
+    "gate1": {
+      "status": "approved",
+      "brief_path": "brief.md",
+      "brief_sha256": "80d385c47901f55b88cd6af331a4481792b43698aaa3e5db0a524038d3fb6021",
+      "outline_path": "outline.md",
+      "outline_sha256": "bd4a7b7b71cc44931c6cb543b9791d26004a399bf570490464feadef40d35211",
+      "outline_revision": 1,
+      "approved_at": "2026-08-04T05:13:16.869Z"
+    },
+    "gate2": {
+      "status": "approved",
+      "validated_at": "2026-08-04T05:43:55.913Z",
+      "validator_version": "1.0.0",
+      "brief_sha256": "80d385c47901f55b88cd6af331a4481792b43698aaa3e5db0a524038d3fb6021",
+      "research_sha256": "ba916a300e692f4d1a1c28d9de57672b78296c1b446aabc5354011c04706ebf2",
+      "outline_sha256": "bd4a7b7b71cc44931c6cb543b9791d26004a399bf570490464feadef40d35211",
+      "research_digest": "701e5ffcab3615d4956796a7d7872da702c6eb0316d91a618df290b87dec1b01",
+      "errors": [],
+      "accepted_gap_ids": [
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "approved_at": "2026-08-04T05:28:09.016Z",
+      "approval_receipt_sha256": "d160ce21a5cb9cb17d106982d787a76b429097e498c1d73738fbe22f8b118acd"
+    }
+  },
+  "capabilities": {
+    "orchestration": "sequential",
+    "max_parallel": 1,
+    "search": "live",
+    "fetch": "lossy",
+    "interactive_browser": false,
+    "screenshots": false,
+    "local_read": true,
+    "shell_readonly": true,
+    "network": "allowed",
+    "workspace_write": "allowed",
+    "limitations": [
+      "WebFetch 는 페이지를 소형 모델이 요약해 돌려주므로 원문 전문을 보지 못한다.",
+      "스캔 PDF(시도교육청 기재요령)는 텍스트 추출이 되지 않아 원문 확인 실패.",
+      "코워크를 실제로 실행해 동작을 관찰하지 못했다(설치·유료 구독 없음)."
+    ]
+  },
+  "axes": [
+    {
+      "axis_id": "A1",
+      "question": "product-access: 지원 OS·요금제·설치 경로·프리뷰 여부",
+      "lecture_need": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+      "outline_refs": [
+        "S4",
+        "S5",
+        "S37"
+      ],
+      "source_territories": [
+        "Anthropic 공식 도움말",
+        "제품 페이지",
+        "요금 페이지"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T1"
+      ],
+      "lead_ids": [],
+      "result_summary": "코워크는 유료 플랜 전용이며 Windows·macOS 데스크톱에서 동작. Pro $20/월($17 연간).",
+      "blocker": null
+    },
+    {
+      "axis_id": "A2",
+      "question": "product-capability: 파일 조작 범위·산출 형식·커넥터·스킬 재사용·한국어",
+      "lecture_need": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+      "outline_refs": [
+        "S6",
+        "S7",
+        "S8",
+        "S9",
+        "S29"
+      ],
+      "source_territories": [
+        "Anthropic 공식 도움말",
+        "제품 페이지"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T2"
+      ],
+      "lead_ids": [
+        "L5"
+      ],
+      "result_summary": "지정 폴더 직접 읽기/쓰기, docx·xlsx·pptx 등 산출, 스킬·플러그인·커넥터로 반복 작업 고정. 한국어 품질은 미확인.",
+      "blocker": null
+    },
+    {
+      "axis_id": "A3",
+      "question": "data-handling: 계정 종류별 데이터 취급·학습 사용·보관·관리자 통제",
+      "lecture_need": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+      "outline_refs": [
+        "S35"
+      ],
+      "source_territories": [
+        "Anthropic Privacy Center"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T3"
+      ],
+      "lead_ids": [
+        "L3"
+      ],
+      "result_summary": "소비자 계정은 옵트인해야 학습에 쓰임. 상용 계정은 별도 약관(원문 미확인).",
+      "blocker": null
+    },
+    {
+      "axis_id": "A4",
+      "question": "korea-classroom-rules: 생활기록부·평가 AI 사용 규정과 개인정보 보호",
+      "lecture_need": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+      "outline_refs": [
+        "S33",
+        "S34",
+        "S36"
+      ],
+      "source_territories": [
+        "교육부 훈령",
+        "교육부 보도자료",
+        "시도교육청 기재요령",
+        "보도"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T4"
+      ],
+      "lead_ids": [
+        "L1",
+        "L4"
+      ],
+      "result_summary": "생기부에 생성형 AI 문장 그대로 기재 금지(보도 근거). 훈령 본문에는 AI 조항 없음. 수행평가 관리 방안은 일률 금지가 아니나 학교급 서술이 충돌. (미확인: G1 초등 기재요령 원문, G3 수행평가 학교급)",
+      "blocker": "G1"
+    },
+    {
+      "axis_id": "A5",
+      "question": "korea-practical: HWP 지원·원화 결제·학교 환경 제약",
+      "lecture_need": "클로드 코워크로 수업과 업무 자동화하기 (초등교사 대상)",
+      "outline_refs": [
+        "S18",
+        "S37"
+      ],
+      "source_territories": [
+        "Anthropic 공식 도움말",
+        "GitHub 이슈",
+        "요금 페이지"
+      ],
+      "freshness": "current at research date",
+      "success_condition": "evidence and counter-evidence recorded",
+      "status": "closed",
+      "attempt_ids": [
+        "T5"
+      ],
+      "lead_ids": [
+        "L2"
+      ],
+      "result_summary": "공식 지원 형식에 한글 없음. 우회로는 PDF/DOCX 변환. 요금 원화 표기 없음.",
+      "blocker": null
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": "T1",
+      "axis_id": "A1",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-08-04T05:40:00Z",
+      "finished_at": "2026-08-04T05:40:00Z",
+      "host_reference": "WebSearch/WebFetch",
+      "error": null,
+      "result_digest": "16a36e86f6fed5d4"
+    },
+    {
+      "attempt_id": "T2",
+      "axis_id": "A2",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-08-04T05:40:00Z",
+      "finished_at": "2026-08-04T05:40:00Z",
+      "host_reference": "WebSearch/WebFetch",
+      "error": null,
+      "result_digest": "c8361f9b468e68c8"
+    },
+    {
+      "attempt_id": "T3",
+      "axis_id": "A3",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-08-04T05:40:00Z",
+      "finished_at": "2026-08-04T05:40:00Z",
+      "host_reference": "WebSearch/WebFetch",
+      "error": null,
+      "result_digest": "1398b376fdcce25c"
+    },
+    {
+      "attempt_id": "T4",
+      "axis_id": "A4",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-08-04T05:40:00Z",
+      "finished_at": "2026-08-04T05:40:00Z",
+      "host_reference": "WebSearch/WebFetch",
+      "error": null,
+      "result_digest": "4e808094851fc2ea"
+    },
+    {
+      "attempt_id": "T5",
+      "axis_id": "A5",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-08-04T05:40:00Z",
+      "finished_at": "2026-08-04T05:40:00Z",
+      "host_reference": "WebSearch/WebFetch",
+      "error": null,
+      "result_digest": "ea644b359f0b0abd"
+    }
+  ],
+  "waves": [
+    {
+      "wave_id": "W1",
+      "kind": "initial",
+      "depth": "deep",
+      "axis_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "lead_ids_opened": [
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "lead_ids_closed": [],
+      "started_at": "2026-08-04T05:40:00Z",
+      "completed_at": "2026-08-04T05:40:00Z",
+      "new_actionable_leads": 4,
+      "notes": "제품 접근·기능·데이터·한국 규정·한국 실무 5축 최초 조사"
+    },
+    {
+      "wave_id": "W2",
+      "kind": "lead_followup",
+      "depth": "deep",
+      "axis_ids": [
+        "A4",
+        "A5"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [
+        "L2"
+      ],
+      "started_at": "2026-08-04T05:40:00Z",
+      "completed_at": "2026-08-04T05:40:00Z",
+      "new_actionable_leads": 0,
+      "notes": "생기부 규정 1차 출처 추적, HWP 공식 지원 목록 확인"
+    },
+    {
+      "wave_id": "W3",
+      "kind": "counter_audit",
+      "depth": "deep",
+      "axis_ids": [
+        "A1",
+        "A5"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [],
+      "started_at": "2026-08-04T05:40:00Z",
+      "completed_at": "2026-08-04T05:40:00Z",
+      "new_actionable_leads": 0,
+      "notes": "'무료로 쓸 수 있다'와 'HWP 기본 지원된다'를 반대 방향으로 검색해 반증 시도. 둘 다 반증 실패(원 주장 유지)"
+    },
+    {
+      "wave_id": "W4",
+      "kind": "gap_audit",
+      "depth": "deep",
+      "axis_ids": [
+        "A2",
+        "A3",
+        "A4"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [
+        "L1",
+        "L3",
+        "L4"
+      ],
+      "started_at": "2026-08-04T05:40:00Z",
+      "completed_at": "2026-08-04T05:40:00Z",
+      "new_actionable_leads": 0,
+      "notes": "남은 공백(초등 기재요령 원문, 상용 약관 원문, 한국어 품질, 수행평가 학교급)을 확인하고 수용 공백으로 전환"
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "L1",
+      "parent_axis_id": "A4",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "초등학교 기재요령 원문에서 생성형 AI 관련 문구를 직접 확인",
+      "why_it_matters": "초등교사 대상이라 중·고 기준을 그대로 옮기면 안 된다",
+      "status": "unresolved",
+      "resolution": "시도교육청 배포 PDF가 스캔본이라 텍스트 추출 실패. 보도 근거로 대체하고 강의 전 재확인을 노트에 남긴다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G1",
+      "opened_at": "2026-08-04T05:40:00Z",
+      "closed_at": "2026-08-04T05:40:00Z"
+    },
+    {
+      "lead_id": "L2",
+      "parent_axis_id": "A5",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "코워크가 한글(HWP/HWPX)을 기본 지원하는가",
+      "why_it_matters": "한국 교사 업무 문서 대부분이 한글이다",
+      "status": "investigated_closed",
+      "resolution": "공식 업로드 목록에 없음. 미리보기 요청 이슈는 not planned 로 종료. 우회로(PDF/DOCX 변환)를 강의에 넣는다.",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-08-04T05:40:00Z",
+      "closed_at": "2026-08-04T05:40:00Z"
+    },
+    {
+      "lead_id": "L3",
+      "parent_axis_id": "A3",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "Team·Enterprise 상용 약관의 데이터 취급 원문",
+      "why_it_matters": "학교 단위 도입 시 관리자 질문이 나온다",
+      "status": "unresolved",
+      "resolution": "소비자 정책 문서에서 링크만 확인하고 원문은 열지 못했다. 학교 도입은 관리자 확인 사항으로 넘긴다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G2",
+      "opened_at": "2026-08-04T05:40:00Z",
+      "closed_at": "2026-08-04T05:40:00Z"
+    },
+    {
+      "lead_id": "L4",
+      "parent_axis_id": "A4",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "'수행평가 시 AI 활용 관리 방안'이 초등학교에도 적용되는가",
+      "why_it_matters": "초등 수행평가 실무에 직접 영향",
+      "status": "unresolved",
+      "resolution": "교육부 원문에 학교급 명시 없음, 보도는 중·고로 서술. 충돌을 그대로 강의에 노출하고 소속 교육청 시행지침 확인을 안내한다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G3",
+      "opened_at": "2026-08-04T05:40:00Z",
+      "closed_at": "2026-08-04T05:40:00Z"
+    },
+    {
+      "lead_id": "L5",
+      "parent_axis_id": "A2",
+      "parent_lead_id": null,
+      "discovered_from": "W1",
+      "question": "코워크 한국어 인터페이스·한국어 산출물 품질",
+      "why_it_matters": "초등 현장에서 바로 쓸 수 있는지",
+      "status": "unresolved",
+      "resolution": "공식 문서에 한국어 관련 별도 서술을 찾지 못했다. 강의에서 단정하지 않고 현장 시연으로 대체한다.",
+      "duplicate_of": null,
+      "accepted_gap_id": "G4",
+      "opened_at": "2026-08-04T05:40:00Z",
+      "closed_at": "2026-08-04T05:40:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "R1",
+      "canonical_key": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+      "title": "Get started with Claude Cowork",
+      "publisher": "Anthropic (Claude Help Center)",
+      "url": "https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork",
+      "local_path": null,
+      "published_or_updated_at": "날짜 미표기",
+      "accessed_at": "2026-08-04",
+      "source_type": "product_doc",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "WebFetch 요약본으로 확인. 원문 전문 미열람."
+    },
+    {
+      "source_id": "R2",
+      "canonical_key": "https://claude.com/product/cowork",
+      "title": "Claude Cowork 제품 페이지",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/product/cowork",
+      "local_path": null,
+      "published_or_updated_at": "날짜 미표기",
+      "accessed_at": "2026-08-04",
+      "source_type": "product_doc",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "WebFetch 요약본. 가격·플랜은 R3 로 교차 확인."
+    },
+    {
+      "source_id": "R3",
+      "canonical_key": "https://claude.com/pricing",
+      "title": "Claude 요금제",
+      "publisher": "Anthropic",
+      "url": "https://claude.com/pricing",
+      "local_path": null,
+      "published_or_updated_at": "날짜 미표기",
+      "accessed_at": "2026-08-04",
+      "source_type": "product_doc",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "원화 표기 없음. 결제 화면에서 재확인 필요."
+    },
+    {
+      "source_id": "R4",
+      "canonical_key": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude",
+      "title": "Use plugins in Claude",
+      "publisher": "Anthropic (Claude Help Center)",
+      "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-claude",
+      "local_path": null,
+      "published_or_updated_at": "날짜 미표기",
+      "accessed_at": "2026-08-04",
+      "source_type": "product_doc",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "WebFetch 요약본."
+    },
+    {
+      "source_id": "R5",
+      "canonical_key": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
+      "title": "Is my data used for model training?",
+      "publisher": "Anthropic (Privacy Center)",
+      "url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
+      "local_path": null,
+      "published_or_updated_at": "2026-03-16",
+      "accessed_at": "2026-08-04",
+      "source_type": "policy",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "소비자 계정 중심. 상용 약관 원문은 별도 문서라 미확인."
+    },
+    {
+      "source_id": "R6",
+      "canonical_key": "https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude-ai",
+      "title": "What kinds of documents can I upload to Claude.ai",
+      "publisher": "Anthropic (Claude Help Center)",
+      "url": "https://support.claude.com/en/articles/8241126-what-kinds-of-documents-can-i-upload-to-claude-ai",
+      "local_path": null,
+      "published_or_updated_at": "날짜 미표기",
+      "accessed_at": "2026-08-04",
+      "source_type": "product_doc",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "채팅 업로드 기준 목록. 코워크 로컬 접근은 별도 서술."
+    },
+    {
+      "source_id": "R7",
+      "canonical_key": "https://www.goe.go.kr/resource/goe/na/bbs_2675/2026/02/cfa17cad-9007-4d4e-8f52-f104d1f651ce.pdf",
+      "title": "2026학년도 초등학교 학교생활기록부 기재요령",
+      "publisher": "17개 시도교육청",
+      "url": "https://www.goe.go.kr/resource/goe/na/bbs_2675/2026/02/cfa17cad-9007-4d4e-8f52-f104d1f651ce.pdf",
+      "local_path": null,
+      "published_or_updated_at": "2026-02",
+      "accessed_at": "2026-08-04",
+      "source_type": "official_guideline",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "PDF 텍스트 추출 실패로 원문 문구 미확인. 존재와 서지사항만 확인."
+    },
+    {
+      "source_id": "R8",
+      "canonical_key": "https://news.unn.net/news/articleView.html?idxno=590156",
+      "title": "2026 학생부 기재요령 확정… 'AI 기록 금지·고교학점제 안착'",
+      "publisher": "한국대학신문",
+      "url": "https://news.unn.net/news/articleView.html?idxno=590156",
+      "local_path": null,
+      "published_or_updated_at": "2026-02-23",
+      "accessed_at": "2026-08-04",
+      "source_type": "news",
+      "retrieval_class": "fetched_summary",
+      "primary": false,
+      "limitations": "보도. 기재요령 원문 대체 불가."
+    },
+    {
+      "source_id": "R9",
+      "canonical_key": "https://star.moe.go.kr/web/contents/m20103.do?schM=view&id=108056",
+      "title": "학교생활기록 작성 및 관리지침 (교육부훈령 제555호)",
+      "publisher": "교육부",
+      "url": "https://star.moe.go.kr/web/contents/m20103.do?schM=view&id=108056",
+      "local_path": null,
+      "published_or_updated_at": "2026-02-12 개정 · 2026-03-01 시행",
+      "accessed_at": "2026-08-04",
+      "source_type": "regulation",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "본문에 AI 조항 없음을 확인(부정 근거)."
+    },
+    {
+      "source_id": "R10",
+      "canonical_key": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=104984&lev=0&searchType=null&statusYN=W&page=1&s=moe&m=020402&opType=N",
+      "title": "수행평가 시 AI 활용 관리 방안",
+      "publisher": "교육부·전국 시·도교육청",
+      "url": "https://www.moe.go.kr/boardCnts/viewRenew.do?boardID=294&boardSeq=104984&lev=0&searchType=null&statusYN=W&page=1&s=moe&m=020402&opType=N",
+      "local_path": null,
+      "published_or_updated_at": "2025-12-23",
+      "accessed_at": "2026-08-04",
+      "source_type": "official_guideline",
+      "retrieval_class": "fetched_summary",
+      "primary": true,
+      "limitations": "원문에 학교급 명시 없음. 보도(R12)와 범위가 어긋난다."
+    },
+    {
+      "source_id": "R11",
+      "canonical_key": "https://github.com/anthropics/claude-code/issues/25400",
+      "title": "[FEATURE] Add HWPX file preview support in Claude.ai",
+      "publisher": "GitHub (anthropics/claude-code)",
+      "url": "https://github.com/anthropics/claude-code/issues/25400",
+      "local_path": null,
+      "published_or_updated_at": "closed as not planned",
+      "accessed_at": "2026-08-04",
+      "source_type": "issue_tracker",
+      "retrieval_class": "fetched_summary",
+      "primary": false,
+      "limitations": "커뮤니티 요청. 'HWPX 생성은 되나 미리보기는 안 된다'는 서술의 보조 근거."
+    },
+    {
+      "source_id": "R12",
+      "canonical_key": "https://www.korea.kr/news/reporterView.do?newsId=148957866",
+      "title": "올해부터 바뀌는 중고등학교 수행평가 AI 활용 지침",
+      "publisher": "대한민국 정책브리핑",
+      "url": "https://www.korea.kr/news/reporterView.do?newsId=148957866",
+      "local_path": null,
+      "published_or_updated_at": "2026",
+      "accessed_at": "2026-08-04",
+      "source_type": "news",
+      "retrieval_class": "fetched_summary",
+      "primary": false,
+      "limitations": "보도. 적용 학교급을 '중고등학교'로 서술."
+    },
+    {
+      "source_id": "R13",
+      "canonical_key": "https://felloai.com/is-claude-cowork-free/",
+      "title": "Is Claude Cowork Free? What It Costs in 2026",
+      "publisher": "Fello AI",
+      "url": "https://felloai.com/is-claude-cowork-free/",
+      "local_path": null,
+      "published_or_updated_at": "2026",
+      "accessed_at": "2026-08-04",
+      "source_type": "commentary",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": "3차 해설. 공식 요금(R3)의 교차 확인용으로만 쓰고 단독 근거로 쓰지 않는다."
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "O1",
+      "source_id": "R1",
+      "observed_fact": "'Cowork is available to paid Claude plans (Pro, Max, Team, Enterprise) only.' 무료 계정 제외.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R1",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O2",
+      "source_id": "R1",
+      "observed_fact": "'The Claude Desktop app for macOS or Windows, open and connected.' 로컬 파일 접근 요건.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R1",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2",
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O3",
+      "source_id": "R2",
+      "observed_fact": "데스크톱 지원: macOS, Windows(x64/arm64), ChromeOS, Linux. 웹·모바일은 베타.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R2",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O4",
+      "source_id": "R2",
+      "observed_fact": "Pro $17/월에 Cowork 포함, Max $100~200, Team $20/seat, Enterprise 별도.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R2",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1",
+        "C3"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O5",
+      "source_id": "R3",
+      "observed_fact": "Pro 월 $20, 연간 선결제 시 월 $17($200). Free는 $0이며 Cowork 미포함. 원화 표기 없음.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R3",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1",
+        "C3"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O6",
+      "source_id": "R1",
+      "observed_fact": "'Direct local file access — can read from and write to your local files without manual uploads or downloads.' 폴더별 instructions 지정 가능.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R1",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O7",
+      "source_id": "R2",
+      "observed_fact": "산출 형식: .docx .pdf .txt .md .xlsx .pptx 이미지 코드 .ipynb JSON CSV YAML XML.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R2",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C5",
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O8",
+      "source_id": "R4",
+      "observed_fact": "'Plugins are available to all paid plans (Pro, Max, Team, Enterprise).' 플러그인 = 스킬+커넥터+서브에이전트 묶음.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R4",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O9",
+      "source_id": "R4",
+      "observed_fact": "'Skills work across chat, Desktop, and Cowork. Hooks and sub-agents run only in Cowork.'",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R4",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6",
+        "C7"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O10",
+      "source_id": "R6",
+      "observed_fact": "업로드 지원 목록: PDF, DOCX, CSV, TXT, HTML, ODT, RTF, EPUB, JSON, XLSX / 이미지 JPEG PNG GIF WebP. .hwp/.hwpx 언급 없음.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R6",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O11",
+      "source_id": "R11",
+      "observed_fact": "HWPX 미리보기 요청 이슈가 'closed as not planned(invalid)'로 종료. 본문에 'Claude can generate HWPX files but cannot preview them'.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R11",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O12",
+      "source_id": "R5",
+      "observed_fact": "소비자 계정은 사용자가 켠 경우에만 대화가 모델 개선에 쓰인다. Incognito 대화는 제외. 상용 제품은 별도 약관 링크.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R5",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C9"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O13",
+      "source_id": "R9",
+      "observed_fact": "훈령 제555호 본문 전체에서 생성형 AI·인공지능 관련 조항이 발견되지 않음(부정 관찰).",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R9",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C11"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O14",
+      "source_id": "R8",
+      "observed_fact": "'교사가 AI로 문장을 생성해 학생부에 그대로 옮겨 적는 행위 금지', '학생 수행평가물에 AI 정황이 있으면 평가 반영·학생부 기록 금지'.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R8",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C10"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O15",
+      "source_id": "R7",
+      "observed_fact": "2026학년도 초등학교 기재요령 문서가 시도교육청 명의로 2026-02 배포된 것은 확인. 본문 문구는 PDF 추출 실패로 미확인.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R7",
+      "observer": "main",
+      "supports_claim_ids": [],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O16",
+      "source_id": "R10",
+      "observed_fact": "2025-12-23 교육부·시도교육청 공동 '수행평가 시 AI 활용 관리 방안'. 5개 영역(활용 범위 설정/활용 과정 표기/사전교육/평가 설계/개인정보보호). 일률 금지가 아님. 원문에 학교급 명시 없음.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R10",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C12"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O17",
+      "source_id": "R12",
+      "observed_fact": "정책브리핑은 같은 방안을 '중고등학교' 대상으로 서술.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R12",
+      "observer": "main",
+      "supports_claim_ids": [],
+      "contradicts_claim_ids": [
+        "C12"
+      ],
+      "limitations": "WebFetch 요약본 기준. 원문 전문 미열람."
+    },
+    {
+      "observation_id": "O18",
+      "source_id": "R2",
+      "observed_fact": "제품 페이지: Claude가 '사용자가 고른 폴더와 도구 안에서 직접 작업하고, 작업을 끝까지 수행해 검토용 결과물을 내놓는다'.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "document_summary",
+      "retrieval_class": "fetched_summary",
+      "independence_group": "R2",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "WebFetch 요약본 기준."
+    },
+    {
+      "observation_id": "O19",
+      "source_id": "R13",
+      "observed_fact": "독립 해설도 같은 금액을 적는다: Cowork 최저 진입은 Pro 월 $20, 연 선결제 시 월 $17. 무료 플랜은 채팅만 되고 Cowork 접근이 없다.",
+      "anchor": null,
+      "observed_at": "2026-08-04",
+      "valid_at": "2026-08-04",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "R13",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1",
+        "C3"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": "3차 출처. 공식 페이지와 값이 일치하는지 대조하는 용도."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "statement": "클로드 코워크는 유료 플랜(Pro·Max·Team·Enterprise) 전용이고 무료 계정에서는 쓸 수 없다.",
+      "lecture_use": "준비물 장에서 맨 먼저 못박는다.",
+      "outline_refs": [
+        "S4",
+        "S37"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O1",
+        "O4",
+        "O5",
+        "O19"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R1",
+        "R13",
+        "R2",
+        "R3"
+      ],
+      "independence_groups": [
+        "R1",
+        "R13",
+        "R2",
+        "R3"
+      ],
+      "primary_source_id": "R1",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": "무료 사용 가능 여부를 반대 검색으로 확인함."
+    },
+    {
+      "claim_id": "C2",
+      "statement": "코워크는 macOS와 Windows 데스크톱 앱에서 동작한다(ChromeOS·Linux 포함). 웹·모바일은 베타다.",
+      "lecture_use": "윈도우 쓰는 교사도 실습 가능함을 확인시킨다.",
+      "outline_refs": [
+        "S4",
+        "S5"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O2",
+        "O3"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R1",
+        "R2"
+      ],
+      "independence_groups": [
+        "R1",
+        "R2"
+      ],
+      "primary_source_id": "R1",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": "2026년 초 macOS 전용 리서치 프리뷰였다는 보도가 있어 최신성 확인이 필요했다."
+    },
+    {
+      "claim_id": "C3",
+      "statement": "Pro 요금은 월 $20, 연간 선결제 시 월 $17이다. 공식 요금 페이지에 원화 표기가 없다.",
+      "lecture_use": "요금 장에서 숫자로 제시하고 결제 화면 재확인을 안내한다.",
+      "outline_refs": [
+        "S37"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O4",
+        "O5",
+        "O19"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R13",
+        "R2",
+        "R3"
+      ],
+      "independence_groups": [
+        "R13",
+        "R2",
+        "R3"
+      ],
+      "primary_source_id": "R2",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": "환율·지역 가격은 결제 화면에서 달라질 수 있다."
+    },
+    {
+      "claim_id": "C4",
+      "statement": "코워크는 사용자가 지정한 폴더의 파일을 수동 업로드 없이 직접 읽고 쓰고 만든다.",
+      "lecture_use": "챗GPT와의 결정적 차이를 설명하는 축.",
+      "outline_refs": [
+        "S2",
+        "S7",
+        "S11"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O2",
+        "O6",
+        "O18"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R1",
+        "R2"
+      ],
+      "independence_groups": [
+        "R1",
+        "R2"
+      ],
+      "primary_source_id": "R1",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": "실제 실행 관찰 없이 문서 근거만 있다."
+    },
+    {
+      "claim_id": "C5",
+      "statement": "코워크가 만들 수 있는 파일에는 docx·pdf·xlsx·pptx·md·csv 등이 포함된다.",
+      "lecture_use": "'결과가 파일로 나온다' 장의 근거.",
+      "outline_refs": [
+        "S8"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O7"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R2"
+      ],
+      "independence_groups": [
+        "R2"
+      ],
+      "primary_source_id": "R2",
+      "counter_search": false,
+      "valid_at": "2026-08-04",
+      "verification_ids": [],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C6",
+      "statement": "스킬은 한 번 만들어 반복 호출하는 단위이고, 플러그인은 스킬·커넥터·서브에이전트를 묶은 꾸러미다. 둘 다 유료 플랜 전용이다.",
+      "lecture_use": "'한 번 만들고 계속 쓰기' 장의 근거.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O8",
+        "O9"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R4"
+      ],
+      "independence_groups": [
+        "R4"
+      ],
+      "primary_source_id": "R4",
+      "counter_search": false,
+      "valid_at": "2026-08-04",
+      "verification_ids": [],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C7",
+      "statement": "훅과 서브에이전트는 코워크에서만 동작하고 일반 채팅에서는 비활성이다.",
+      "lecture_use": "코워크와 채팅의 기능 차이를 정확히 말할 때.",
+      "outline_refs": [
+        "S29"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O9"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R4"
+      ],
+      "independence_groups": [
+        "R4"
+      ],
+      "primary_source_id": "R4",
+      "counter_search": false,
+      "valid_at": "2026-08-04",
+      "verification_ids": [],
+      "limitations": ""
+    },
+    {
+      "claim_id": "C8",
+      "statement": "공식 지원 파일 형식 목록에 한글(.hwp/.hwpx)이 없다. 한글 파일은 PDF·DOCX로 바꾸는 우회로가 필요하다.",
+      "lecture_use": "한국 교사가 처음 만나는 벽을 다루는 장.",
+      "outline_refs": [
+        "S18"
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O7",
+        "O10",
+        "O11"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R11",
+        "R2",
+        "R6"
+      ],
+      "independence_groups": [
+        "R11",
+        "R2",
+        "R6"
+      ],
+      "primary_source_id": "R6",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V2"
+      ],
+      "limitations": "코워크는 로컬에서 코드를 실행할 수 있어 커뮤니티 스킬로 hwpx를 다루는 사례가 있으나, 기본 제공 기능이 아니다."
+    },
+    {
+      "claim_id": "C9",
+      "statement": "소비자 계정(Free·Pro·Max)의 대화는 사용자가 학습 사용을 켠 경우에만 모델 개선에 쓰인다. Team·Enterprise·API는 별도 상용 약관을 따른다.",
+      "lecture_use": "계정 종류별 데이터 취급 장.",
+      "outline_refs": [
+        "S35"
+      ],
+      "risk": "high",
+      "status": "partial",
+      "support_observation_ids": [
+        "O12"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R5"
+      ],
+      "independence_groups": [
+        "R5"
+      ],
+      "primary_source_id": "R5",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V1"
+      ],
+      "limitations": "소비자 정책(R5)만 원문 확인했다. Team·Enterprise 상용 약관은 링크만 보고 원문을 열지 못해 '상용은 별도 약관' 부분은 미확인이다. 학교 단위 도입은 관리자가 약관 원문을 확인해야 한다."
+    },
+    {
+      "claim_id": "C10",
+      "statement": "2026학년도 학교생활기록부에는 생성형 AI가 만든 문장을 그대로 기재할 수 없고, 기록 근거는 수업 중 실제 관찰이어야 한다.",
+      "lecture_use": "가장 중요한 금지선. 마무리 규정 장.",
+      "outline_refs": [
+        "S34",
+        "S36"
+      ],
+      "risk": "high",
+      "status": "partial",
+      "support_observation_ids": [
+        "O14"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R8"
+      ],
+      "independence_groups": [
+        "R8"
+      ],
+      "primary_source_id": "R8",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V3"
+      ],
+      "limitations": "시도교육청 기재요령 원문 PDF 추출 실패로 보도 근거에 의존한다. 강의 전 소속 교육청 기재요령 원문으로 재확인해야 한다."
+    },
+    {
+      "claim_id": "C11",
+      "statement": "학교생활기록 작성 및 관리지침(교육부훈령 제555호) 본문에는 AI 조항이 없다. AI 제한은 기재요령 층위에 있다.",
+      "lecture_use": "'훈령에 없으니 괜찮다'는 오해를 끊는다.",
+      "outline_refs": [
+        "S34"
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O13"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R9"
+      ],
+      "independence_groups": [
+        "R9"
+      ],
+      "primary_source_id": "R9",
+      "counter_search": false,
+      "valid_at": "2026-08-04",
+      "verification_ids": [],
+      "limitations": "부정 관찰이라 개정 시 달라질 수 있다."
+    },
+    {
+      "claim_id": "C12",
+      "statement": "'수행평가 시 AI 활용 관리 방안'(2025-12-23)은 일률 금지가 아니라 5개 영역의 관리 방안이다. 다만 적용 학교급이 자료마다 다르게 서술된다.",
+      "lecture_use": "초등교사에게 중·고 기준을 그대로 옮기지 않도록 경계선을 긋는다.",
+      "outline_refs": [
+        "S34"
+      ],
+      "risk": "high",
+      "status": "partial",
+      "support_observation_ids": [
+        "O16"
+      ],
+      "contradict_observation_ids": [
+        "O17"
+      ],
+      "source_ids": [
+        "R10",
+        "R12"
+      ],
+      "independence_groups": [
+        "R10"
+      ],
+      "primary_source_id": "R10",
+      "counter_search": true,
+      "valid_at": "2026-08-04",
+      "verification_ids": [
+        "V3"
+      ],
+      "limitations": "원문에는 학교급 명시가 없고 보도는 중·고로 서술한다. 초등 적용 여부는 소속 교육청 학업성적관리 시행지침으로 확인해야 한다."
+    }
+  ],
+  "verifications": [
+    {
+      "verification_id": "V1",
+      "claim_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "kind": "cross_source",
+      "status": "confirmed",
+      "command_or_method": "공식 도움말·제품 페이지·요금 페이지를 각각 조회해 유료 전용·지원 OS·가격을 교차 확인 + 독립 해설(R13)로 금액 대조",
+      "environment": "WebFetch",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-04",
+      "limitations": "요약본 기준"
+    },
+    {
+      "verification_id": "V2",
+      "claim_ids": [
+        "C1",
+        "C8"
+      ],
+      "kind": "counter_search",
+      "status": "confirmed",
+      "command_or_method": "'Cowork 무료 사용 가능?'과 'Cowork HWP 지원'을 반대 방향으로 검색. 무료 사용 근거는 발견되지 않았고, HWP 지원은 공식 문서가 아닌 커뮤니티 스킬·종료된 이슈만 확인됨",
+      "environment": "WebSearch",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-04",
+      "limitations": "검색 결과 기반"
+    },
+    {
+      "verification_id": "V3",
+      "claim_ids": [
+        "C10",
+        "C12"
+      ],
+      "kind": "cross_source",
+      "status": "partial",
+      "command_or_method": "교육부 훈령 원문·교육부 보도자료·시도교육청 기재요령 PDF·보도 4종을 대조. 훈령에는 AI 조항 없음, 기재요령 PDF는 추출 실패, 수행평가 방안의 학교급 서술이 자료마다 불일치",
+      "environment": "WebFetch/WebSearch",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-08-04",
+      "limitations": "초등 기재요령 원문 미확인. 강의 전 재확인 필요"
+    }
+  ],
+  "visuals": [],
+  "convergence": {
+    "status": "ready",
+    "planned_axis_count": 5,
+    "closed_axis_count": 5,
+    "open_lead_count": 0,
+    "terminal_lead_count": 5,
+    "expansion_audit_count": 2,
+    "high_risk_claim_count": 5,
+    "verified_high_risk_claim_count": 5,
+    "unresolved_claim_ids": [],
+    "accepted_gap_ids": [
+      "G1",
+      "G2",
+      "G3",
+      "G4"
+    ],
+    "checked_at": "2026-08-04T05:43:55.913Z",
+    "errors": []
+  },
+  "projection": {
+    "research_md_path": "research.md",
+    "research_md_sha256": "ba916a300e692f4d1a1c28d9de57672b78296c1b446aabc5354011c04706ebf2",
+    "outline_delta": [
+      "S4 준비물에 '유료 구독 필수' + Windows 지원 명시",
+      "S8 산출 형식을 확인된 목록으로 교체",
+      "S18 한글은 '공식 목록에 없음 → PDF/DOCX 우회'로 확정",
+      "S29 스킬/플러그인 구분과 '코워크에서만 되는 것' 추가",
+      "S34 훈령/기재요령 층위 구분, 수행평가 방안의 초등 적용 불명 명시",
+      "S35 데이터 취급은 소비자 계정만 확정, 상용은 관리자 확인 사항으로",
+      "S37 Pro $20 / 연간 $17, 원화 표기 없음"
+    ],
+    "slide_claim_map": [],
+    "unresolved_summary": [
+      "G1 초등 기재요령 원문 미확인 (스캔 PDF)",
+      "G2 Team·Enterprise 상용 약관 원문 미확인",
+      "G3 수행평가 AI 관리 방안의 초등 적용 여부 불명",
+      "G4 코워크 한국어 품질 미확인",
+      "코워크 실행 관찰 없음 — 화면 구성 장은 강의 당일 실물로 맞출 것"
+    ],
+    "generated_at": "2026-08-04T05:55:00Z"
+  }
+}

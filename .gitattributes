@@ -1,0 +1,22 @@
+# 줄바꿈을 못박는다.
+#
+# 이 스킬은 CRLF 때문에 실제로 깨진 적이 있다. package-deck.sh 의 치환 정규식이
+# 줄 끝 \r 을 못 먹어서 조용히 실패했고, 패키지 검증이 "원격 런타임 자산이 남아
+# 있습니다"라는 엉뚱한 메시지로 떨어졌다. 원인을 찾는 데 한참 걸렸다.
+# 셸 스크립트가 CRLF 로 체크아웃되면 `bad interpreter: /bin/bash^M` 로도 죽는다.
+* text=auto eol=lf
+
+# Windows 런처만 CRLF 여야 한다
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# macOS 런처는 LF
+*.command text eol=lf
+
+# 바이너리는 건드리지 않는다
+*.pptx binary
+*.pdf  binary
+*.png  binary
+*.jpg  binary
+*.woff2 binary
+*.ico  binary
