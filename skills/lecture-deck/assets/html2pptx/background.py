@@ -107,6 +107,60 @@ def build_warm(out_path: Path) -> Path:
     return out_path
 
 
+def build_slate(out_path: Path) -> Path:
+    """Slate Paper 배경 — 차가운 회백 종이, 왼쪽 위 흰 하이라이트, 오른쪽 아래 옅은 회청.
+
+    themes/slatepaper.py 팔레트와 맞춘다: paper #F4F8F9, 하이라이트 #FFFFFF, 회청 #7F94A6.
+    """
+    w, h = CANVAS_W * SCALE, CANVAS_H * SCALE
+
+    base = np.zeros((h, w, 3), dtype=np.float32)
+    base[...] = np.array([0xF4, 0xF8, 0xF9], dtype=np.float32)   # --sp-paper
+
+    ys, xs = np.mgrid[0:h, 0:w]
+    d1 = np.hypot((xs - 0.08 * w) / (1.15 * w), (ys + 0.10 * h) / (0.90 * h))
+    a1 = np.clip(1.0 - d1 / 0.62, 0.0, 1.0)[..., None]
+    base = base * (1 - a1) + np.array([0xFF, 0xFF, 0xFF], dtype=np.float32) * a1
+
+    d2 = np.hypot((xs - w) / (0.90 * w), (ys - 1.08 * h) / (0.70 * h))
+    a2 = (np.clip(1.0 - d2 / 0.60, 0.0, 1.0) * 0.08)[..., None]
+    base = base * (1 - a2) + np.array([0x7F, 0x94, 0xA6], dtype=np.float32) * a2
+
+    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, "PNG", optimize=True)
+    return out_path
+
+
+def build_grid(out_path: Path) -> Path:
+    """Grid Paper 배경 — 흰 종이에 옅은 청회색 모눈.
+
+    themes/gridpaper.py 팔레트와 맞춘다: paper #FFFFFF, 모눈 #D9E1EA 를 아주 옅게.
+    """
+    w, h = CANVAS_W * SCALE, CANVAS_H * SCALE
+
+    base = np.zeros((h, w, 3), dtype=np.float32)
+    base[...] = np.array([0xFF, 0xFF, 0xFF], dtype=np.float32)
+
+    # 모눈: 48px 간격, 알파 0.22
+    step = 48 * SCALE
+    line = np.array([0xD9, 0xE1, 0xEA], dtype=np.float32)
+    a = 0.22
+    base[::step, :, :] = base[::step, :, :] * (1 - a) + line * a
+    base[:, ::step, :] = base[:, ::step, :] * (1 - a) + line * a
+
+    # 오른쪽 아래 아주 옅은 파랑
+    ys, xs = np.mgrid[0:h, 0:w]
+    d2 = np.hypot((xs - w) / (0.92 * w), (ys - 1.06 * h) / (0.72 * h))
+    a2 = (np.clip(1.0 - d2 / 0.60, 0.0, 1.0) * 0.05)[..., None]
+    base = base * (1 - a2) + np.array([0x32, 0x75, 0xC3], dtype=np.float32) * a2
+
+    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, "PNG", optimize=True)
+    return out_path
+
+
 def build_scrim(out_path: Path) -> Path:
     """concept 슬라이드의 왼→오 어둠 스크림 (theme.css .concept::before).
 

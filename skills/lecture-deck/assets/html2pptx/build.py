@@ -132,7 +132,7 @@ def build(html: Path, out: Path, keep_notes=False, theme_name=None) -> dict:
     bg_png = cache / f"pptx-bg-{T.THEME_NAME}.png"
     scrim_png = cache / f"pptx-scrim-{T.SCRIM}.png"
     if not bg_png.exists():
-        (background.build_warm if T.BACKGROUND == "warm" else background.build)(bg_png)
+        {"warm": background.build_warm, "slate": background.build_slate, "grid": background.build_grid}.get(T.BACKGROUND, background.build)(bg_png)
     if not scrim_png.exists():
         background.build_scrim(scrim_png)
 
