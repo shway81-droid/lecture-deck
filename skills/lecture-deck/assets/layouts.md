@@ -2,6 +2,12 @@
 
 재사용 슬라이드 패턴. 각 항목은 **복붙용 HTML 스니펫 + 1줄 용도 + 발표자 노트 위치**다.
 
+> **조립이 끝나면 반드시 확인한다.** 덱이 쓴 클래스가 그 폴더의 `theme.css` 에 다 있는지 본다:
+>
+> ```bash
+> node "$SKILL_DIR/scripts/check-classes.mjs" lectures/<slug>
+> ```
+>
 > **스타일의 진실 원천은 `assets/template/theme.css`(WithGenie 검정+지니그린)다.** 아래 스니펫은 출발점일 뿐이다. 클래스를 쓰기 전에 그 클래스가 theme.css에 정의돼 있는지 확인하고, 없으면 theme.css에 있는 컴포넌트(`.title-slide`·`.case-card`·`.dd`·`.cap-grid`·`.pull-quote`·`.flow-step` 등)로 바꾼다. 실제 강의 예시는 현재 작업 프로젝트의 `lectures/*/index.html`이 있을 때만 참고한다.
 
 ## 사용 규칙
@@ -36,6 +42,9 @@
   <aside class="notes">{{이 이미지를 어떻게 짚을지}}</aside>
 </section>
 ```
+
+> `.image-slot` 은 theme.css 에 정의돼 있지 않다. 이미지 한 장을 가운데 놓기만 하면 되므로
+> 스타일 없이도 동작하지만, 여백이 필요하면 그 슬라이드에서 인라인 스타일을 준다.
 
 배경 풀스크린은 reveal.js 자체 속성으로:
 ```html
@@ -84,10 +93,10 @@
 ```html
 <section>
   <h2>{{H2 · 예: 핵심 개념 3가지}}</h2>
-  <div class="grid-3">
-    <div class="v2-card"><strong>{{제목 1}}</strong>{{한 줄 설명}}</div>
-    <div class="v2-card"><strong>{{제목 2}}</strong>{{한 줄 설명}}</div>
-    <div class="v2-card"><strong>{{제목 3}}</strong>{{한 줄 설명}}</div>
+  <div class="tier-grid">
+    <div class="tier"><p class="tier-name">{{제목 1}}</p><p>{{한 줄 설명}}</p></div>
+    <div class="tier featured"><p class="tier-name">{{제목 2}}</p><p>{{한 줄 설명}}</p></div>
+    <div class="tier"><p class="tier-name">{{제목 3}}</p><p>{{한 줄 설명}}</p></div>
   </div>
   <p class="muted center small">{{묶는 한마디 (선택)}}</p>
   <aside class="notes">{{각 카드를 한 문장씩 풀어 설명}}</aside>
@@ -95,16 +104,16 @@
 ```
 
 ## 4. step-list — 절차/체크리스트 (순서가 중요할 때)
-용도: 따라 하기 단계, 준비물 체크. 순서가 있으면 `<ol class="big-list">`, 체크 느낌은 `check-list`.
+용도: 따라 하기 단계, 준비물 체크. 순서가 있으면 `ladder`(번호 원 + 본문), 체크 느낌은 `check-list`.
 ```html
 <section>
   <p class="eyebrow">{{STEP N · 소요시간 (선택)}}</p>
   <h2>{{H2 · 예: 한 방에 만들기}}</h2>
-  <ol class="big-list">
-    <li>{{1단계 — <strong>핵심 동작</strong>}}</li>
-    <li>{{2단계}}</li>
-    <li>{{3단계}}</li>
-  </ol>
+  <div class="ladder">
+    <div class="rung"><span class="rn">1</span><span class="rt">{{1단계 · <strong>핵심 동작</strong>}}</span></div>
+    <div class="rung"><span class="rn">2</span><span class="rt">{{2단계}}</span></div>
+    <div class="rung"><span class="rn">3</span><span class="rt">{{3단계}}</span></div>
+  </div>
   <p class="muted center small">{{보충 한 줄 (선택)}}</p>
   <aside class="notes">{{시연 큐. 학생이 막히는 지점 미리 짚기}}</aside>
 </section>
@@ -148,7 +157,7 @@
 터미널 출력은 `<pre><code class="language-bash">…</code></pre>`. 입력/출력을 시각적으로 더 구분하고 싶으면 그 슬라이드에서 ad-hoc 인라인 스타일(예: 좌측 그린 보더)을 직접 준다 — theme.css에 전용 클래스는 없다.
 
 ## 7. comparison — 비교 / before-after / 강조 인용
-용도: 두 선택지 대비, 전/후, 또는 한 문장 강조. 2열은 `dual`, 문제→해결 표는 `trouble-table`, 한마디 강조는 `pull-quote`.
+용도: 두 선택지 대비, 전/후, 또는 한 문장 강조. 2열은 `dual` + `dd`(`do`/`dont`), 한마디 강조는 `pull-quote`.
 ```html
 <section>
   <h2>{{H2 · 예: 직접 vs AI}}</h2>
@@ -167,9 +176,16 @@
 ```
 변형 A — 문제/해결 표:
 ```html
-<table class="trouble-table">
-  <tr><td class="prob">{{흔한 문제}}</td><td>{{해결책 — <em>"이렇게 물어보세요"</em>}}</td></tr>
-</table>
+<div class="dual">
+  <div class="dd dont">
+    <p class="dd-h">{{흔한 문제}}</p>
+    <ul><li>{{증상}}</li></ul>
+  </div>
+  <div class="dd do">
+    <p class="dd-h">{{해결책}}</p>
+    <ul><li>{{이렇게 하세요}}</li></ul>
+  </div>
+</div>
 ```
 변형 B — 한 문장 강조: `<p class="pull-quote">{{핵심 한마디}}</p>`
 
@@ -181,10 +197,10 @@
     <h1>{{수고 멘트 · 예: 수고하셨습니다 ✨}}</h1>
     <p class="subtitle">{{여운/한 줄 마무리}}</p>
   </div>
-  <ul class="resources">
-    <li>{{📂 자료/폴더}}</li>
-    <li>{{📖 다시 볼 슬라이드/링크}}</li>
-    <li>{{💬 Q&A}}</li>
+  <ul class="bullets">
+    <li>{{자료가 있는 폴더}}</li>
+    <li>{{다시 볼 슬라이드 번호}}</li>
+    <li>{{막힐 때 볼 곳}}</li>
   </ul>
   <aside class="notes">{{Q&A 유도. 현장 디버깅이 가장 강한 학습}}</aside>
 </section>

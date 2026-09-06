@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { access, mkdir, readFile, writeFile } from "node:fs/promises";
+import { access, mkdir, readFile, realpath, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -892,6 +892,22 @@ async function main() {
   }
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+// 이 파일이 직접 실행됐는지 판정한다.
+// ~/.claude/skills/lecture-deck 는 저장소를 가리키는 심볼릭 링크라, 경로 문자열을 그대로
+// 비교하면 링크 경로로 부를 때 일치하지 않아 main() 이 조용히 안 돌았다(출력 없이 종료 0).
+// 양쪽을 realpath 로 풀어 비교한다.
+async function isDirectRun() {
+  if (!process.argv[1]) return false;
+  const here = fileURLToPath(import.meta.url);
+  const invoked = path.resolve(process.argv[1]);
+  if (here === invoked) return true;
+  try {
+    return (await realpath(here)) === (await realpath(invoked));
+  } catch {
+    return false;
+  }
+}
+
+if (await isDirectRun()) {
   await main();
 }
