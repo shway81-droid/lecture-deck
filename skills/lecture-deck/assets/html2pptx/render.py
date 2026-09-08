@@ -479,6 +479,10 @@ def d_dual(slide, b, x, y, w, S):
                 # 상단 채움 헤더: 금지·제약 쪽은 잉크, 허용·권장 쪽은 보조색
                 hb = T.ACCENT2 if col["tone"] == "do" else T.INK
                 bar(slide, cx, y, cw, head_h, hb)
+            elif T.STYLE["dual"] == "left-bar":
+                # 긍정/부정을 색으로 가른다 (dotpaper). 코랄이 없는 테마는 헤어라인으로.
+                tone_c = T.ACCENT2 if col["tone"] == "do" else getattr(T, "ACCENT3", T.RULE_C)
+                bar(slide, cx, y, 4 * S, h, tone_c)
             elif col["tone"] == "do":
                 bar(slide, cx, y, 2 * S, h, T.ACCENT)
             else:
@@ -685,7 +689,12 @@ def d_ladder(slide, b, x, y, w, S):
              **card_style())
         dx = x + T.LADDER_PAD_X * S
         dy = cy + (h - dot) / 2
-        if T.STYLE["rung_number"] == "filled":
+        if T.STYLE["rung_number"] == "block":
+            bar(slide, x, cy, dot * 1.15, h, T.ACCENT)   # 줄 왼쪽을 꽉 채우는 블록
+            dx = x + dot * 0.075                          # 블록 안에서 숫자를 가운데로
+            dy = cy + (h - dot) / 2
+            num_color = "FFFFFF"
+        elif T.STYLE["rung_number"] == "filled":
             pill(slide, dx, dy, dot, dot, fill=T.INK)
             num_color = "FFFFFF"
         else:
@@ -730,11 +739,15 @@ def d_check_list(slide, b, x, y, w, S):
              **card_style())
         dx = x + T.CHECK_PAD_X * S
         dy = cy + (h - ch) / 2
-        if T.STYLE["chk"] == "accent2-fill":
+        glyph_only = T.STYLE["chk"] == "accent2-glyph"
+        if glyph_only:
+            chip_bg, chip_fg = None, T.ACCENT2
+        elif T.STYLE["chk"] == "accent2-fill":
             chip_bg, chip_fg = T.ACCENT2, "FFFFFF"
         else:
             chip_bg, chip_fg = T.ACCENT, T.INK
-        pill(slide, dx, dy, ch * 1.15, ch, fill=chip_bg)
+        if chip_bg:
+            pill(slide, dx, dy, ch * 1.15, ch, fill=chip_bg)
         plain_text(slide, dx, dy, ch * 1.15, ch, item["n"], nsz, chip_fg,
                    font=T.MONO, align="center", anchor="middle", bold=True, lh=1.0)
         tx = dx + ch * 1.15 + 14 * S

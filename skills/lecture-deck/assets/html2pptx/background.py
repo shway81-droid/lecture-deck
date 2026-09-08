@@ -161,6 +161,39 @@ def build_grid(out_path: Path) -> Path:
     return out_path
 
 
+def build_dot(out_path: Path) -> Path:
+    """Dot Paper 배경 — 크림 종이에 옅은 회녹 점 그리드.
+
+    themes/dotpaper.py 팔레트와 맞춘다: paper #F7F7EF, 점 #A9AE9B.
+    theme.css 의 `.reveal-viewport::after` 와 같은 간격(26px)·크기(1px)로 찍는다.
+    """
+    w, h = CANVAS_W * SCALE, CANVAS_H * SCALE
+
+    base = np.zeros((h, w, 3), dtype=np.float32)
+    base[...] = np.array([0xF7, 0xF7, 0xEF], dtype=np.float32)
+
+    # 점: 26px 간격, 반지름 1px, 알파 0.5
+    step = 26 * SCALE
+    r = max(1, round(1.0 * SCALE))
+    dot = np.array([0xA9, 0xAE, 0x9B], dtype=np.float32)
+    a = 0.5
+    ys = np.arange(8 * SCALE, h, step)
+    xs = np.arange(8 * SCALE, w, step)
+    for dy in range(-r, r + 1):
+        for dx in range(-r, r + 1):
+            if dx * dx + dy * dy > r * r:
+                continue
+            yy = np.clip(ys + dy, 0, h - 1)
+            xx = np.clip(xs + dx, 0, w - 1)
+            grid = np.ix_(yy, xx)
+            base[grid] = base[grid] * (1 - a) + dot * a
+
+    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, "PNG", optimize=True)
+    return out_path
+
+
 def build_scrim(out_path: Path) -> Path:
     """concept 슬라이드의 왼→오 어둠 스크림 (theme.css .concept::before).
 

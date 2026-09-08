@@ -71,6 +71,45 @@ def serve(root, port):
     return httpd
 
 
+def print_with_playwright(url, out):
+    """Playwright 로 인쇄한다. 실패하면 False 를 돌려 크롬 경로로 넘긴다.
+
+    크롬의 `--headless=new --print-to-pdf --virtual-time-budget` 조합은 어느
+    시점부터 reveal 이 초기화되기 전에 인쇄해 **빈 페이지 한 장**을 내놓는다
+    (Chrome 152 실측: 33장 덱 → 1페이지·0자. CDN 판과 오프라인 번들판 모두 동일).
+    가상 시간은 reveal 의 setupPDF 가 끝나는 것을 기다려 주지 않는다.
+
+    그래서 기다릴 조건을 직접 준다: print-pdf 레이아웃이 깔렸는지 확인하고
+    폰트까지 로드된 뒤에 인쇄한다.
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        return False
+    try:
+        with sync_playwright() as pw:
+            b = pw.chromium.launch(args=["--no-sandbox", "--disable-gpu"])
+            pg = b.new_page(viewport={"width": 1280, "height": 720})
+            pg.goto(url, wait_until="networkidle", timeout=120000)
+            pg.wait_for_function(
+                "() => document.querySelectorAll('.pdf-page').length > 0"
+                " || (window.Reveal && Reveal.isReady && Reveal.isReady())",
+                timeout=120000)
+            pg.wait_for_timeout(4000)
+            try:
+                pg.evaluate("document.fonts.ready")
+            except Exception:
+                pass
+            pg.pdf(path=str(out), width="1280px", height="720px",
+                   print_background=True, prefer_css_page_size=True,
+                   margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})
+            b.close()
+        return out.exists() and out.stat().st_size > 0
+    except Exception as e:
+        print(f"  Playwright 인쇄 실패({e}). 크롬으로 다시 시도한다.")
+        return False
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -87,39 +126,43 @@ def main():
     n_sections = len(re.findall(r"<section\b", src))
     print(f"소스 슬라이드: {n_sections}장")
 
-    chrome = find_chrome()
-    if not chrome:
-        print("크롬을 못 찾았다. LECTURE_DECK_CHROME 에 실행 파일 경로를 준다.")
-        return 1
-
     port = free_port()
     httpd = serve(html.parent, port)
     url = f"http://127.0.0.1:{port}/{html.name}?print-pdf"
     print(f"인쇄: {url}")
 
-    with tempfile.TemporaryDirectory() as prof:
-        cmd = [
-            chrome,
-            "--headless=new",
-            "--disable-gpu",
-            "--no-sandbox",
-            "--no-pdf-header-footer",
-            f"--user-data-dir={prof}",
-            # reveal 의 setupPDF 와 폰트 로딩이 끝날 시간을 준다.
-            # 가상 시간이라 실제로 15초를 기다리지는 않는다.
-            "--virtual-time-budget=15000",
-            f"--print-to-pdf={out}",
-            url,
-        ]
-        # 한국어 Windows 는 기본 코덱이 cp949 라 크롬의 UTF-8 stderr 에서
-        # UnicodeDecodeError 가 터진다. 인코딩을 못 박고 깨진 바이트는 흘린다.
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=300,
-                           encoding="utf-8", errors="replace")
+    # 1순위는 Playwright 다. 기다릴 조건을 직접 줄 수 있어서 결과가 안정적이다.
+    r = None
+    if not print_with_playwright(url, out):
+        chrome = find_chrome()
+        if not chrome:
+            httpd.shutdown()
+            print("Playwright 도 크롬도 없다. `pip install playwright && playwright install chromium` "
+                  "하거나 LECTURE_DECK_CHROME 에 크롬 실행 파일 경로를 준다.")
+            return 1
+        with tempfile.TemporaryDirectory() as prof:
+            cmd = [
+                chrome,
+                "--headless=new",
+                "--disable-gpu",
+                "--no-sandbox",
+                "--no-pdf-header-footer",
+                f"--user-data-dir={prof}",
+                # reveal 의 setupPDF 와 폰트 로딩이 끝날 시간을 준다.
+                # 가상 시간이라 실제로 15초를 기다리지는 않는다.
+                "--virtual-time-budget=15000",
+                f"--print-to-pdf={out}",
+                url,
+            ]
+            # 한국어 Windows 는 기본 코덱이 cp949 라 크롬의 UTF-8 stderr 에서
+            # UnicodeDecodeError 가 터진다. 인코딩을 못 박고 깨진 바이트는 흘린다.
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=300,
+                               encoding="utf-8", errors="replace")
     httpd.shutdown()
 
     if not out.exists() or out.stat().st_size == 0:
         print("PDF 가 생기지 않았다.")
-        print((r.stderr or "")[-1500:])
+        print(((r.stderr if r else "") or "")[-1500:])
         return 1
 
     # ---- 검증: 페이지 수와 텍스트. 둘 중 하나라도 어긋나면 그대로 알린다.
