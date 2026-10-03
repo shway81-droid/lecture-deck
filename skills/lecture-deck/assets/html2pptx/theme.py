@@ -70,6 +70,11 @@ def activate(name=None, theme_css=None):
     g["STYLE"] = dict(mod.STYLE)
     g["BACKGROUND"] = mod.BACKGROUND
     g["SCRIM"] = mod.SCRIM
+
+    if hasattr(mod, "BASE") and hasattr(mod, "FONT_SCALE"):
+        g["BASE"] = mod.BASE
+        _rebuild_fs(mod.BASE, mod.FONT_SCALE)
+
     return mod.NAME, detected
 
 
@@ -174,87 +179,77 @@ def font_report() -> str:
             f"mono={MONO} · emoji={EMOJI}")
 
 # --------------------------------------------------------------------------
-# 글자 크기 (CSS px). base = 22px
+# 글자 크기 (CSS px). base = 22px (기본 테마)
+#
+# 테마가 BASE 와 FONT_SCALE 을 제공하면 activate() 가 _rebuild_fs() 로 재계산한다.
 # --------------------------------------------------------------------------
 BASE = 22.0
 
-
-def em(v: float) -> float:
-    return BASE * v
-
-
-FS = {
-    "h1": em(4.0),
-    "h1_title": em(5.0),
-    "h2": em(2.1),
-    "h2_compact": em(1.7),
-    "h2_small": em(1.4),
-    "body": em(1.0),
-    "small": em(0.74),
-    "eyebrow": em(0.62),
-    "eyebrow_title": em(0.8),
-    "subtitle": em(1.35),
-    "footer_meta": em(0.6),
-    "pull_quote": em(2.4),
-    "hero_big": em(1.35),
-    "kpi": em(1.45),
-    "formula": em(1.4),
-    # tl
-    "tl_yr": em(0.92),
-    "tl_ev": em(0.92),
-    # dual
-    "dd_h": em(0.78),
-    "dd_li": em(0.86),
-    # ladder
-    "rung_n": em(0.82),
-    "rung_t": em(0.94),
-    # checklist
-    "chk_li": em(0.95),
-    "chk_n": em(0.95 * 0.72),
-    # stat
-    "stat_num": em(2.6),
-    "stat_lab": em(0.72),
-    # case-card
-    "case_name": em(1.05),
-    "case_rev": em(0.95),
-    "case_what": em(0.88),
-    "case_lesson": em(1.0),
-    # thesis-flow
-    "fs_t": em(0.62),
-    "fs_n": em(1.0),
-    # cap-grid
-    "cap_icon": 26.0,
-    "cap_text": em(0.76 * 0.92),
-    # brief / code
-    "code": em(0.82),
-    # sources
-    "src": em(0.72),
-    # inline citation [R1]
-    "citation": em(0.62),
-    # divider / hero-img / concept
-    "section_num": em(0.8),
-    "h1_divider": em(3.6),
-    "byline": em(0.8),
-    "hero_sub": em(1.25),
-    "beat_h2": em(2.7),
-    "beat_sub": em(1.02),
-    # card-grid (grid-3 / v2-card)
-    "card_title": em(1.0),
-    "card_body": em(0.86),
-    # tier-grid
-    "tier_name": em(0.7),
-    "tier_price": em(1.7),
-    "tier_li": em(0.8),
-    # chip-row
-    "chip": em(0.74),
-    # qr-grid
-    "qr_eyebrow": em(0.66),
-    "qr_name": em(1.32),
-    "qr_desc": em(0.82),
-    "qr_url": em(0.74),
-    # table
-    "cell": em(0.88),
+_DEFAULT_EM_SCALE = {
+    "h1": 4.0,
+    "h1_title": 5.0,
+    "h2": 2.1,
+    "h2_compact": 1.7,
+    "h2_small": 1.4,
+    "body": 1.0,
+    "small": 0.74,
+    "eyebrow": 0.62,
+    "eyebrow_title": 0.8,
+    "subtitle": 1.35,
+    "footer_meta": 0.6,
+    "pull_quote": 2.4,
+    "hero_big": 1.35,
+    "kpi": 1.45,
+    "formula": 1.4,
+    "tl_yr": 0.92,
+    "tl_ev": 0.92,
+    "dd_h": 0.78,
+    "dd_li": 0.86,
+    "rung_n": 0.82,
+    "rung_t": 0.94,
+    "chk_li": 0.95,
+    "chk_n": 0.95 * 0.72,
+    "stat_num": 2.6,
+    "stat_lab": 0.72,
+    "case_name": 1.05,
+    "case_rev": 0.95,
+    "case_what": 0.88,
+    "case_lesson": 1.0,
+    "fs_t": 0.62,
+    "fs_n": 1.0,
+    "cap_icon": 26.0 / 22.0,
+    "cap_text": 0.76 * 0.92,
+    "code": 0.82,
+    "src": 0.72,
+    "citation": 0.62,
+    "section_num": 0.8,
+    "h1_divider": 3.6,
+    "byline": 0.8,
+    "hero_sub": 1.25,
+    "beat_h2": 2.7,
+    "beat_sub": 1.02,
+    "card_title": 1.0,
+    "card_body": 0.86,
+    "tier_name": 0.7,
+    "tier_price": 1.7,
+    "tier_li": 0.8,
+    "chip": 0.74,
+    "qr_eyebrow": 0.66,
+    "qr_name": 1.32,
+    "qr_desc": 0.82,
+    "qr_url": 0.74,
+    "cell": 0.88,
 }
+
+
+def _rebuild_fs(base: float, scale: dict = None):
+    """FS 딕셔너리를 주어진 base 와 scale 로 재계산한다."""
+    global FS
+    src = scale if scale else _DEFAULT_EM_SCALE
+    FS = {k: base * v for k, v in src.items()}
+
+
+FS = {k: BASE * v for k, v in _DEFAULT_EM_SCALE.items()}
 
 # 줄간 (CSS line-height)
 LH = {

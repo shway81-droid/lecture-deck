@@ -4,9 +4,9 @@
 덱 폴더의 theme.css 에서 각 테마의 DETECT 문자열을 찾아 자동으로 고른다.
 """
 
-from . import dotpaper, gridpaper, slatepaper, warmpaper, withgenie
+from . import coralreef, dotpaper, gridpaper, slatepaper, warmpaper, withgenie
 
-REGISTRY = {m.NAME: m for m in (withgenie, warmpaper, slatepaper, gridpaper, dotpaper)}
+REGISTRY = {m.NAME: m for m in (withgenie, warmpaper, slatepaper, gridpaper, dotpaper, coralreef)}
 DEFAULT = withgenie.NAME
 
 
