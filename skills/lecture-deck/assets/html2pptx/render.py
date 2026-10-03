@@ -185,6 +185,8 @@ MARGIN = {
     "byline": (-4, 6),
     "hero-sub": (0, 0),
     "beat-sub": (0, 0),
+    "hero-card": (14, 14),
+    "guardrail-card": (14, 14),
 }
 
 
@@ -560,6 +562,82 @@ def d_card_row(slide, b, x, y, w, S):
 
     by = y + (h - bullets_h) / 2
     d_bullets(slide, {"items": b["items"]}, x + cw + T.DUAL_GAP * S, by, cw, S)
+    return h
+
+
+# --------------------------------------------------------------------------
+# hero-card — standalone white rounded card, large text, accent on strong
+# --------------------------------------------------------------------------
+
+
+def m_hero_card(b, w, S):
+    big = T.FS["hero_big"] * S
+    inner = w - T.HERO_PAD * 2 * S
+    text_h = rich_lines(b["runs"], big, S, inner) * big * T.LH["hero_big"]
+    return text_h + T.HERO_PAD * 2 * S
+
+
+def d_hero_card(slide, b, x, y, w, S):
+    big = T.FS["hero_big"] * S
+    inner = w - T.HERO_PAD * 2 * S
+    text_h = rich_lines(b["runs"], big, S, inner) * big * T.LH["hero_big"]
+    h = text_h + T.HERO_PAD * 2 * S
+
+    tcard(slide, x, y, w, h, radius=T.RADIUS_LG * S)
+    rich_text(slide, x + T.HERO_PAD * S, y + T.HERO_PAD * S, inner, text_h,
+              b["runs"], big, S, lh=T.LH["hero_big"], color=T.FG_STRONG,
+              strong_color=T.ACCENT)
+    return h
+
+
+# --------------------------------------------------------------------------
+# guardrail-card — yellow #F5C842 at 12% opacity fill, yellow border, bold title
+# --------------------------------------------------------------------------
+
+GUARDRAIL_FILL = "F5C842"
+GUARDRAIL_FILL_ALPHA = 0.12
+GUARDRAIL_BORDER = "F5C842"
+GUARDRAIL_BORDER_ALPHA = 1.0
+GUARDRAIL_PAD_X = 24
+GUARDRAIL_PAD_Y = 20
+
+
+def m_guardrail_card(b, w, S):
+    inner = w - GUARDRAIL_PAD_X * 2 * S
+    h = 0.0
+    if b["title"]:
+        title_size = T.FS["case_name"] * S
+        h += rich_lines(b["title"], title_size, S, inner) * title_size * 1.4 + 8 * S
+    if b["body"]:
+        body_size = T.FS["body"] * S
+        h += rich_lines(b["body"], body_size, S, inner) * body_size * T.LH["body"]
+    return h + GUARDRAIL_PAD_Y * 2 * S
+
+
+def d_guardrail_card(slide, b, x, y, w, S):
+    h = m_guardrail_card(b, w, S)
+    inner = w - GUARDRAIL_PAD_X * 2 * S
+
+    card(slide, x, y, w, h, radius=T.RADIUS_SM * S,
+         fill=GUARDRAIL_FILL, fill_alpha=GUARDRAIL_FILL_ALPHA,
+         border=GUARDRAIL_BORDER, border_alpha=GUARDRAIL_BORDER_ALPHA)
+
+    tx = x + GUARDRAIL_PAD_X * S
+    cy = y + GUARDRAIL_PAD_Y * S
+
+    if b["title"]:
+        title_size = T.FS["case_name"] * S
+        th = rich_lines(b["title"], title_size, S, inner) * title_size * 1.4
+        rich_text(slide, tx, cy, inner, th, b["title"], title_size, S,
+                  color=T.FG_STRONG, lh=1.4, bold=True)
+        cy += th + 8 * S
+
+    if b["body"]:
+        body_size = T.FS["body"] * S
+        bh = rich_lines(b["body"], body_size, S, inner) * body_size * T.LH["body"]
+        rich_text(slide, tx, cy, inner, bh, b["body"], body_size, S,
+                  color=T.TEXT, lh=T.LH["body"])
+
     return h
 
 
@@ -1312,6 +1390,7 @@ MEASURE = {
     "code": m_code, "source-list": m_source_list, "title-block": m_title_block,
     "card-grid": m_card_grid, "table": m_table, "tier-grid": m_tier_grid,
     "chip-row": m_chip_row, "qr-grid": m_qr_grid, "image": m_image,
+    "hero-card": m_hero_card, "guardrail-card": m_guardrail_card,
 }
 
 DRAW = {
@@ -1322,6 +1401,7 @@ DRAW = {
     "code": d_code, "source-list": d_source_list, "title-block": d_title_block,
     "card-grid": d_card_grid, "table": d_table, "tier-grid": d_tier_grid,
     "chip-row": d_chip_row, "qr-grid": d_qr_grid, "image": d_image,
+    "hero-card": d_hero_card, "guardrail-card": d_guardrail_card,
 }
 
 # 덱 폴더 기준으로 이미지를 찾아야 하는 블록
