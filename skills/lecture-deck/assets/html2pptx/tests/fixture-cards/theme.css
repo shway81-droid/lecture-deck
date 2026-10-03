@@ -29,13 +29,13 @@
   padding: 20px 24px;
   margin: 10px 0;
 }
-.guardrail-card .guardrail-title {
+.guardrail-card .gc-title {
   font-weight: 700;
   color: #21334A;
   font-size: 1.02em;
   margin: 0 0 8px;
 }
-.guardrail-card .guardrail-body {
+.guardrail-card .gc-desc {
   color: #3E3D39;
   margin: 0;
 }

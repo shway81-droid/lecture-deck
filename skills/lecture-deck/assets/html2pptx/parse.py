@@ -383,11 +383,11 @@ def _parse_child(el, unknown: list) -> list:
                  "runs": inline(big) if big else inline(el)}]
 
     if "guardrail-card" in classes:
-        title = el.find(class_="guardrail-title")
-        body = el.find(class_="guardrail-body")
+        title = el.find(class_="gc-title")
+        desc = el.find(class_="gc-desc")
         return [{"kind": "guardrail-card",
                  "title": inline(title) if title else [],
-                 "body": inline(body) if body else inline(el)}]
+                 "body": inline(desc) if desc else inline(el)}]
 
     # grid-3 / v2-card 류: 자식 div 가 모두 strong 을 갖고 있으면 카드 격자
     kids = el.find_all("div", recursive=False)
