@@ -1,0 +1,41 @@
+/* Minimal theme for testing warmpaper detection */
+:root {
+  --wp-paper: #F3EFE7;
+}
+
+/* Standalone hero-card styling */
+.hero-card {
+  background: #FFFFFF;
+  border: 1px solid #E0D9CC;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 1px 2px rgba(80,60,40,.06), 0 6px 16px rgba(80,60,40,.09);
+}
+.hero-card .big {
+  font-size: 1.3em;
+  line-height: 1.5;
+  margin: 0;
+  color: #21334A;
+}
+.hero-card .big strong {
+  color: #B0745C;
+}
+
+/* Guardrail card styling */
+.guardrail-card {
+  background: rgba(245, 200, 66, 0.12);
+  border: 1px solid #F5C842;
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 10px 0;
+}
+.guardrail-card .guardrail-title {
+  font-weight: 700;
+  color: #21334A;
+  font-size: 1.02em;
+  margin: 0 0 8px;
+}
+.guardrail-card .guardrail-body {
+  color: #3E3D39;
+  margin: 0;
+}

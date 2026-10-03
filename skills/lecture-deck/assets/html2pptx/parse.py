@@ -377,6 +377,18 @@ def _parse_child(el, unknown: list) -> list:
     if "beat" in classes:      # concept 슬라이드 안쪽 텍스트 묶음
         return _generic(el, unknown)
 
+    if "hero-card" in classes:
+        big = el.find("p", class_="big")
+        return [{"kind": "hero-card",
+                 "runs": inline(big) if big else inline(el)}]
+
+    if "guardrail-card" in classes:
+        title = el.find(class_="guardrail-title")
+        body = el.find(class_="guardrail-body")
+        return [{"kind": "guardrail-card",
+                 "title": inline(title) if title else [],
+                 "body": inline(body) if body else inline(el)}]
+
     # grid-3 / v2-card 류: 자식 div 가 모두 strong 을 갖고 있으면 카드 격자
     kids = el.find_all("div", recursive=False)
     if len(kids) >= 2 and all(k.find("strong") for k in kids):
