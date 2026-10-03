@@ -107,6 +107,32 @@ def build_warm(out_path: Path) -> Path:
     return out_path
 
 
+def build_coral(out_path: Path) -> Path:
+    """Coral Reef 배경 — 크림 종이에 왼쪽 위에서 빛이 드는 느낌, 오른쪽 아래 코랄 틴트.
+
+    coralreef 테마용. build_warm 과 같은 구조지만 오른쪽 아래에 테라코타(#B0745C)
+    대신 코랄(#E8836B) 틴트를 넣는다.
+    """
+    w, h = CANVAS_W * SCALE, CANVAS_H * SCALE
+
+    base = np.zeros((h, w, 3), dtype=np.float32)
+    base[...] = np.array([0xF3, 0xEF, 0xE7], dtype=np.float32)   # --wp-paper (크림)
+
+    ys, xs = np.mgrid[0:h, 0:w]
+    d1 = np.hypot((xs - 0.08 * w) / (1.15 * w), (ys + 0.10 * h) / (0.90 * h))
+    a1 = np.clip(1.0 - d1 / 0.62, 0.0, 1.0)[..., None]
+    base = base * (1 - a1) + np.array([0xFB, 0xF9, 0xF4], dtype=np.float32) * a1
+
+    d2 = np.hypot((xs - w) / (0.90 * w), (ys - 1.08 * h) / (0.70 * h))
+    a2 = (np.clip(1.0 - d2 / 0.60, 0.0, 1.0) * 0.07)[..., None]
+    base = base * (1 - a2) + np.array([0xE8, 0x83, 0x6B], dtype=np.float32) * a2
+
+    img = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8), "RGB")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    img.save(out_path, "PNG", optimize=True)
+    return out_path
+
+
 def build_slate(out_path: Path) -> Path:
     """Slate Paper 배경 — 차가운 회백 종이, 왼쪽 위 흰 하이라이트, 오른쪽 아래 옅은 회청.
 
