@@ -1,6 +1,6 @@
 ---
 name: lecture-deck
-description: 주제 하나만 주면 핵심 인터뷰 3~4개 → 한 페이지 브리프·아웃라인 확정 → 축·리드·주장·출처를 검증하는 내장 리서치 → WithGenie 스타일 reveal.js 강의 덱(index.html) + brief.md + script.md + research.md를 만들고, 수강생 배포본·강사 교안 오프라인 패키징 + 편집 가능한 PPTX 두 벌 + NotebookLM 디자인 슬라이드까지 한 번에 내는 Codex·Claude 공용 스킬. "강의 만들어줘", "강의 자료 만들어줘", "이 주제로 강의 덱/슬라이드 만들어줘", "수강생 배포본 만들어줘", "lecture deck", "/lecture-deck 주제" 같은 요청에 사용. 이미 만든 lecture-deck 덱을 "PPT로 만들어줘", "파워포인트로 바꿔줘", "pptx로 내보내줘"라고 할 때도 사용. 만든 덱 HTML을 소스로 "NotebookLM으로 슬라이드 만들어줘", "노트북LM에 넣어서 다른 디자인으로 뽑아줘"라고 할 때도 사용(20장 넘으면 자동 분할·합본). 단일 슬라이드 수정, 영상 요약/전사, 썸네일만, 상세페이지, PRD 작성은 제외.
+description: 주제 하나만 주면 핵심 인터뷰 3~4개 → 한 페이지 브리프·아웃라인 확정 → 축·리드·주장·출처를 검증하는 내장 리서치 → WithGenie 스타일 reveal.js 강의 덱(index.html) + brief.md + script.md + research.md를 만들고, 수강생 배포본·강사 교안 오프라인 패키징 + 편집 가능한 PPTX 두 벌 + 디자인 슬라이드(slide-design-kit 테마, NotebookLM 없이 몇 분)까지 한 번에 내는 Codex·Claude 공용 스킬. "강의 만들어줘", "강의 자료 만들어줘", "이 주제로 강의 덱/슬라이드 만들어줘", "수강생 배포본 만들어줘", "lecture deck", "/lecture-deck 주제" 같은 요청에 사용. 이미 만든 lecture-deck 덱을 "PPT로 만들어줘", "파워포인트로 바꿔줘", "pptx로 내보내줘"라고 할 때도 사용. 만든 덱을 "디자인 슬라이드로 뽑아줘", "제미나이 노트북 스타일로 만들어줘", "웜우드/도트그리드 테마로"라고 할 때도 사용. 만든 덱 HTML을 소스로 "NotebookLM으로 슬라이드 만들어줘", "노트북LM에 넣어서 다른 디자인으로 뽑아줘"라고 할 때도 사용(20장 넘으면 자동 분할·합본). 단일 슬라이드 수정, 영상 요약/전사, 썸네일만, 상세페이지, PRD 작성은 제외.
 ---
 
 # lecture-deck
@@ -33,14 +33,17 @@ lectures/<주제-slug>/
   <slug>-INSTRUCTOR/      # 강사 교안 (노트 포함, 스피커뷰 오프라인) — 항상 생성
   <slug>.pptx             # 파워포인트, 노트 없음 (글자 편집 가능) — 항상 생성
   <slug>-강사용.pptx       # 파워포인트, 노트 포함 — 항상 생성
-  <slug>-notebooklm.pptx  # NotebookLM 디자인 슬라이드 (이미지) — 항상 생성
-  <slug>-notebooklm.pdf   # 같은 것의 PDF — 항상 생성
-  notebooklm-chunks/      # 소스 PDF · 분할 계획 · 덩어리별 원본
+  design/deck.html        # 디자인 슬라이드 원본 (slide-design-kit 테마, 글자 수정은 여기서) — 항상 생성
+  design/<slug>-design.pdf   # 디자인 슬라이드 PDF — 항상 생성
+  design/<slug>-design.pptx  # 같은 것의 PPTX (장마다 이미지 + 발표자 노트) — 항상 생성
+  <slug>-notebooklm.pptx  # (선택) NotebookLM 디자인 슬라이드 — 사용자가 요청할 때만
+  <slug>-notebooklm.pdf   # (선택) 같은 것의 PDF
+  notebooklm-chunks/      # (선택) 소스 PDF · 분할 계획 · 덩어리별 원본
 ```
 
 STUDENT·INSTRUCTOR 패키지는 `assets/package-deck.sh`가 소스 한 벌에서 찍어낸다. 상세: `references/packaging.md`.
 PPTX 두 벌은 `assets/html2pptx/`가 만든다. 상세: `references/pptx.md`.
-NotebookLM 슬라이드는 `assets/nlm2deck/`가 만든다. 상세: `references/notebooklm.md`.
+디자인 슬라이드는 별도 스킬 `slide-design-kit`이 만든다(9단계). NotebookLM 슬라이드(선택)는 `assets/nlm2deck/`가 만든다. 상세: `references/notebooklm.md`.
 
 **위 산출물은 전부 기본이다.** 의존성이 없거나 사용자가 건너뛰라고 한 것만 빠지고, 빠졌으면 이유를 보고한다.
 
@@ -48,7 +51,7 @@ NotebookLM 슬라이드는 `assets/nlm2deck/`가 만든다. 상세: `references/
 
 ## 워크플로 (9단계 · 게이트 2개)
 
-**9단계까지 전부 기본 산출물이다.** 8·9단계를 "요청할 때만"으로 미루지 않는다. 의존성이 없거나 사용자가 명시적으로 건너뛰라고 할 때만 생략하고, 생략했으면 이유를 반드시 보고한다.
+**9단계까지 전부 기본 산출물이다(9b NotebookLM만 선택).** 8·9단계를 "요청할 때만"으로 미루지 않는다. 의존성이 없거나 사용자가 명시적으로 건너뛰라고 할 때만 생략하고, 생략했으면 이유를 반드시 보고한다.
 
 - [ ] **1. 주제 수집** — `/lecture-deck <주제>` 인자 또는 자연어에서 주제를 받는다. 없으면 묻는다. slug를 정한다.
 - [ ] **2. 핵심 인터뷰** — `references/interview.md`대로 핵심 3~4개를 호스트가 지원하는 사용자 입력 도구 또는 일반 대화로 **한 번에** 묻는다(객관식 우선). 특정 도구 이름을 전제로 삼지 않는다. 시간→슬라이드 장수 매핑을 적용.
@@ -72,7 +75,18 @@ NotebookLM 슬라이드는 `assets/nlm2deck/`가 만든다. 상세: `references/
     ```
     - 실행이 끝나면 출력의 경고 줄(`!! 여전히 넘침`, `!! 이미지 파일 없음`, `전용 렌더러가 없어…`)을 읽고 사용자에게 그대로 전한다. 경고가 없다고 단정하지 않는다.
     - 파이썬 패키지(`python-pptx` 등)가 없으면 build.py가 설치 명령을 알려준다. **먼저 설치를 시도하고**, 사용자가 거절하거나 실패하면 이 단계만 건너뛰고 이유를 알린다. 덱과 두 패키지는 영향받지 않는다.
-- [ ] **9. NotebookLM 슬라이드 (항상)** — `index.html`을 PDF로 구워 NotebookLM에 넣고, NotebookLM이 만든 슬라이드를 PPTX·PDF로 받아 합친다. 상세·옵션·확인 항목은 `references/notebooklm.md`.
+- [ ] **9. 디자인 슬라이드 (항상, NotebookLM 없이)** — `index.html`을 사용자의 Gemini 노트북 덱 110개에서 추출한 테마로 다시 입혀 PDF·PPTX로 낸다. 장수·문구·발표자 노트는 그대로(1:1), 몇 분이면 끝나고 로그인·레이트 리밋이 없다. `SDK`는 `slide-design-kit` 스킬 폴더다(Claude Code: `~/.claude/skills/slide-design-kit`).
+    ```bash
+    python "$SDK/scripts/reveal2kit.py" "lectures/<slug>/index.html" --theme <테마> --out "lectures/<slug>/design"
+    python "$SDK/scripts/render.py" "lectures/<slug>/design/deck.html" --out "lectures/<slug>/design" --name "<slug>-design"
+    python "$SDK/scripts/contact_sheet.py" "lectures/<slug>/design/slides" "lectures/<slug>/design/sheet.jpg" --cols 4 --w 340
+    ```
+    - **테마는 먼저 권하고 고르게 한다.** 교사 연수·실습 강의는 `t-dotgrid`(덱-C1), 따뜻한 연수 톤은 `t-warmwood`(코워크 참고 덱), 워크숍 좋은 예/나쁜 예는 `t-mintgray`, 개념·비유 설명은 `t-linenavy`, AI 도구 소개는 `t-glass`/`t-darktech`. 전체 목록과 원본 덱: `$SDK/references/style-catalog.md`. 같은 시리즈는 같은 테마로 고정한다.
+    - `reveal2kit.py`가 찍는 **"손볼 장" 목록**(모르는 클래스)과 `render.py`의 첫 줄 `check:`를 그대로 전한다. `OVERFLOW:n`이면 `design/deck.html`의 그 장을 고쳐 `--only n`으로 다시 렌더한다.
+    - contact sheet(`design/sheet.jpg`)를 열어 눈으로 확인한다: 글자 크기, 빈 공간 쏠림, 겹침, 카드가 잘린 곳. 렌더 PNG는 `design/slides/`에 남는다.
+    - 8단계 PPTX와 다른 산출물이다. 8단계는 글자 편집 가능, 9단계는 Gemini 디자인 테마·장마다 이미지. 9단계 글자를 고치려면 `design/deck.html`을 고치고 다시 렌더한다.
+    - 의존성: `beautifulsoup4`·`python-pptx`·`Pillow` + 설치된 Edge 또는 Chrome. 없으면 설치를 먼저 권하고, 거절하면 이 단계만 건너뛰고 이유를 알린다.
+- [ ] **9b. NotebookLM 슬라이드 (선택 · 사용자가 요청할 때만)** — "NotebookLM으로도 뽑아줘"처럼 명시적으로 요청할 때만 돌린다. `index.html`을 PDF로 구워 NotebookLM에 넣고, NotebookLM이 만든 슬라이드를 PPTX·PDF로 받아 합친다. 상세·옵션·확인 항목은 `references/notebooklm.md`.
     ```bash
     bash "$SKILL_DIR/assets/nlm2deck/run.sh" "lectures/<slug>/index.html" --profile <프로필>
     ```
@@ -125,7 +139,8 @@ node "$SKILL_DIR/scripts/setup.mjs" install-gpt-image --target all --yes
     - 호스트 검색/브라우저/문서/MCP 도구 — 실제로 제공되고 필요한 증거 유형을 보강할 때만 사용한다. 없으면 가능한 범위와 미검증 항목을 명시한다.
     - `gpt-image` — 표지·다이어그램·시연 모형 이미지 생성. `OPENAI_API_KEY`가 필요하지만 덱 생성에는 필요 없다.
     - PPTX 내보내기(8단계) — `python-pptx`·`beautifulsoup4`·`lxml`·`Pillow`·`numpy`. **기본 단계라 없으면 설치를 먼저 권한다.** `python "$SKILL_DIR/assets/html2pptx/build.py" --check`로 확인한다.
-    - NotebookLM 슬라이드(9단계) — `notebooklm` CLI(로그인된 프로필) · 헤드리스 크롬/엣지 · `pymupdf` · `python-pptx` · 인터넷. **기본 단계지만 로그인은 사용자가 직접 해야 한다.** 로그인이 없으면 이 단계만 건너뛰고 이유를 알린다.
+    - 디자인 슬라이드(9단계) — `slide-design-kit` 스킬 + `beautifulsoup4`·`python-pptx`·`Pillow` + Edge 또는 Chrome. 인터넷·로그인 불필요.
+    - NotebookLM 슬라이드(9b단계, 선택) — `notebooklm` CLI(로그인된 프로필) · 헤드리스 크롬/엣지 · `pymupdf` · `python-pptx` · 인터넷. **선택 단계이며 로그인은 사용자가 직접 해야 한다.** 로그인이 없으면 이 단계만 건너뛰고 이유를 알린다.
     - 호스트 병렬 에이전트·팀 — 독립 리서치 축 또는 독립 슬라이드 트랙을 빠르게 처리할 때만 사용한다. 순차 실행이 항상 기본 폴백이다.
 
 5단계 전에 `node "$SKILL_DIR/scripts/setup.mjs" check`를 한 번 실행한다. 선택 기능이 없으면 해당 단계만 건너뛰고 이유를 알린다. 패키징은 번들 자산으로 인터넷 없이 동작한다.
