@@ -33,9 +33,9 @@ lectures/<주제-slug>/
   <slug>-INSTRUCTOR/      # 강사 교안 (노트 포함, 스피커뷰 오프라인) — 항상 생성
   <slug>.pptx             # 파워포인트, 노트 없음 (글자 편집 가능) — 항상 생성
   <slug>-강사용.pptx       # 파워포인트, 노트 포함 — 항상 생성
-  design/deck.html        # 디자인 슬라이드 원본 (slide-design-kit 테마, 글자 수정은 여기서) — 항상 생성
-  design/<slug>-design.pdf   # 디자인 슬라이드 PDF — 항상 생성
-  design/<slug>-design.pptx  # 같은 것의 PPTX (장마다 이미지 + 발표자 노트) — 항상 생성
+  <slug>-design.pdf       # 디자인 슬라이드 PDF (slide-design-kit 테마) — 항상 생성, 맨 위 폴더에 둔다
+  <slug>-design.pptx      # 같은 것의 PPTX (디자인 배경 그림 + 글자 편집 가능 + 발표자 노트) — 항상 생성, 맨 위 폴더에 둔다
+  design/                 # 디자인 슬라이드 작업 폴더: deck.html(글자 수정은 여기서) · slides/*.png · sheet.jpg
   <slug>-notebooklm.pptx  # (선택) NotebookLM 디자인 슬라이드 — 사용자가 요청할 때만
   <slug>-notebooklm.pdf   # (선택) 같은 것의 PDF
   notebooklm-chunks/      # (선택) 소스 PDF · 분할 계획 · 덩어리별 원본
@@ -79,12 +79,16 @@ PPTX 두 벌은 `assets/html2pptx/`가 만든다. 상세: `references/pptx.md`.
     ```bash
     python "$SDK/scripts/reveal2kit.py" "lectures/<slug>/index.html" --theme <테마> --out "lectures/<slug>/design"
     python "$SDK/scripts/render.py" "lectures/<slug>/design/deck.html" --out "lectures/<slug>/design" --name "<slug>-design"
+    mv -f "lectures/<slug>/design/<slug>-design.pdf" "lectures/<slug>/design/<slug>-design.pptx" "lectures/<slug>/"
     python "$SDK/scripts/contact_sheet.py" "lectures/<slug>/design/slides" "lectures/<slug>/design/sheet.jpg" --cols 4 --w 340
     ```
+    - **최종 PDF·PPTX는 강의 폴더 맨 위로 옮긴다.** `render.py`는 `--out` 폴더(`design/`)에만 쓰므로 렌더 바로 다음 줄의 `mv`가 꺼낸다. 맨 위에 8단계 `<slug>.pptx`(편집용, 기본 테마)와 9단계 `<slug>-design.pptx`(디자인 테마)가 나란히 보여야 사용자가 새 디자인을 놓치지 않는다. 작업 파일(`deck.html`·`slides/`·`sheet.jpg`)은 `design/`에 남긴다.
+    - **전체 렌더를 다시 할 때마다 `mv` 줄도 다시 실행한다.** 그러지 않으면 새 판이 `design/`에 생기고 맨 위에는 옛 판이 남는다. `design/` 안에 PDF·PPTX가 남아 있지 않은지 마지막에 확인한다. `--only n --no-pdf --no-pptx`는 PNG만 다시 만들므로 옮길 것이 없다(확인이 끝나면 전체 렌더 + `mv`로 마무리).
     - **테마는 먼저 권하고 고르게 한다.** 교사 연수·실습 강의는 `t-dotgrid`(덱-C1), 따뜻한 연수 톤은 `t-warmwood`(코워크 참고 덱), 워크숍 좋은 예/나쁜 예는 `t-mintgray`, 개념·비유 설명은 `t-linenavy`, AI 도구 소개는 `t-glass`/`t-darktech`. 전체 목록과 원본 덱: `$SDK/references/style-catalog.md`. 같은 시리즈는 같은 테마로 고정한다.
     - `reveal2kit.py`가 찍는 **"손볼 장" 목록**(모르는 클래스)과 `render.py`의 첫 줄 `check:`를 그대로 전한다. `OVERFLOW:n`이면 `design/deck.html`의 그 장을 고쳐 `--only n`으로 다시 렌더한다.
     - contact sheet(`design/sheet.jpg`)를 열어 눈으로 확인한다: 글자 크기, 빈 공간 쏠림, 겹침, 카드가 잘린 곳. 렌더 PNG는 `design/slides/`에 남는다.
-    - 8단계 PPTX와 다른 산출물이다. 8단계는 글자 편집 가능, 9단계는 Gemini 디자인 테마·장마다 이미지. 9단계 글자를 고치려면 `design/deck.html`을 고치고 다시 렌더한다.
+    - 8단계 PPTX와 다른 산출물이다. 둘 다 글자를 고칠 수 있다. 8단계는 원본 덱 테마를 도형·텍스트 상자로 다시 그린 것이고, 9단계는 Gemini 디자인 테마를 **배경 그림 + 같은 자리의 텍스트 상자**로 옮긴 것이다(카드·아이콘 같은 도형은 그림이라 못 움직인다). 디자인이나 배치를 바꾸려면 `design/deck.html`을 고치고 다시 렌더한 뒤 `mv`로 다시 꺼낸다.
+    - 전달할 때는 맨 위 폴더의 두 PPTX가 어떻게 다른지 한 줄로 알린다: `<slug>.pptx`는 원본 덱 테마·도형까지 편집 가능, `<slug>-design.pptx`는 디자인 테마·글자 편집 가능(배경 도형은 그림), `<slug>-design.pdf`는 같은 디자인의 PDF.
     - 의존성: `beautifulsoup4`·`python-pptx`·`Pillow` + 설치된 Edge 또는 Chrome. 없으면 설치를 먼저 권하고, 거절하면 이 단계만 건너뛰고 이유를 알린다.
 - [ ] **9b. NotebookLM 슬라이드 (선택 · 사용자가 요청할 때만)** — "NotebookLM으로도 뽑아줘"처럼 명시적으로 요청할 때만 돌린다. `index.html`을 PDF로 구워 NotebookLM에 넣고, NotebookLM이 만든 슬라이드를 PPTX·PDF로 받아 합친다. 상세·옵션·확인 항목은 `references/notebooklm.md`.
     ```bash
