@@ -1,0 +1,1520 @@
+{
+  "schema_version": 1,
+  "session_id": "research-gyeongju-20261112",
+  "lecture_slug": "경주-문화유산-체험학습-사전학습",
+  "topic": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+  "depth": "standard",
+  "status": "gate2_ready",
+  "created_at": "2026-11-12T00:08:17.845Z",
+  "updated_at": "2026-11-12T00:33:32.141Z",
+  "gates": {
+    "gate1": {
+      "status": "approved",
+      "brief_path": "brief.md",
+      "brief_sha256": "2064ec50dbc106df16c3c9452caf26c81573c8b576f9008e7e8c2952e4a2969d",
+      "outline_path": "outline.md",
+      "outline_sha256": "ce8d6938209d64a2b3dba1bde635cdf6d2088f225bf00dd471fd6793d4407b91",
+      "outline_revision": 1,
+      "approved_at": "2026-11-12T00:08:17.845Z"
+    },
+    "gate2": {
+      "status": "approved",
+      "validated_at": "2026-11-12T00:33:32.141Z",
+      "validator_version": "1.0.0",
+      "brief_sha256": "2064ec50dbc106df16c3c9452caf26c81573c8b576f9008e7e8c2952e4a2969d",
+      "research_sha256": "18ab6960f05bd6cf5c936368177a72a87897bf5f883734ae43d920c1e6f2bfd3",
+      "outline_sha256": "ce8d6938209d64a2b3dba1bde635cdf6d2088f225bf00dd471fd6793d4407b91",
+      "research_digest": "92dd2948bd1832df694b0931ecd8c2d1fe15652e6b76489ea9492052b72fb39e",
+      "errors": [],
+      "accepted_gap_ids": [],
+      "approved_at": "2026-11-12T00:20:59.674Z",
+      "approval_receipt_sha256": "393ffb131e6a5e9549c6d1f320a260f378b4dc4b863e2cbd2d5c008121621f66"
+    }
+  },
+  "capabilities": {
+    "orchestration": "sequential",
+    "max_parallel": 1,
+    "search": "live",
+    "fetch": "lossy",
+    "interactive_browser": false,
+    "screenshots": false,
+    "local_read": true,
+    "shell_readonly": true,
+    "network": "allowed",
+    "workspace_write": "allowed",
+    "limitations": [
+      "WebFetch는 요약 모델을 거치므로 lossy",
+      "whc.unesco.org 403"
+    ]
+  },
+  "axes": [
+    {
+      "axis_id": "A1",
+      "question": "첨성대: 건립 시기·왕·용도, 돌 개수·단 수·창문 위치 등 숫자 이야기의 사실 여부",
+      "lecture_need": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+      "outline_refs": [
+        4,
+        5,
+        6
+      ],
+      "source_territories": [
+        "국가유산청 국가유산포털",
+        "경주시 관광/문화유산 안내",
+        "백과사전"
+      ],
+      "freshness": "역사 사실(안정)",
+      "success_condition": "숫자별로 사실/전해지는 해석 구분",
+      "status": "closed",
+      "attempt_ids": [
+        "T1"
+      ],
+      "lead_ids": [
+        "L2"
+      ],
+      "result_summary": "건립·높이·27단·창구 위치 확인, 돌 개수는 이견 있어 '약 360여 개'로 표현, 용도 학설 병기",
+      "blocker": null
+    },
+    {
+      "axis_id": "A2",
+      "question": "천마총: 무덤 성격·발굴 연도·천마도·금관, 현재 내부 관람 전시 내용",
+      "lecture_need": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+      "outline_refs": [
+        7,
+        8,
+        9
+      ],
+      "source_territories": [
+        "국가유산청",
+        "국립경주박물관",
+        "경주시"
+      ],
+      "freshness": "관람 정보는 현재 기준",
+      "success_condition": "천마도 진품/복제 전시 여부 확인",
+      "status": "closed",
+      "attempt_ids": [
+        "T2"
+      ],
+      "lead_ids": [
+        "L1"
+      ],
+      "result_summary": "1973 발굴·155호분·천마도·금관·11,500여 점 확인, 천마도 진품은 박물관 특별전 공개, 내부 전시 세부는 범위 축소",
+      "blocker": null
+    },
+    {
+      "axis_id": "A3",
+      "question": "석굴암: 건립자·시기·구조, 습기·통풍 이야기와 일제강점기 보수 문제, 현재 관람 방식(유리벽)",
+      "lecture_need": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+      "outline_refs": [
+        10,
+        11,
+        12
+      ],
+      "source_territories": [
+        "국가유산청",
+        "불국사/석굴암 공식",
+        "유네스코"
+      ],
+      "freshness": "관람 정보는 현재 기준",
+      "success_condition": "통풍 설명의 확정/논쟁 정도 구분",
+      "status": "closed",
+      "attempt_ids": [
+        "T3"
+      ],
+      "lead_ids": [],
+      "result_summary": "751~774 김대성, 전생 부모 전승, 감로수·환기구와 일제 시멘트 보수 문제, 현재 유리벽 관람 확인",
+      "blocker": null
+    },
+    {
+      "axis_id": "A4",
+      "question": "불국사: 이름 뜻·건립, 청운교·백운교, 다보탑·석가탑 특징, 10원 동전 다보탑",
+      "lecture_need": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+      "outline_refs": [
+        13,
+        14,
+        15
+      ],
+      "source_territories": [
+        "국가유산청",
+        "한국은행",
+        "불국사"
+      ],
+      "freshness": "화폐 도안은 현재 기준",
+      "success_condition": "10원 도안 확인",
+      "status": "closed",
+      "attempt_ids": [
+        "T4"
+      ],
+      "lead_ids": [],
+      "result_summary": "751 창건, 현생 부모 전승, 33계단 해석, 다보탑·석가탑 높이, 10원 동전 다보탑 확인",
+      "blocker": null
+    },
+    {
+      "axis_id": "A5",
+      "question": "신라 존속 기간·수도, 유네스코 세계유산 등재(석굴암·불국사 1995, 경주역사유적지구 2000) 범위, 관람 예절",
+      "lecture_need": "경주 문화유산 4곳(첨성대·천마총·석굴암·불국사) 초등 3~4학년 체험학습 사전학습",
+      "outline_refs": [
+        3,
+        16,
+        17
+      ],
+      "source_territories": [
+        "유네스코 세계유산센터",
+        "국가유산청"
+      ],
+      "freshness": "등재 정보(안정)",
+      "success_condition": "첨성대·천마총이 경주역사유적지구에 포함되는지 확인",
+      "status": "closed",
+      "attempt_ids": [
+        "T5"
+      ],
+      "lead_ids": [
+        "L3"
+      ],
+      "result_summary": "신라 992년, 세계유산 1995·2000 및 첨성대·천마총 포함 지구 확인",
+      "blocker": null
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": "T1",
+      "axis_id": "A1",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-11-12T00:00:00Z",
+      "finished_at": "2026-11-12T00:00:00Z",
+      "host_reference": "main-sequential",
+      "error": null,
+      "result_digest": "44fce45b22ab3ce2784064284f14e23807a18eb01b239329678d68505f98e6ac"
+    },
+    {
+      "attempt_id": "T2",
+      "axis_id": "A2",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-11-12T00:00:00Z",
+      "finished_at": "2026-11-12T00:00:00Z",
+      "host_reference": "main-sequential",
+      "error": null,
+      "result_digest": "a035a0374b44db88bb7fa62f4fb42615660799388c56a89c0d28af3bfc1085e6"
+    },
+    {
+      "attempt_id": "T3",
+      "axis_id": "A3",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-11-12T00:00:00Z",
+      "finished_at": "2026-11-12T00:00:00Z",
+      "host_reference": "main-sequential",
+      "error": null,
+      "result_digest": "4f3fec9021433fb6b858c5b42019ef3668091191b705c0e04916ebcfc7b77d41"
+    },
+    {
+      "attempt_id": "T4",
+      "axis_id": "A4",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-11-12T00:00:00Z",
+      "finished_at": "2026-11-12T00:00:00Z",
+      "host_reference": "main-sequential",
+      "error": null,
+      "result_digest": "e2bef66cf6098d49ad6c2be772e70316846bd71334beea7050797e571e6ef75c"
+    },
+    {
+      "attempt_id": "T5",
+      "axis_id": "A5",
+      "mode": "sequential",
+      "status": "returned_complete",
+      "started_at": "2026-11-12T00:00:00Z",
+      "finished_at": "2026-11-12T00:00:00Z",
+      "host_reference": "main-sequential",
+      "error": null,
+      "result_digest": "7046ebdb24697236eaf395664097d4fed5d1ecaec04d23c8e9b83bd376f36f8c"
+    }
+  ],
+  "waves": [
+    {
+      "wave_id": "W1",
+      "kind": "initial",
+      "depth": "standard",
+      "axis_ids": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5"
+      ],
+      "lead_ids_opened": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "lead_ids_closed": [],
+      "started_at": "2026-11-12T00:00:00Z",
+      "completed_at": "2026-11-12T00:00:00Z",
+      "new_actionable_leads": 3,
+      "notes": "5개 축 순차 조사"
+    },
+    {
+      "wave_id": "W2",
+      "kind": "counter_audit",
+      "depth": "standard",
+      "axis_ids": [
+        "A1",
+        "A2",
+        "A5"
+      ],
+      "lead_ids_opened": [],
+      "lead_ids_closed": [
+        "L1",
+        "L2",
+        "L3"
+      ],
+      "started_at": "2026-11-12T00:00:00Z",
+      "completed_at": "2026-11-12T00:00:00Z",
+      "new_actionable_leads": 0,
+      "notes": "돌 개수 이견·용도 학설·전시 세부 반대 근거 확인"
+    }
+  ],
+  "leads": [
+    {
+      "lead_id": "L1",
+      "parent_axis_id": "A2",
+      "parent_lead_id": null,
+      "discovered_from": "O7",
+      "question": "천마총 내부에 현재 어떤 유물(진품/복제)이 전시되는가",
+      "why_it_matters": "현장 미션 문구 정확성",
+      "status": "investigated_closed",
+      "resolution": "2017~2018 재단장 후 공개 중임은 확인, 세부 전시물은 미확인 → 미션을 '무덤 속 구조와 전시된 유물 찾아보기'로 범위 축소, 진품 천마도는 박물관 보관으로 안내",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-11-12T00:00:00Z",
+      "closed_at": "2026-11-12T00:00:00Z"
+    },
+    {
+      "lead_id": "L2",
+      "parent_axis_id": "A1",
+      "parent_lead_id": null,
+      "discovered_from": "O3",
+      "question": "첨성대 용도 논쟁(제단·우물·향로 등)",
+      "why_it_matters": "'별을 보던 곳'을 단정할지 여부",
+      "status": "investigated_closed",
+      "resolution": "천문대설이 널리 알려진 설명, 다른 견해 존재 → '별을 보던 곳으로 알려져 있어요 + 다른 생각도 있어요'로 표현",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-11-12T00:00:00Z",
+      "closed_at": "2026-11-12T00:00:00Z"
+    },
+    {
+      "lead_id": "L3",
+      "parent_axis_id": "A5",
+      "parent_lead_id": null,
+      "discovered_from": "O18",
+      "question": "UNESCO 공식 페이지 직접 확인",
+      "why_it_matters": "세계유산 연도 출처",
+      "status": "dead_end",
+      "resolution": "whc.unesco.org 403 차단, 문체부·위키백과로 대체 확인",
+      "duplicate_of": null,
+      "accepted_gap_id": null,
+      "opened_at": "2026-11-12T00:00:00Z",
+      "closed_at": "2026-11-12T00:00:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "R1",
+      "canonical_key": "https://en.numista.com/95190",
+      "title": "10 won 2006 (South Korea)",
+      "publisher": "Numista",
+      "url": "https://en.numista.com/95190",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "catalog",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R2",
+      "canonical_key": "https://en.wikipedia.org/wiki/Gyeongju_Historic_Areas",
+      "title": "Gyeongju Historic Areas",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Gyeongju_Historic_Areas",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "encyclopedia",
+      "retrieval_class": "full",
+      "primary": false,
+      "limitations": [
+        "UNESCO 원문(whc.unesco.org)은 403으로 접근 불가, 대체 확인"
+      ]
+    },
+    {
+      "source_id": "R3",
+      "canonical_key": "https://encykorea.aks.ac.kr/Article/E0002925",
+      "title": "경주 첨성대",
+      "publisher": "한국민족문화대백과사전(한국학중앙연구원)",
+      "url": "https://encykorea.aks.ac.kr/Article/E0002925",
+      "local_path": null,
+      "published_or_updated_at": "2022-11-16",
+      "accessed_at": "2026-11-12",
+      "source_type": "encyclopedia",
+      "retrieval_class": "search_summary",
+      "primary": true,
+      "limitations": [
+        "집필자 학술 견해(1995 집필, 2022 수정)"
+      ]
+    },
+    {
+      "source_id": "R4",
+      "canonical_key": "https://m.ohmynews.com/NWS_Web/Mobile/at_pg.aspx?CNTN_CD=A0003198666",
+      "title": "일출의 화려함 대신 부처의 고요한 미소",
+      "publisher": "오마이뉴스",
+      "url": "https://m.ohmynews.com/NWS_Web/Mobile/at_pg.aspx?CNTN_CD=A0003198666",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "news",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R5",
+      "canonical_key": "https://m.seoul.co.kr/news/2023/05/05/20230505019007",
+      "title": "5세기 신라의 꿈 '천마' 다시 세상 밖 날다",
+      "publisher": "서울신문",
+      "url": "https://m.seoul.co.kr/news/2023/05/05/20230505019007",
+      "local_path": null,
+      "published_or_updated_at": "2023-05-05",
+      "accessed_at": "2026-11-12",
+      "source_type": "news",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R6",
+      "canonical_key": "https://theme.archives.go.kr/next/koreaOfRecord/seokguram.do",
+      "title": "기록으로 보는 석굴암",
+      "publisher": "국가기록원",
+      "url": "https://theme.archives.go.kr/next/koreaOfRecord/seokguram.do",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "government",
+      "retrieval_class": "full",
+      "primary": true,
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "source_id": "R7",
+      "canonical_key": "https://weekly.khan.co.kr/article/202210141451451",
+      "title": "22.58㎝나 기운 첨성대, 진짜 천문대였을까",
+      "publisher": "주간경향",
+      "url": "https://weekly.khan.co.kr/article/202210141451451",
+      "local_path": null,
+      "published_or_updated_at": "2022-10-14",
+      "accessed_at": "2026-11-12",
+      "source_type": "news",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R8",
+      "canonical_key": "https://www.gyeongju.go.kr/open_content/ko/page.do?mnu_uid=295",
+      "title": "경주 역사",
+      "publisher": "경주시",
+      "url": "https://www.gyeongju.go.kr/open_content/ko/page.do?mnu_uid=295",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "government",
+      "retrieval_class": "search_summary",
+      "primary": true,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R9",
+      "canonical_key": "https://www.gyeongju.go.kr/webzine/GJstory/vol156/html/post/2293.html",
+      "title": "천마총 발굴 이야기(경주이야기 156호)",
+      "publisher": "경주시 웹진",
+      "url": "https://www.gyeongju.go.kr/webzine/GJstory/vol156/html/post/2293.html",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "government",
+      "retrieval_class": "full",
+      "primary": true,
+      "limitations": [
+        "원문 확인. 현재 내부 전시 세부는 없음"
+      ]
+    },
+    {
+      "source_id": "R10",
+      "canonical_key": "https://www.heraldk.com/article/2025101523180027570",
+      "title": "불국정토 꿈꾼 신라인의 불심",
+      "publisher": "헤럴드K",
+      "url": "https://www.heraldk.com/article/2025101523180027570",
+      "local_path": null,
+      "published_or_updated_at": "2025-10-15",
+      "accessed_at": "2026-11-12",
+      "source_type": "news",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "source_id": "R11",
+      "canonical_key": "https://www.imaeil.com/page/view/2016111314243258695",
+      "title": "첨성대 관련 기사",
+      "publisher": "매일신문",
+      "url": "https://www.imaeil.com/page/view/2016111314243258695",
+      "local_path": null,
+      "published_or_updated_at": "2016-11-13",
+      "accessed_at": "2026-11-12",
+      "source_type": "news",
+      "retrieval_class": "search_summary",
+      "primary": false,
+      "limitations": [
+        "검색 결과 요약만 확인(학예사 362개 설명)"
+      ]
+    },
+    {
+      "source_id": "R12",
+      "canonical_key": "https://www.mcst.go.kr/usr/child/cultureStory/traditional/heritage.jsp",
+      "title": "어린이 문화이야기: 우리 문화유산",
+      "publisher": "문화체육관광부",
+      "url": "https://www.mcst.go.kr/usr/child/cultureStory/traditional/heritage.jsp",
+      "local_path": null,
+      "published_or_updated_at": "발행일 미표기",
+      "accessed_at": "2026-11-12",
+      "source_type": "government",
+      "retrieval_class": "full",
+      "primary": true,
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "source_id": "R13",
+      "canonical_key": "https://www.newswire.co.kr/newsRead.php?no=176206",
+      "title": "새 10원 동전 발행(한국은행 보도자료)",
+      "publisher": "한국은행(뉴스와이어 배포)",
+      "url": "https://www.newswire.co.kr/newsRead.php?no=176206",
+      "local_path": null,
+      "published_or_updated_at": "2006-08-10",
+      "accessed_at": "2026-11-12",
+      "source_type": "official_press",
+      "retrieval_class": "full",
+      "primary": true,
+      "limitations": [
+        "원문 확인"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "O1",
+      "source_id": "R8",
+      "observed_fact": "BC 57년 건국 후 56왕 992년간 왕조를 이어옴, 수도 경주(서라벌)",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "gyeongju.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C1"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "observation_id": "O2",
+      "source_id": "R3",
+      "observed_fact": "삼국유사에 선덕여왕 때 세웠다고 기록, 천문현상을 관찰하던 곳으로 설명",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "aks.ac.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "집필자 학술 견해(1995 집필, 2022 수정)"
+      ]
+    },
+    {
+      "observation_id": "O3",
+      "source_id": "R7",
+      "observed_fact": "천문대설이 우세하나 우물·제단·신전 등 다른 견해도 제기됨",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "khan.co.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C2"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "observation_id": "O4",
+      "source_id": "R3",
+      "observed_fact": "높이 9.51m, 원통부 27단, 창구는 제13~15단에 한 변 약 95cm 정사각형",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "aks.ac.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C3"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "집필자 학술 견해(1995 집필, 2022 수정)"
+      ]
+    },
+    {
+      "observation_id": "O5",
+      "source_id": "R3",
+      "observed_fact": "돌 수는 종래 365개로 알려졌으나 기단석 포함 여부에 따라 달라지며 정확히 365개는 아님",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "aks.ac.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "집필자 학술 견해(1995 집필, 2022 수정)"
+      ]
+    },
+    {
+      "observation_id": "O6",
+      "source_id": "R11",
+      "observed_fact": "일반 자료는 365개, 학예사는 음력 1년 평균 길이에 맞춘 362개라고 설명",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "imaeil.com",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C4"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인(학예사 362개 설명)"
+      ]
+    },
+    {
+      "observation_id": "O7",
+      "source_id": "R9",
+      "observed_fact": "1973년 발굴, 원래 제155호분, 천마도가 나와 천마총으로 이름 붙임, 유물 11,500여 점(금관 포함)",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "gyeongju.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C5",
+        "C7"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인. 현재 내부 전시 세부는 없음"
+      ]
+    },
+    {
+      "observation_id": "O8",
+      "source_id": "R9",
+      "observed_fact": "천마도는 백화수피(자작나무 껍질)제 장니(말다래)에 하늘을 나는 천마를 그린 것",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "gyeongju.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인. 현재 내부 전시 세부는 없음"
+      ]
+    },
+    {
+      "observation_id": "O9",
+      "source_id": "R5",
+      "observed_fact": "천마도는 빛에 약해 특별전 때만 공개, 2023년 국립경주박물관 특별전",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "seoul.co.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C6"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "observation_id": "O10",
+      "source_id": "R12",
+      "observed_fact": "751년 김대성이 석굴암·불국사를 짓기 시작, 774년 완성. 전생 부모를 위해 석굴암, 현생 부모를 위해 불국사(삼국유사)",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "mcst.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C8"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O11",
+      "source_id": "R6",
+      "observed_fact": "감로수·환기구가 있었으나 일제 시멘트 보수로 통풍구가 막혀 결로·침식",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "archives.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C9"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O12",
+      "source_id": "R6",
+      "observed_fact": "현재 유리로 봉인하고 공조 설비로 습도를 조절하며, 관람객은 유리 너머에서만 봄",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "archives.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C10"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O13",
+      "source_id": "R4",
+      "observed_fact": "석굴암 입구 관람 안내문이 '유리벽 너머로만 보라'고 당부",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "ohmynews.com",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C10"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "observation_id": "O14",
+      "source_id": "R12",
+      "observed_fact": "석가탑 높이 8.2m 삼층석탑(비례·균형), 다보탑 10.4m 정교한 석재를 목조건축처럼 짜맞춤",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "mcst.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C11"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O15",
+      "source_id": "R13",
+      "observed_fact": "새 10원 동전의 디자인 소재(다보탑)는 현행과 동일",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "newswire.co.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C12"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O16",
+      "source_id": "R1",
+      "observed_fact": "2006년형 10원 앞면 도안 Dabotap Pagoda",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "numista.com",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C12"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    },
+    {
+      "observation_id": "O17",
+      "source_id": "R12",
+      "observed_fact": "1995년 12월 불국사와 석굴암이 유네스코 세계문화유산 공동 등재",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "mcst.go.kr",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C13"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "원문 확인"
+      ]
+    },
+    {
+      "observation_id": "O18",
+      "source_id": "R2",
+      "observed_fact": "경주역사유적지구 2000년 등재, 첨성대는 월성지구, 천마총(Heavenly Horse Tomb)은 대릉원(고분공원)지구",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "full_text",
+      "retrieval_class": "full",
+      "independence_group": "wikipedia.org",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C13"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "UNESCO 원문(whc.unesco.org)은 403으로 접근 불가, 대체 확인"
+      ]
+    },
+    {
+      "observation_id": "O19",
+      "source_id": "R10",
+      "observed_fact": "청운교·백운교 33계단은 33천을 상징하는 불국토로 가는 길로 해석",
+      "anchor": "본문",
+      "observed_at": "2026-11-12T00:00:00Z",
+      "valid_at": "2026-11-12",
+      "evidence_type": "search_summary",
+      "retrieval_class": "search_summary",
+      "independence_group": "heraldk.com",
+      "observer": "main",
+      "supports_claim_ids": [
+        "C14"
+      ],
+      "contradicts_claim_ids": [],
+      "limitations": [
+        "검색 결과 요약만 확인"
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "statement": "신라는 약 1,000년(BC57~935, 992년) 이어졌고 수도는 경주였다",
+      "lecture_use": "슬라이드 3",
+      "outline_refs": [
+        3
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O1"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R8"
+      ],
+      "independence_groups": [
+        "gyeongju.go.kr"
+      ],
+      "primary_source_id": "R8",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C2",
+      "statement": "첨성대는 선덕여왕 때 세운 돌 건축으로 하늘(별)을 살피던 곳으로 알려져 있으나 다른 견해도 있다",
+      "lecture_use": "슬라이드 4",
+      "outline_refs": [
+        4
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O2",
+        "O3"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R3",
+        "R7"
+      ],
+      "independence_groups": [
+        "aks.ac.kr",
+        "khan.co.kr"
+      ],
+      "primary_source_id": "R3",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": [
+        "추론 아님, 학설 논쟁은 '다른 생각도 있어요'로 한 줄 표기"
+      ]
+    },
+    {
+      "claim_id": "C3",
+      "statement": "첨성대는 높이 약 9.5m, 27단, 창구는 가운데(13~15단)에 있다",
+      "lecture_use": "슬라이드 5,6",
+      "outline_refs": [
+        5,
+        6
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O4"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R3"
+      ],
+      "independence_groups": [
+        "aks.ac.kr"
+      ],
+      "primary_source_id": "R3",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C4",
+      "statement": "첨성대 돌은 약 360여 개로, '1년 날수'와 연결하는 것은 전해지는 해석이며 정확한 개수는 자료마다 다르다",
+      "lecture_use": "슬라이드 5",
+      "outline_refs": [
+        5
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O5",
+        "O6"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R3",
+        "R11"
+      ],
+      "independence_groups": [
+        "aks.ac.kr",
+        "imaeil.com"
+      ],
+      "primary_source_id": "R3",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": []
+    },
+    {
+      "claim_id": "C5",
+      "statement": "천마총은 1973년 발굴된 신라 무덤(원래 155호분)으로 천마도가 나와 이름이 붙었다",
+      "lecture_use": "슬라이드 7,8",
+      "outline_refs": [
+        7,
+        8
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O7"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R9"
+      ],
+      "independence_groups": [
+        "gyeongju.go.kr"
+      ],
+      "primary_source_id": "R9",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C6",
+      "statement": "천마도는 자작나무 껍질 말다래에 그린 하늘을 나는 말 그림이며, 빛에 약해 진품은 특별전 때만 공개된다",
+      "lecture_use": "슬라이드 8,9",
+      "outline_refs": [
+        8,
+        9
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O8",
+        "O9"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R5",
+        "R9"
+      ],
+      "independence_groups": [
+        "gyeongju.go.kr",
+        "seoul.co.kr"
+      ],
+      "primary_source_id": "R9",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C7",
+      "statement": "천마총에서 금관을 포함해 11,500여 점의 유물이 나왔다",
+      "lecture_use": "슬라이드 7,9",
+      "outline_refs": [
+        7,
+        9
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O7"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R9"
+      ],
+      "independence_groups": [
+        "gyeongju.go.kr"
+      ],
+      "primary_source_id": "R9",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C8",
+      "statement": "김대성이 751년 석굴암·불국사를 짓기 시작해 774년 완성, 삼국유사는 전생·현생 부모를 위해 지었다고 전한다",
+      "lecture_use": "슬라이드 10,13",
+      "outline_refs": [
+        10,
+        13
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O10"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R12"
+      ],
+      "independence_groups": [
+        "mcst.go.kr"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C9",
+      "statement": "석굴암은 원래 습기를 다루는 구조(감로수·환기구)가 있었으나 일제강점기 시멘트 보수로 통풍이 막혀 이슬이 맺혔다",
+      "lecture_use": "슬라이드 11",
+      "outline_refs": [
+        11
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O11"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R6"
+      ],
+      "independence_groups": [
+        "archives.go.kr"
+      ],
+      "primary_source_id": "R6",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C10",
+      "statement": "현재 석굴암은 유리벽 너머에서만 관람하고 기계로 습도를 조절한다",
+      "lecture_use": "슬라이드 11,12",
+      "outline_refs": [
+        11,
+        12
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O12",
+        "O13"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R4",
+        "R6"
+      ],
+      "independence_groups": [
+        "archives.go.kr",
+        "ohmynews.com"
+      ],
+      "primary_source_id": "R6",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": []
+    },
+    {
+      "claim_id": "C11",
+      "statement": "석가탑(8.2m)은 단정한 삼층탑, 다보탑(10.4m)은 화려하게 짜맞춘 탑이다",
+      "lecture_use": "슬라이드 14,15",
+      "outline_refs": [
+        14,
+        15
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O14"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R12"
+      ],
+      "independence_groups": [
+        "mcst.go.kr"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C12",
+      "statement": "10원 동전 앞면에 다보탑이 새겨져 있다(2006년 신형 포함)",
+      "lecture_use": "슬라이드 14",
+      "outline_refs": [
+        14
+      ],
+      "risk": "high",
+      "status": "supported",
+      "support_observation_ids": [
+        "O15",
+        "O16"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R1",
+        "R13"
+      ],
+      "independence_groups": [
+        "newswire.co.kr",
+        "numista.com"
+      ],
+      "primary_source_id": "R13",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [
+        "V1",
+        "V2"
+      ],
+      "limitations": []
+    },
+    {
+      "claim_id": "C13",
+      "statement": "석굴암·불국사(1995)와 첨성대·천마총이 있는 경주역사유적지구(2000)는 유네스코 세계유산이다",
+      "lecture_use": "슬라이드 16",
+      "outline_refs": [
+        16
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O17",
+        "O18"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R2",
+        "R12"
+      ],
+      "independence_groups": [
+        "mcst.go.kr",
+        "wikipedia.org"
+      ],
+      "primary_source_id": "R12",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": []
+    },
+    {
+      "claim_id": "C14",
+      "statement": "청운교·백운교 33계단은 부처님 나라로 오르는 길을 뜻한다고 해석된다",
+      "lecture_use": "슬라이드 13",
+      "outline_refs": [
+        13
+      ],
+      "risk": "normal",
+      "status": "supported",
+      "support_observation_ids": [
+        "O19"
+      ],
+      "contradict_observation_ids": [],
+      "source_ids": [
+        "R10"
+      ],
+      "independence_groups": [
+        "heraldk.com"
+      ],
+      "primary_source_id": "R10",
+      "counter_search": "반대·이견 검색 수행: 결과를 한계에 기록",
+      "valid_at": "2026-11-12",
+      "verification_ids": [],
+      "limitations": [
+        "해석임을 표기"
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "verification_id": "V1",
+      "claim_ids": [
+        "C4",
+        "C10",
+        "C12"
+      ],
+      "kind": "cross_source",
+      "status": "confirmed",
+      "command_or_method": "서로 다른 발행처 2곳 이상 교차 대조",
+      "environment": "WebSearch/WebFetch",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-11-12T00:00:00Z",
+      "limitations": [
+        "보조 출처 일부는 검색 요약"
+      ]
+    },
+    {
+      "verification_id": "V2",
+      "claim_ids": [
+        "C4",
+        "C10",
+        "C12"
+      ],
+      "kind": "counter_search",
+      "status": "confirmed",
+      "command_or_method": "반대 근거 검색: 첨성대 돌 개수 이견(365/362), 석굴암 개방 관람 여부, 10원 도안 변경 여부",
+      "environment": "WebSearch",
+      "stdout_path": null,
+      "stderr_path": null,
+      "observed_at": "2026-11-12T00:00:00Z",
+      "limitations": [
+        "C4는 개수 단정 대신 '약 360여 개, 자료마다 다름'으로 표현해 이견을 반영"
+      ]
+    }
+  ],
+  "visuals": [],
+  "convergence": {
+    "status": "ready",
+    "planned_axis_count": 5,
+    "closed_axis_count": 5,
+    "open_lead_count": 0,
+    "terminal_lead_count": 3,
+    "expansion_audit_count": 1,
+    "high_risk_claim_count": 3,
+    "verified_high_risk_claim_count": 3,
+    "unresolved_claim_ids": [],
+    "accepted_gap_ids": [],
+    "checked_at": "2026-11-12T00:33:32.141Z",
+    "errors": []
+  },
+  "projection": {
+    "research_md_path": "research.md",
+    "research_md_sha256": "18ab6960f05bd6cf5c936368177a72a87897bf5f883734ae43d920c1e6f2bfd3",
+    "outline_delta": [
+      "5번: '362개=1년' 단정 대신 '약 360여 개, 1년 날수와 비슷하다는 이야기'로",
+      "9번: 천마총 미션을 무덤 구조·전시 유물 찾기로 범위 축소"
+    ],
+    "slide_claim_map": [
+      {
+        "slide": [
+          3
+        ],
+        "claim_ids": [
+          "C1"
+        ],
+        "source_ids": [
+          "R8"
+        ]
+      },
+      {
+        "slide": [
+          4
+        ],
+        "claim_ids": [
+          "C2"
+        ],
+        "source_ids": [
+          "R3",
+          "R7"
+        ]
+      },
+      {
+        "slide": [
+          5,
+          6
+        ],
+        "claim_ids": [
+          "C3"
+        ],
+        "source_ids": [
+          "R3"
+        ]
+      },
+      {
+        "slide": [
+          5
+        ],
+        "claim_ids": [
+          "C4"
+        ],
+        "source_ids": [
+          "R3",
+          "R11"
+        ]
+      },
+      {
+        "slide": [
+          7,
+          8
+        ],
+        "claim_ids": [
+          "C5"
+        ],
+        "source_ids": [
+          "R9"
+        ]
+      },
+      {
+        "slide": [
+          8,
+          9
+        ],
+        "claim_ids": [
+          "C6"
+        ],
+        "source_ids": [
+          "R5",
+          "R9"
+        ]
+      },
+      {
+        "slide": [
+          7,
+          9
+        ],
+        "claim_ids": [
+          "C7"
+        ],
+        "source_ids": [
+          "R9"
+        ]
+      },
+      {
+        "slide": [
+          10,
+          13
+        ],
+        "claim_ids": [
+          "C8"
+        ],
+        "source_ids": [
+          "R12"
+        ]
+      },
+      {
+        "slide": [
+          11
+        ],
+        "claim_ids": [
+          "C9"
+        ],
+        "source_ids": [
+          "R6"
+        ]
+      },
+      {
+        "slide": [
+          11,
+          12
+        ],
+        "claim_ids": [
+          "C10"
+        ],
+        "source_ids": [
+          "R4",
+          "R6"
+        ]
+      },
+      {
+        "slide": [
+          14,
+          15
+        ],
+        "claim_ids": [
+          "C11"
+        ],
+        "source_ids": [
+          "R12"
+        ]
+      },
+      {
+        "slide": [
+          14
+        ],
+        "claim_ids": [
+          "C12"
+        ],
+        "source_ids": [
+          "R1",
+          "R13"
+        ]
+      },
+      {
+        "slide": [
+          16
+        ],
+        "claim_ids": [
+          "C13"
+        ],
+        "source_ids": [
+          "R2",
+          "R12"
+        ]
+      },
+      {
+        "slide": [
+          13
+        ],
+        "claim_ids": [
+          "C14"
+        ],
+        "source_ids": [
+          "R10"
+        ]
+      }
+    ],
+    "unresolved_summary": [
+      "천마총 내부 전시물 세부(진품/복제) 미확인 — 슬라이드에서 단정하지 않음"
+    ],
+    "generated_at": "2026-11-12T00:00:00Z"
+  }
+}

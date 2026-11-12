@@ -128,7 +128,8 @@ def main():
 
     port = free_port()
     httpd = serve(html.parent, port)
-    url = f"http://127.0.0.1:{port}/{html.name}?print-pdf"
+    # 퀴즈 정답 같은 fragment 를 따로 쪼개면 한 장이 여러 페이지가 돼 장수가 어긋난다.
+    url = f"http://127.0.0.1:{port}/{html.name}?print-pdf&pdfSeparateFragments=false"
     print(f"인쇄: {url}")
 
     # 1순위는 Playwright 다. 기다릴 조건을 직접 줄 수 있어서 결과가 안정적이다.
