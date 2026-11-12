@@ -209,6 +209,92 @@ def _qr_grid(el):
 # --------------------------------------------------------------------------
 
 
+# --------------------------------------------------------------------------
+# grid — 칸(cell) 여러 개를 나란히 놓는 범용 격자.
+# 사진+설명 2열, 사진 카드 4장, 숫자 카드, 미션/퀴즈 카드처럼 덱마다 새로 만드는
+# 컨테이너를 전용 렌더러 없이 살린다. 각 칸 안은 일반 블록으로 다시 파싱한다.
+#   cols   : 한 줄에 놓을 칸 수 (넘치면 다음 줄로)
+#   ratios : 칸 너비 비율
+#   valign : 칸 안 내용의 세로 정렬 (top | middle)
+#   img_h  : 칸 안 사진의 고정 높이(px). 지정하면 object-fit: cover 처럼 잘라 채운다
+# --------------------------------------------------------------------------
+
+GRID = {
+    "pic-split":  dict(cols=2, ratios=[1.05, 1.0], valign="middle", img_h=470),
+    "friends":    dict(cols=4, img_h=250),
+    "tower-pair": dict(cols=2),
+    "tw":         dict(cols=2, ratios=[220, 260], valign="middle", img_h=330),
+    "three-step": dict(cols=3),
+    "riddles":    dict(cols=2),
+    "num-cards":  dict(cols=3),
+}
+# 칸 div 가 이 클래스를 가지면 카드 면을 깐다 (값은 테두리 강조 톤)
+GRID_CARD = {"friend": "plain", "nc": "plain", "st": "plain", "rd": "plain",
+             "tw": "plain", "hero-card": "plain", "quiz": "plain",
+             "mission": "accent", "now": "accent", "bad": "warn"}
+_CARD_COLS = {"mission", "quiz", "hero-card"}
+
+
+def _grid_cell(div, unknown):
+    classes = _cls(div)
+    tone = None
+    for c in ("mission", "now", "bad"):
+        if c in classes:
+            tone = GRID_CARD[c]
+    if tone is None and any(c in GRID_CARD for c in classes):
+        tone = "plain"
+    inner = []
+    if any(c in GRID for c in classes):       # 칸 자체가 또 하나의 격자 (tower-pair > tw)
+        inner = [_grid(div, classes, unknown)]
+        tone = tone or "plain"
+    else:
+        local = []
+        for child in div.children:
+            if isinstance(child, Tag):
+                if "ox" in _cls(child):
+                    inner.append({"kind": "p", "classes": ["ox"],
+                                  "runs": [{"text": "O        X", "style": PLAIN, "link": None}]})
+                    continue
+                if child.name == "div" and not _cls(child):
+                    inner.extend(_generic(child, local))
+                    continue
+                inner.extend(_parse_child(child, local))
+            elif isinstance(child, NavigableString) and str(child).strip():
+                inner.append({"kind": "p", "classes": [], "runs": inline(div)})
+                break
+        unknown.extend(u for u in local if u != "<div>")
+    return {"card": tone, "classes": classes, "blocks": inner}
+
+
+def _grid(el, classes, unknown):
+    key = next((c for c in classes if c in GRID), None)
+    kids = [c for c in el.children if isinstance(c, Tag)]
+    if key is None:
+        # dual / card-row 안에 미션·퀴즈·큰 숫자 카드가 있으면 격자로 살린다
+        rich_dual = "dual" in classes and any(set(_cls(k)) & _CARD_COLS for k in kids)
+        big_row = "card-row" in classes and el.find(class_="big-num") is not None
+        if rich_dual or big_row:
+            conf = dict(cols=len(kids), valign="middle")
+        else:
+            return None
+    else:
+        conf = dict(GRID[key])
+        if key == "num-cards":
+            for c in classes:
+                if c.startswith("c") and c[1:].isdigit():
+                    conf["cols"] = int(c[1:])
+    cells = []
+    for k in kids:
+        if k.name == "img":
+            cells.append({"card": None, "classes": [], "blocks": [_img(k)]})
+        elif k.name == "ul":
+            cells.append({"card": None, "classes": [], "blocks": _parse_child(k, unknown)})
+        else:
+            cells.append(_grid_cell(k, unknown))
+    return {"kind": "grid", "key": key or "+".join(classes), **conf, "cells": cells}
+
+
+
 def _parse_child(el, unknown: list) -> list:
     """엘리먼트 하나 → 블록 0개 이상."""
     name = el.name
@@ -299,6 +385,10 @@ def _parse_child(el, unknown: list) -> list:
                 "now": "now" in _cls(row),
             })
         return [{"kind": "tl", "rows": rows}]
+
+    grid = _grid(el, classes, unknown)
+    if grid is not None:
+        return [grid]
 
     if "card-row" in classes:
         hero = el.find("div", class_="hero-card")

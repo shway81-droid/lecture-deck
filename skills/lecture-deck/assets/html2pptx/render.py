@@ -187,6 +187,7 @@ MARGIN = {
     "beat-sub": (0, 0),
     "hero-card": (14, 14),
     "guardrail-card": (14, 14),
+    "grid": (14, 14),
 }
 
 
@@ -214,6 +215,29 @@ def margins(b, S):
 # --------------------------------------------------------------------------
 
 
+# 격자 칸 안에서 자주 쓰는 문단 클래스 → (em, 색 역할, 줄간격, 정렬, 굵게)
+P_ROLES = {
+    "big-num": (3.4, "accent", 1.05, "left", True),
+    "nc-i": (2.6, "text", 1.15, "center", False),
+    "nc-t": (1.3, "accent", 1.25, "center", True),
+    "nc-d": (0.95, "text", 1.45, "center", False),
+    "fnum": (0.7, "mono", 1.3, "center", False),
+    "fname": (1.15, "strong", 1.3, "center", True),
+    "fdesc": (0.8, "text", 1.4, "center", False),
+    "emo": (2.0, "text", 1.15, "left", False),
+    "st-h": (0.72, "muted", 1.4, "left", False),
+    "st-t": (1.15, "strong", 1.3, "left", True),
+    "tw-name": (1.35, "strong", 1.3, "left", True),
+    "m-h": (1.1, "accent", 1.4, "left", True),
+    "q-h": (0.75, "mono", 1.4, "left", False),
+    "q": (1.12, "strong", 1.45, "left", True),
+    "ans": (1.05, "accent", 1.45, "left", True),
+    "ox": (1.6, "strong", 1.3, "left", True),
+    "photo-credit": (0.42, "muted", 1.3, "left", False),
+    "coin-tip": (1.1, "text", 1.5, "center", False),
+}
+
+
 def _p_spec(b, S):
     """p 계열의 (font, size_px, color, lh, align, letter_spacing, bold) 결정."""
     c = b["classes"]
@@ -237,6 +261,15 @@ def _p_spec(b, S):
         return T.SANS, T.FS["hero_big"] * S, T.TEXT, T.LH["hero_big"], "left", None, False
     if "subtitle" in c:
         return T.SANS, T.FS["subtitle"] * S, T.MUTED, T.LH["subtitle"], "left", None, False
+
+    for cls, (em, role, lh, align, bold) in P_ROLES.items():
+        if cls in c:
+            font = T.MONO if role == "mono" else T.SANS
+            color = {"accent": T.ACCENT, "strong": T.FG_STRONG, "muted": T.MUTED,
+                     "mono": T.ACCENT, "text": T.FG2}[role]
+            if "center" in c:
+                align = "center"
+            return font, T.FS["body"] * em * S, color, lh, align, None, bold
 
     size = T.FS["small"] * S if "small" in c else T.FS["body"] * S
     color = T.MUTED if "muted" in c else T.TEXT
@@ -1379,6 +1412,106 @@ def d_image(slide, b, x, y, w, S, base_dir=None):
 
 
 # --------------------------------------------------------------------------
+# grid — 범용 격자 (parse._grid). 칸마다 안쪽 블록을 measure/draw 로 쌓는다.
+# --------------------------------------------------------------------------
+
+GRID_GAP = 18
+GRID_PAD = 16
+GRID_CELL_GAP = 8          # 칸 안 블록 사이 간격
+
+
+def _grid_widths(b, w, S):
+    n = b["cols"]
+    ratios = b.get("ratios") or [1] * n
+    free = w - GRID_GAP * S * (n - 1)
+    tot = sum(ratios[:n])
+    return [free * r / tot for r in ratios[:n]]
+
+
+def _cell_inner(cell, cw, S):
+    pad = GRID_PAD * S if cell["card"] else 0
+    return pad, cw - pad * 2
+
+
+def _cell_block_h(blk, iw, S, b, base_dir):
+    if blk["kind"] == "image" and b.get("img_h"):
+        return b["img_h"] * S
+    return measure(blk, iw, S, base_dir)
+
+
+def _cell_h(cell, cw, S, b, base_dir):
+    pad, iw = _cell_inner(cell, cw, S)
+    hs = [_cell_block_h(k, iw, S, b, base_dir) for k in cell["blocks"]]
+    gaps = GRID_CELL_GAP * S * max(0, len(hs) - 1)
+    return sum(hs) + gaps + pad * 2
+
+
+def _rows(b):
+    n = b["cols"]
+    cells = b["cells"]
+    return [cells[i:i + n] for i in range(0, len(cells), n)]
+
+
+def m_grid(b, w, S, base_dir=None):
+    ws = _grid_widths(b, w, S)
+    rows = _rows(b)
+    hs = [max(_cell_h(c, ws[i], S, b, base_dir) for i, c in enumerate(r)) for r in rows]
+    return sum(hs) + GRID_GAP * S * max(0, len(rows) - 1)
+
+
+def _cover_picture(slide, path, x, y, w, h):
+    """object-fit: cover — 칸 크기에 맞게 가운데를 잘라 채운다."""
+    with Image.open(path) as im:
+        iw, ih = im.size
+    pic = slide.shapes.add_picture(str(path), px(x), px(y), px(w), px(h))
+    box, img = w / h, iw / ih
+    if img > box:            # 이미지가 더 넓다 → 좌우를 자른다
+        cut = (1 - box / img) / 2
+        pic.crop_left = pic.crop_right = cut
+    elif img < box:          # 이미지가 더 길다 → 위아래를 자른다
+        cut = (1 - img / box) / 2
+        pic.crop_top = pic.crop_bottom = cut
+    return pic
+
+
+def d_grid(slide, b, x, y, w, S, base_dir=None):
+    ws = _grid_widths(b, w, S)
+    cy = y
+    rows = _rows(b)
+    for r in rows:
+        rh = max(_cell_h(c, ws[i], S, b, base_dir) for i, c in enumerate(r))
+        cx = x
+        for i, cell in enumerate(r):
+            cw = ws[i]
+            if cell["card"]:
+                kw = {}
+                if cell["card"] == "accent":
+                    kw = dict(border=T.ACCENT, border_alpha=1.0, border_px=1.5)
+                elif cell["card"] == "warn":
+                    kw = dict(border="F472B6", border_alpha=0.6)
+                tcard(slide, cx, cy, cw, rh, radius=T.RADIUS_LG * S, **kw)
+            pad, iw = _cell_inner(cell, cw, S)
+            ch = _cell_h(cell, cw, S, b, base_dir)
+            by = cy + pad
+            if b.get("valign") == "middle":
+                by += (rh - ch) / 2
+            for blk in cell["blocks"]:
+                bh = _cell_block_h(blk, iw, S, b, base_dir)
+                if blk["kind"] == "image" and b.get("img_h"):
+                    p = resolve_asset(blk["src"], base_dir)
+                    if p:
+                        _cover_picture(slide, p, cx + pad, by, iw, bh)
+                    else:
+                        d_image(slide, blk, cx + pad, by, iw, S, base_dir)
+                else:
+                    draw(slide, blk, cx + pad, by, iw, S, base_dir)
+                by += bh + GRID_CELL_GAP * S
+            cx += cw + GRID_GAP * S
+        cy += rh + GRID_GAP * S
+    return cy - y - GRID_GAP * S
+
+
+# --------------------------------------------------------------------------
 # 디스패치
 # --------------------------------------------------------------------------
 
@@ -1391,6 +1524,7 @@ MEASURE = {
     "card-grid": m_card_grid, "table": m_table, "tier-grid": m_tier_grid,
     "chip-row": m_chip_row, "qr-grid": m_qr_grid, "image": m_image,
     "hero-card": m_hero_card, "guardrail-card": m_guardrail_card,
+    "grid": m_grid,
 }
 
 DRAW = {
@@ -1402,10 +1536,11 @@ DRAW = {
     "card-grid": d_card_grid, "table": d_table, "tier-grid": d_tier_grid,
     "chip-row": d_chip_row, "qr-grid": d_qr_grid, "image": d_image,
     "hero-card": d_hero_card, "guardrail-card": d_guardrail_card,
+    "grid": d_grid,
 }
 
 # 덱 폴더 기준으로 이미지를 찾아야 하는 블록
-NEEDS_BASE_DIR = {"image", "qr-grid"}
+NEEDS_BASE_DIR = {"image", "qr-grid", "grid"}
 
 
 def measure(b, w, S, base_dir=None):
