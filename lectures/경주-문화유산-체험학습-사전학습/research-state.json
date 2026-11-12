@@ -6,7 +6,7 @@
   "depth": "standard",
   "status": "gate2_ready",
   "created_at": "2026-11-12T00:08:17.845Z",
-  "updated_at": "2026-11-12T00:12:15.458Z",
+  "updated_at": "2026-11-12T00:33:32.141Z",
   "gates": {
     "gate1": {
       "status": "approved",
@@ -18,8 +18,8 @@
       "approved_at": "2026-11-12T00:08:17.845Z"
     },
     "gate2": {
-      "status": "ready",
-      "validated_at": "2026-11-12T00:12:15.458Z",
+      "status": "approved",
+      "validated_at": "2026-11-12T00:33:32.141Z",
       "validator_version": "1.0.0",
       "brief_sha256": "2064ec50dbc106df16c3c9452caf26c81573c8b576f9008e7e8c2952e4a2969d",
       "research_sha256": "18ab6960f05bd6cf5c936368177a72a87897bf5f883734ae43d920c1e6f2bfd3",
@@ -27,8 +27,8 @@
       "research_digest": "92dd2948bd1832df694b0931ecd8c2d1fe15652e6b76489ea9492052b72fb39e",
       "errors": [],
       "accepted_gap_ids": [],
-      "approved_at": null,
-      "approval_receipt_sha256": null
+      "approved_at": "2026-11-12T00:20:59.674Z",
+      "approval_receipt_sha256": "393ffb131e6a5e9549c6d1f320a260f378b4dc4b863e2cbd2d5c008121621f66"
     }
   },
   "capabilities": {
@@ -1333,7 +1333,7 @@
     "verified_high_risk_claim_count": 3,
     "unresolved_claim_ids": [],
     "accepted_gap_ids": [],
-    "checked_at": "2026-11-12T00:12:15.458Z",
+    "checked_at": "2026-11-12T00:33:32.141Z",
     "errors": []
   },
   "projection": {
